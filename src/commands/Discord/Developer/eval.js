@@ -23,13 +23,13 @@ module.exports = class Eval extends DiscordCommand {
 
   async execute(msg, args) {
     let result;
-    let silent  = args.join(' ').endsWith('--slient') || args.join(' ').endsWith('-s');
-    let asynchr = args.join(' ').includes('return') || args.join(' ').includes('await');
+    let silent  = args.join(' ').trim().endsWith('--silent') || args.join(' ').trim().endsWith('-s');
+    let asynchr = args.join(' ').trim().includes('return') || args.join(' ').trim().includes('await');
     let errored = false;
 
     if (args.length <= 0) return msg.channel.createMessage(this.localize(msg.author.locale['developer']['eval']['args']));
 
-    if (silent) args = args.join(' ').replace(/--silent$|-s$/g, '').split(' ');
+    if (silent) args = args.pop();
     const message    = await msg.channel.createMessage(this.localize(msg.author.locale['developer']['eval']['busy']));
 
     try { result = (asynchr ? eval(`(async() => {${args.join(' ')}})();`) : eval(args.join(' '))); }
