@@ -23,15 +23,19 @@ module.exports = class Eval extends DiscordCommand {
 
   async execute(msg, args) {
     let result;
+    let silent  = args.join(' ').endsWith('--slient') || args.join(' ').endsWith('-s');
+    let asynchr = args.join(' ').includes('return') || args.join(' ').includes('await');
     let errored = false;
 
     if (args.length <= 0) return msg.channel.createMessage(this.localize(msg.author.locale['developer']['eval']['args']));
 
-    const message = await msg.channel.createMessage(this.localize(msg.author.locale['developer']['eval']['busy']));
+    if (silent) args = args.join(' ').replace(/--silent$|-s$/g, '').split(' ');
+    const message    = await msg.channel.createMessage(this.localize(msg.author.locale['developer']['eval']['busy']));
 
-    try { result = eval(args.join(' ')); }
+    try { result = (asynchr ? eval(`(async() => {${args.join(' ')}})();`) : eval(args.join(' '))); }
     catch (ex) { result = ex; errored = true; }
     finally {
+      if (silent) return message.edit(this.localize(msg.author.locale['developer']['eval']['silent']));
       result = this.sanitize(String(inspect(result)));
 
       message.edit({
@@ -63,6 +67,7 @@ module.exports = class Eval extends DiscordCommand {
     return msg
     .replace(/\$\[emoji#0]/g, this.bot.emote('developer', 'eval', '0'))
     .replace(/\$\[emoji#1]/g, this.bot.emote('developer', 'eval', '1'))
-    .replace(/\$\[emoji#2]/g, this.bot.emote('developer', 'eval', '2'));
+    .replace(/\$\[emoji#2]/g, this.bot.emote('developer', 'eval', '2'))
+    .replace(/\$\[emoji#3]/g, this.bot.emote('developer', 'eval', '3'));
   }
 };

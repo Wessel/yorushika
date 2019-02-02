@@ -65,15 +65,16 @@ image:
     failed_cache: 'Click here if the image didn''t load properly'
     
 developer:
-  echo   : '$[emoji#0] Invalid content to echo'
-  eval   :
-    args : '$[emoji#0] Invalid snippet of code to evaluate'
-    busy: '$[emoji#1] Evaluating, this may take some time...'
-    types:
+  echo    : '$[emoji#0] Invalid content to echo'
+  eval    :
+    args  : '$[emoji#0] Invalid snippet of code to evaluate'
+    busy  : '$[emoji#1] Evaluating, this may take some time...'
+    silent: '$[emoji#2] Silently executed your snippet'
+    types :
       - 'succeed'
       - 'failed'
     result:
-      - '$[emoji#2] **Result** (`$[result:type]`):'
+      - '$[emoji#3] **Result** (`$[result:type]`):'
       - '```js'
       - '$[result:message]'
       - '```'
