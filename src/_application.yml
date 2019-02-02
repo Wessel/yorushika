@@ -1,0 +1,66 @@
+#-----------------[ Wump config ]-----------------#
+# This is the configuration file of "Wump", all   #
+# your sensitive information is stored inside of  #
+# this file. Do **not** give this file or it's    #
+# contents to **anyone**, they can do a lot of    #
+# bad things with your tokens. Don't forget to    #
+# follow the licensing. - Wessel                  #
+#-------------[ Configurable values ]-------------#
+# db      - <String>: The db URI (Mongo)          #
+# debug   - <Number[0-3]>: The logging leven      #
+# nightly - <Boolean>: Run inside of dev mode     #
+# discord:                                        #
+#   enabled  - <Boolean>: Enable/disable client   #
+#   op       - <Array>: The bot's OwnerIDs        #
+#   token    - <String>: The bot's tokens         #
+#   prefix   - <String>: The command prefix       #
+#   events   - Each<Boolean>: Enable/disable evts #
+#   playing  - Each<any>: The bot's status        #
+#   commands - Each<Boolean>: Enable/disable cmds #
+#-------------------------------------------------#
+
+db     : 'mongodb://localhost:27017/Wump'
+debug  : 3
+nightly: true
+
+discord  :
+  enabled: true
+  token  : '<--snip-->'
+  prefix : '!'
+  locale : 'en_us'
+
+  op      :
+    - '107130754189766656'
+  playing :
+    url   : 'https://twitch.tv/wumpusapp'
+    name  : 'type !help'
+    type  : 1        # 0 - Playing / 1 - Streaming / 2 - Listening / 3 - Watching
+    status: 'online' # online / idle / dnd / invisible
+
+  events         :
+    ready        : true
+    disconnect   : true
+    messagecreate: true
+    messagedelete: true
+  commands       :
+    # Category   : UTILITY
+    ping         : true
+    math         : true
+    snipe        : true
+    # Category   : INFORMATION
+    stats        : true
+    commands     : true
+    # Category   : IMAGE
+    cat          : true
+    dog          : true
+    fox          : true
+    duck         : true
+    birb         : true
+    lizard       : true
+    penguin      : true
+    # Category   : DEVELOPER
+    eval         : true
+    echo         : true
+
+api  :
+  lol: '<--snip-->'

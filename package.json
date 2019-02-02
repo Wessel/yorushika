@@ -1,0 +1,29 @@
+{
+  "name": "wump",
+  "version": "1.2.0",
+  "displayName": "Wump",
+  "description": "A multi-platform bot written in Node.js",
+  "author": "Wessel \"wesselgame\" T <discord@go2it.eu>",
+  "contributors": [],
+  "maintainers": [
+    "Wessel \"wesselgame\" T <discord@go2it.eu >"
+  ],
+  "license": "GPL-3.0",
+  "dependencies": {
+    "eris": "^0.9.0",
+    "js-yaml": "^3.12.0",
+    "larg": "^0.0.1",
+    "mathjs": "^5.1.2",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.17",
+    "nabbit": "^0.0.2",
+    "table": "^5.1.0",
+    "vm2": "^3.6.3",
+    "wumpfetch": "^0.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.0"
+  },
+  "main": "src/main.js",
+  "repository": "https://github.com/PassTheWessel/wump"
+}

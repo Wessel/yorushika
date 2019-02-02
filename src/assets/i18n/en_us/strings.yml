@@ -1,0 +1,79 @@
+translation  :
+  code       : 'en_us'                   # Language code
+  flag       : '🇺🇸'                      # Language flag
+  full       : 'English (United States)' # Full language name in english
+  orig       : 'English (United States)' # Full language name in your language
+  translator :                           # Your information (can leave fields empty)
+    email    : 'discord@go2it.eu'
+    website  : 'https://wessel.meek.moe'
+    discord  :
+      name   : 'Wesselgame'
+      userid : '107130754189766656'
+      discrim: '0498'
+
+error   :
+  - '$[author:mention] **>** An error occured while executing this command'
+  - 'If this problem keeps occurring, consider joining ***https://discord.gg/SV7DAE9*** and posting your problem there'
+  - '```ini'
+  - '[ Error Information ]'
+  - 'Code    = "$[err:code]"'
+  - 'Message = "$[err:message]"'
+  - '```'
+cooldown: '$[emoji#0] $[author:mention] **>** This command is on cooldown for **$[cooldown:left]**'
+
+util       :
+  ping     :
+    busy   : '$[emoji#0] Pinging...'
+    health :
+      - 'Unknown'
+      - 'Good'
+      - 'Okay'
+      - 'Bad'
+    result :
+      - '$[emoji#2] **Round-Trip**: $[roundtrip]ms'
+      - '$[emoji#1] **Heartbeat**: $[latency]ms'
+      - '$[emoji#3] **Health**: $[health]'
+  math     :
+    busy   : '$[emoji#0] Calculating, this may take some time...'
+    blocked: '<blocked> Method "$[math:function]" has been disabled for security reasons <blocked>'
+  snipe    :
+    fail   : '$[emoji#0] No snipeable messages found'
+    footer : 'Sniped by $[author:tag] ($[author:id])'
+
+info      :
+  stats   :
+    fetching: '$[emoji#0] Fetching statistics, this may take some time...'
+  commands:
+    multi :
+      - '$[emoji#0] The prefix for **$[guild:name]** is `$[guild:prefix]`'
+      - '$[emoji#1] Type `$[guild:prefix]command <command:str>` for more information'
+      - '$[emoji#2] **Links**: [`Invite`]($[bot:invite]) **|** [`Support`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
+    single:
+      - '**Name**: $[command:name]'
+      - '**Syntax**: $[command:syntax]'
+      - '**Aliases**: $[command:aliases]'
+      - '**Cooldown**: $[command:cooldown#formatted]'
+      - '**Arguments**: $[command:arguments]'
+    fields:
+      - 'Information'
+      - 'Image'
+      - 'Utility'
+      - 'Developer'
+
+image:
+    fetching	  : '$[emoji#0] Fetching a random image, this may take some time...'
+    failed_cache: 'Click here if the image didn''t load properly'
+    
+developer:
+  echo   : '$[emoji#0] Invalid content to echo'
+  eval   :
+    args : '$[emoji#0] Invalid snippet of code to evaluate'
+    busy: '$[emoji#1] Evaluating, this may take some time...'
+    types:
+      - 'succeed'
+      - 'failed'
+    result:
+      - '$[emoji#2] **Result** (`$[result:type]`):'
+      - '```js'
+      - '$[result:message]'
+      - '```'

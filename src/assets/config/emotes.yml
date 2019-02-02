@@ -1,0 +1,55 @@
+cooldown  : <:sad:500719642403405824> # On cooldown
+owner_only: <:sad:500719642403405824> # Only owners
+guild_only: <:sad:500719642403405824> # Only guilds
+
+util  :
+  ping:
+    0 : <:bored:500719642164199425>                  # Pinging
+    1 : <:thumbsup:501844577725054976>               # Heartbeat
+    2 : <:blueberry:506201160382939141>              # Round-trip
+    3 : <:WumpLove:506200781549076482>               # Health
+  math:
+    0 : <:blueberry:506201160382939141>              # Calculating
+    1 : <a:ablobdevil:494927811451027458>            # Evaluation
+    2 : <a:agoogleoctopus:494927680911704067>        # Invalid equation
+  snipe   : <:snipe:508653323788877825>              # No snipes found
+
+info:
+  commands     :
+    0          : <:blueberry:506201160382939141> # Guild prefix
+    1          : <:spirit:332131321759399937>    # More info
+    2          : <:WumpLove:506200781549076482>  # Links
+  statistics   :
+    0          : <:ok_hand:497396122416054287>         # Fetching
+    1          : <:blueberry:506201160382939141>       # Operating System
+    2          : <:happy:500719642231177220>           # Process hash
+    3          : <:WumpLove:506200781549076482>        # Load average
+    4          : <a:ablobangel:494926715592900608>     # OS uptime
+    5          : <a:agoogleoctopus:494927680911704067> # Uptime
+    6          : <:monkey:369880931630317568>          # Memory usage
+    7          : <:spirit:332131321759399937>          # User agent
+    8          : <:dev_server:495573905092902942>      # Shards
+    9          : <:beetle_tank:445274774579445771>     # Cache
+    10         : <:srv_server:495680009197977617>      # Channels
+    11         : <:srv_tags:496035430052134912>        # Guilds
+    12         : <:srv_user:495917052784148480>        # Users
+
+image    :
+  cat    :
+    0    : <:blueberry:506201160382939141> # Fetching
+    1    : <:spirit:332131321759399937>    # Cat fact
+  dog    :
+    0    : <:blueberry:506201160382939141> # Fetching
+    1    : <:spirit:332131321759399937>    # dog fact
+  fox    : <:blueberry:506201160382939141> # Fetching
+  birb   : <:blueberry:506201160382939141> # Fetching
+  duck   : <:blueberry:506201160382939141> # Fetching
+  lizard : <:blueberry:506201160382939141> # Fetching
+  penguin: <:blueberry:506201160382939141> # Fetching
+
+developer:
+  echo   : <a:voting:501106582915121154>         # Invalid message
+  eval   :
+    0    : <a:voting:501106582915121154>         # Invalid snippet
+    1    : <a:agoogleoctopus:494927680911704067> # Evaluating
+    2    : <a:voting:501106582915121154>         # Result

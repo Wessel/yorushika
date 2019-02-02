@@ -1,0 +1,28 @@
+error   : 0xff0000 # Red
+cooldown: 0x7289DA # Blurple
+
+util   :
+  ping :
+    0  : 0xffa500 # Orange
+    1  : 0x00ff00 # Green
+    2  : 0xffa500 # Orange
+    3  : 0xff0000 # Red
+  snipe: 0x23272A # Not quite black
+
+info      :
+  stats   : 0x02C2F33 # Dark but not black
+  commands: 0x02C2F33 # Dark but not black
+
+image    :
+  cat    : 0x7289DA # Blurple
+  dog    : 0x7289DA # Blurple
+  fox    : 0x7289DA # Blurple
+  birb   : 0x7289DA # Blurple
+  duck   : 0x7289DA # Blurple
+  lizard : 0x7289DA # Blurple
+  penguin: 0x7289DA # Blurple
+
+developer  :
+  eval     :
+    success: 0x00ff00 # Green
+    failure: 0xff0000 # Red
