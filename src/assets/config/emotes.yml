@@ -2,17 +2,29 @@ cooldown  : <:sad:500719642403405824> # On cooldown
 owner_only: <:sad:500719642403405824> # Only owners
 guild_only: <:sad:500719642403405824> # Only guilds
 
-util  :
-  ping:
-    0 : <:bored:500719642164199425>                  # Pinging
-    1 : <:thumbsup:501844577725054976>               # Heartbeat
-    2 : <:blueberry:506201160382939141>              # Round-trip
-    3 : <:WumpLove:506200781549076482>               # Health
-  math:
-    0 : <:blueberry:506201160382939141>              # Calculating
-    1 : <a:ablobdevil:494927811451027458>            # Evaluation
-    2 : <a:agoogleoctopus:494927680911704067>        # Invalid equation
-  snipe   : <:snipe:508653323788877825>              # No snipes found
+core    :
+  locale:
+    0   : <:wumpus_blob:541629681120837648> # Dupe locale (user)
+    1   : <:wumpus_blob:541629681120837648> # Dupe locale (guild)
+    2   : <:wumpus_love:506200781549076482> # Current locale (user)
+    3   : <:wumpus_love:506200781549076482> # Current locale (guild)
+    4   : <:wumpus_flag:495525134220787713> # Locale list
+    5   : <:ok_hand:497396122416054287>     # Updated (guild)
+    6   : <:ok_hand:497396122416054287>     # Updated (user)
+    7   : <:sad:500719642403405824>         # Invalid locale
+    8   :
+
+util   :
+  ping :
+    0  : <:bored:500719642164199425>           # Pinging
+    1  : <:thumbsup:501844577725054976>        # Heartbeat
+    2  : <:blueberry:506201160382939141>       # Round-trip
+    3  : <:WumpLove:506200781549076482>        # Health
+  math :
+    0  : <:blueberry:506201160382939141>       # Calculating
+    1  : <a:ablobdevil:494927811451027458>     # Evaluation
+    2  : <a:agoogleoctopus:494927680911704067> # Invalid equation
+  snipe: <:snipe:508653323788877825>           # No snipes found
 
 info:
   commands     :

@@ -30,15 +30,15 @@ core        :
       - '$[emoji#2] **>** Your current locale is `$[uLocale:code]`'
       - '$[emoji#3] **>** The guild''s locale is `$[gLocale:code]`'
       - ''
-      - '$[emoji#3] **Available locales**:'
+      - '$[emoji#4] **Available locales**:'
       - '$[locale:map]'
       - ''
       - 'Type `$[locale:changeCmd]` to update your/the guild''s locale'
       - 'If you want to help translate wump, you can join my [Discord](https://discord.gg/SV7DAE9) and create a pull request on my [GitHub](https://github.com/PassTheWessel/wump/compare)'
-    gchanged: '$[emoji#4] The guild''s locale changed to `$[gLocale:code]`'
-    changed : '$[emoji#4] Your locale has changed to `$[uLocale:code]`'
-    invalid : '$[emoji#5] The locale you provided isn''t a valid locale'
-    gperms  : '$[emoji#6] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
+    gchanged: '$[emoji#5] The guild''s locale changed to `$[gLocale:code]`'
+    changed : '$[emoji#6] Your locale has changed to `$[uLocale:code]`'
+    invalid : '$[emoji#7] The locale you provided isn''t a valid locale'
+    gperms  : '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
 
 util       :
   ping     :

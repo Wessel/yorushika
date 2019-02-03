@@ -8,7 +8,7 @@ module.exports = class Locale extends DiscordCommand {
       name        : 'locale',
       syntax      : 'locale <locale:code> <-u|-g>',
       aliases     : [],
-      argument    : [ '-<u|g>', '<locale:code' ],
+      argument    : [ '<locale:code>', '-<u|g>' ],
       description : 'Change your locale',
 
       hidden      : false,
@@ -23,7 +23,7 @@ module.exports = class Locale extends DiscordCommand {
 
   async execute(msg, args, user, guild) {
     if (args.join(' ').includes('-u') || args.join(' ').includes('--user')) {
-      for (let i = 0; i < args.length; i++) !this.bot.locales.has(args[i]) ? args.splice(i, 1) : undefined;
+      for (let i = 0; i < args.length; i++) !this.bot.locales.has(args[i]) ? args.splice(i, -1) : undefined;
       if (!this.bot.locales.has(args[0])) return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['invalid']));
       if (user.locale === args[0]) return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['dupe'], { uLocale: user.locale }));
       
@@ -43,6 +43,7 @@ module.exports = class Locale extends DiscordCommand {
     } else {
       return msg.channel.createMessage({
         embed: {
+          color      : this.bot.col['core']['locale'],
           description: this.localize(msg.author.locale['core']['locale']['list'].join('\n'), { uLocale: user.locale || 'en_us', gLocale: guild.locale || 'en_us' })
         }
       });

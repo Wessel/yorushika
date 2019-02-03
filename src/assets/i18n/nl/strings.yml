@@ -25,7 +25,7 @@ cooldown: '$[emoji#0] $[author:mention] **>** Dit commando is op cooldown voor *
 core        :
   locale    :
     dupe    : '$[emoji#0] Uw landinstelling is al ingesteld op `$[uLocale:code]`'
-    gdupe   : '$[emoji#1] The guild''s locale is already set to `$[gLocale:code]`'
+    gdupe   : '$[emoji#1] De landinstelling van de gilde is al ingesteld op `$[gLocale:code]`'
     list    :
       - '$[emoji#2] **>** Uw huidige landinstelling is `$[uLocale:code]`'
       - '$[emoji#3] **>** De landinstelling van de gilde is `$[gLocale:code]`'
