@@ -59,8 +59,8 @@ module.exports = class CommandRegistry {
 
   async handleCommand(msg) {
     let perm;
-    let prefix;
     let guild, user;
+    let prefix;
     let gCache, uCache;
 
     if (msg.author.bot || !this.bot.ready) return;
@@ -70,7 +70,7 @@ module.exports = class CommandRegistry {
       uCache = this.bot.cache.has('users')  ? this.bot.cache.get('users')  : this.bot.cache.set('users', [])  && this.bot.cache.get('users');
       if (!this.checkArray('guildId', msg.channel.guild.id, gCache)) {
         guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
-        if (!guild) {
+        if (guild === null || !guild) {
           guild = new this.bot.schema.guild({ guildId: msg.channel.guild.id });
           await guild.save((err) => { if (err) process.handleError(err); });
         } else gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'entryAge': Date.now() });
@@ -78,7 +78,7 @@ module.exports = class CommandRegistry {
 
       if (!this.checkArray('userId', msg.author.id, uCache)) {
         user = await this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id });
-        if (!user) {
+        if (user === null || !user) {
           user = new this.bot.schema.user({ userId: msg.author.id });
           await user.save((err) => { if (err) process.handleError(err); });
         } else uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'entryAge': Date.now() });
