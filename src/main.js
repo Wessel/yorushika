@@ -81,7 +81,7 @@ if (conf['discord']['enabled']) {
       autoreconnect: true
     },
 
-    ua    : `${pkg.displayName}/${pkg.version}/${conf['nightly'] ? 'nightly' : 'distribution'}`,
+    ua    : `${pkg.displayName}/${pkg.version}/${conf['nightly'] ? 'nightly' : 'distribution'} (https://github.com/PassTheWessel/wump)`,
     db    : mongoose,
     pkg   : pkg,
     colors: col,

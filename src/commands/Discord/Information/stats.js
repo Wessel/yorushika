@@ -16,7 +16,7 @@ module.exports = class Stats extends DiscordCommand {
 
       hidden     : false,
       enabled    : true,
-      cooldown   : 5000,
+      cooldown   : 10000,
       category   : 'Information',
       ownerOnly  : false,
       guildOnly  : false,

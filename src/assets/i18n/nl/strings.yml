@@ -1,0 +1,98 @@
+translation  :
+  code       : 'nl'                      # Language code
+  flag       : '🇳🇱'                      # Language flag
+  full       : 'Dutch'                   # Full language name in english
+  orig       : 'Nederlands'              # Full language name in your language
+  progress   : 100                       # Progression of the translation (%)
+  translator :                           # Your information (can leave fields empty)
+    email    : 'discord@go2it.eu'        # Optional
+    website  : 'https://wessel.meek.moe' # Optional
+    discord  :
+      name   : 'Wesselgame'              # Required, can be set to "Clyde"
+      userid : '107130754189766656'      # Required, can be set to "1"
+      discrim: '0498'                    # Required, can be set to "0001"
+
+error   :
+  - '$[author:mention] **>** Er is een fout opgetreden tijdens het uitvoeren van dit commando'
+  - 'Als dit probleem zich blijft voordoen, kunt u overwegen lid te worden van *** https: //discord.gg/SV7DAE9*** en uw probleem daar te plaatsen'
+  - '```ini'
+  - '[ Fout Informatie ]'
+  - 'Code    = "$[err:code]"'
+  - 'Bericht = "$[err:message]"'
+  - '```'
+cooldown: '$[emoji#0] $[author:mention] **>** Dit commando is op cooldown voor **$[cooldown:left]**'
+
+core        :
+  locale    :
+    dupe    : '$[emoji#0] Uw landinstelling is al ingesteld op `$[uLocale:code]`'
+    gdupe   : '$[emoji#1] The guild''s locale is already set to `$[gLocale:code]`'
+    list    :
+      - '$[emoji#2] **>** Uw huidige landinstelling is `$[uLocale:code]`'
+      - '$[emoji#3] **>** De landinstelling van de gilde is `$[gLocale:code]`'
+      - ''
+      - '$[emoji#4] **Beschikbare talen**:'
+      - '$[locale:map]'
+      - ''
+      - 'Typ `$[locale:changeCmd]` om uw/de gilde zijn landinstelling bij te werken'
+      - 'Als u wilt helpen met het vertalen van wump, kunt u zij aansluiten bij mijn [Discord](https://discord.gg/SV7DAE9) en een pull request op [GitHub](https://github.com/PassTheWessel/wump/compare) te maken'
+    changed : '$[emoji#5] Uw landinstelling is veranderd naar `$[uLocale:code]`'
+    gchanged: '$[emoji#6] De landinstelling van de gilde is veranderd naar `$[gLocale:code]`'
+    invalid : '$[emoji#7] De landinstelling dat u heeft aangegeven is geen geldige landinstelling'
+    gperms  : '$[emoji#8] U heeft onvoldoende rechten om dit commando uit te voeren (`MANAGE_GUILD`)'
+util       :
+  ping     :
+    busy   : '$[emoji#0] Pingen...'
+    health :
+      - 'Onbekend'
+      - 'Goed'
+      - 'Oke'
+      - 'Slecht'
+    result :
+      - '$[emoji#2] **Rondvaart**: $[roundtrip]ms'
+      - '$[emoji#1] **Hartslag**: $[latency]ms'
+      - '$[emoji#3] **Gezondheid**: $[health]'
+  math     :
+    busy   : '$[emoji#0] Aam het berekenen, dit kan enige tijd duren...'
+    blocked: '<geblokkeerd> De methode "$[math:function]" is om veiligheidsredenen uitgeschakeld <geblokkeerd>'
+  snipe    :
+    fail   : '$[emoji#0] Geen snipebare berichten gevonden'
+    footer : 'Sniped door $[author:tag] ($[author:id])'
+
+info      :
+  stats   :
+    fetching: '$[emoji#0] Statistieken aan het ophalen, dit kan enige tijd duren...'
+  commands:
+    multi :
+      - '$[emoji#0] Het voorvoegsel voor **$[guild:name]** is `$[guild:prefix]`'
+      - '$[emoji#1] typ `$[guild:prefix]command <command:str>` voor meer informatie'
+      - '$[emoji#2] **Links**: [`Uitnodiging`]($[bot:invite]) **|** [`Ondersteuning`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
+    single:
+      - '**Naam**: $[command:name]'
+      - '**Syntaxis**: $[command:syntax]'
+      - '**Aliassen**: $[command:aliases]'
+      - '**Cooldown**: $[command:cooldown#formatted]'
+      - '**Argumenten**: $[command:arguments]'
+    fields:
+      - 'Informatie'
+      - 'Plaatjes'
+      - 'Overig'
+      - 'Ontwikkelaar'
+
+image:
+    fetching	  : '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'
+    failed_cache: 'Kliek hier als het plaatje niet is geladen'
+    
+developer:
+  echo    : '$[emoji#0] Ongeldig bericht om te echoën'
+  eval    :
+    args  : '$[emoji#0] Ongeldig codefragment om te evalueren'
+    busy  : '$[emoji#1] Aan het evalueren, Dit kan enige tijd duren...'
+    silent: '$[emoji#2] Codefragment stil uitgevoerd'
+    types :
+      - 'geslaagd'
+      - 'mislukt'
+    result:
+      - '$[emoji#3] **Resultaat** (`$[result:type]`):'
+      - '```js'
+      - '$[result:message]'
+      - '```'

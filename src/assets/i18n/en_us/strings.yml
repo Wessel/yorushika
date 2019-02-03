@@ -1,18 +1,19 @@
 translation  :
   code       : 'en_us'                   # Language code
   flag       : '🇺🇸'                      # Language flag
-  full       : 'English (United States)' # Full language name in english
+  full       : 'English'                 # Full language name in english
   orig       : 'English (United States)' # Full language name in your language
+  progress   : 100                       # Progression of the translation (%)
   translator :                           # Your information (can leave fields empty)
-    email    : 'discord@go2it.eu'
-    website  : 'https://wessel.meek.moe'
+    email    : 'discord@go2it.eu'        # Optional
+    website  : 'https://wessel.meek.moe' # Optional
     discord  :
-      name   : 'Wesselgame'
-      userid : '107130754189766656'
-      discrim: '0498'
+      name   : 'Wesselgame'              # Required, can be set to "Clyde"
+      userid : '107130754189766656'      # Required, can be set to "1"
+      discrim: '0498'                    # Required, can be set to "0001"
 
 error   :
-  - '$[author:mention] **>** An error occured while executing this command'
+  - '$[author:mention] **>** An error occurred while executing this command'
   - 'If this problem keeps occurring, consider joining ***https://discord.gg/SV7DAE9*** and posting your problem there'
   - '```ini'
   - '[ Error Information ]'
@@ -20,6 +21,24 @@ error   :
   - 'Message = "$[err:message]"'
   - '```'
 cooldown: '$[emoji#0] $[author:mention] **>** This command is on cooldown for **$[cooldown:left]**'
+
+core        :
+  locale    :
+    dupe    : '$[emoji#0] Your locale is already set to `$[uLocale:code]`'
+    gdupe   : '$[emoji#1] The guild''s locale is already set to `$[gLocale:code]`'
+    list    :
+      - '$[emoji#2] **>** Your current locale is `$[uLocale:code]`'
+      - '$[emoji#3] **>** The guild''s locale is `$[gLocale:code]`'
+      - ''
+      - '$[emoji#3] **Available locales**:'
+      - '$[locale:map]'
+      - ''
+      - 'Type `$[locale:changeCmd]` to update your/the guild''s locale'
+      - 'If you want to help translate wump, you can join my [Discord](https://discord.gg/SV7DAE9) and create a pull request on my [GitHub](https://github.com/PassTheWessel/wump/compare)'
+    gchanged: '$[emoji#4] The guild''s locale changed to `$[gLocale:code]`'
+    changed : '$[emoji#4] Your locale has changed to `$[uLocale:code]`'
+    invalid : '$[emoji#5] The locale you provided isn''t a valid locale'
+    gperms  : '$[emoji#6] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
 
 util       :
   ping     :

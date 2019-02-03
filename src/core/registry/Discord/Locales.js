@@ -20,6 +20,7 @@ module.exports = class LocaleRegistry {
             if (f.startsWith('strings')) {
               this.bot.locales.set(l['translation']['code'].toLowerCase(), l);
               this.bot.localeDic.push(l['translation']['code']);
+              this.bot.localeMap.push(`${l['translation']['flag']} \`${l['translation']['code']}\` **:** ${l['translation']['orig']} (*${l['translation']['full']}*) \`[${l['translation']['progress']}%]\` {***${l['translation']['translator']['discord']['name']}#${l['translation']['translator']['discord']['discrim']}***}`);
             }
           }
         } catch (ex) {

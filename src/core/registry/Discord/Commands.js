@@ -82,7 +82,7 @@ module.exports = class CommandRegistry {
           user = new this.bot.schema.user({ userId: msg.author.id });
           await user.save((err) => { if (err) process.handleError(err); });
         } else uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'entryAge': Date.now() });
-      } else user = gCache.filter((v) => v['userId'] === msg.author.id );
+      } else user = uCache.filter((v) => v['userId'] === msg.author.id )[0];
       msg.author.locale = this.bot.locales.get(user['locale'] ? user['locale'] : 'en_us');
 
         prefix = new RegExp([

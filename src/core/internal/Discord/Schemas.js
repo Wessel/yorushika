@@ -6,7 +6,8 @@ const conf = safeLoad(readFileSync('application.yml', { encoding: 'utf8' }));
 
 const guild = new mongoose.Schema({
   guildId: { type: String, default: undefined },
-  prefix : { type: String, default: conf['discord']['prefix']  }
+  prefix : { type: String, default: conf['discord']['prefix']  },
+  locale: { type: String, default: conf['discord']['locale'] }
 });
 
 const user = new mongoose.Schema({

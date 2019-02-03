@@ -42,6 +42,8 @@ module.exports = class WumpDiscord extends Eris {
     this.col  = options.colors ? options.colors : undefined;
     this.ico  = options.emojis ? options.emojis : undefined;
     this.conf = options.config ? options.config : undefined;
+
+    this.requestHandler.userAgent = this.ua ? this.ua : `Wump (https://github.com/PassTheWessel/wump, ${this.pkg.version})`;
   }
 
   async launch(events, commands, locales) {
