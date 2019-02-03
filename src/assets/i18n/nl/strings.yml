@@ -14,7 +14,7 @@ translation  :
 
 error   :
   - '$[author:mention] **>** Er is een fout opgetreden tijdens het uitvoeren van dit commando'
-  - 'Als dit probleem zich blijft voordoen, kunt u overwegen lid te worden van *** https://discord.gg/SV7DAE9*** en uw probleem daar te plaatsen'
+  - 'Als dit probleem zich blijft voordoen, kunt u overwegen lid te worden van ***https://discord.gg/SV7DAE9*** en uw probleem daar te plaatsen'
   - '```ini'
   - '[ Fout Informatie ]'
   - 'Code    = "$[err:code]"'
