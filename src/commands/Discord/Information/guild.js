@@ -34,7 +34,7 @@ module.exports = class name extends DiscordCommand {
     if (!g) return msg.channel.createMessage(this.localize(msg.author.locale['info']['guild']['invalid']));    
     msg.channel.createMessage({
       embed: {
-        title    : g.name,
+        color    : this.bot.col['info']['guild'],
         thumbnail: { url: g.iconURL },
         fields   : [
           {
