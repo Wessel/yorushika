@@ -1,5 +1,6 @@
 // Main
 const Webhook          = require('./DiscordWebhook');
+const RESTclient       = require('../internal/Discord/rest');
 const { Client: Eris } = require('eris');
 // Registries
 const EventRegistry     = require('../registry/Discord/Events');
@@ -28,6 +29,7 @@ module.exports = class WumpDiscord extends Eris {
     this.localeDic = [];
 
     this.m               = options.db;
+    this.REST            = new RESTclient(this);
     this.eventRegistry   = new EventRegistry(this);
     this.localeRegistry  = new LocaleRegistry(this);
     this.commandRegistry = new CommandRegistry(this);

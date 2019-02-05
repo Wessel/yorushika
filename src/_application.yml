@@ -43,12 +43,15 @@ discord  :
     messagecreate: true
     messagedelete: true
   commands       :
+    # Category   : CORE
+    locale       : true
     # Category   : UTILITY
     ping         : true
     math         : true
     snipe        : true
     # Category   : INFORMATION
     stats        : true
+    guild        : true
     commands     : true
     # Category   : IMAGE
     cat          : true

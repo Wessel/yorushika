@@ -73,10 +73,38 @@ info      :
       - '**Cooldown**: $[command:cooldown#formatted]'
       - '**Argumenten**: $[command:arguments]'
     fields:
+      - 'Kern'
       - 'Informatie'
       - 'Plaatjes'
       - 'Overig'
       - 'Ontwikkelaar'
+  guild:
+    fields:
+      guild:
+        name: '❯ Gilde Informatie'
+        value:
+          - '$[emoji#0] **Naam**: $[guild:name] (`$[guild:id]`)'
+          - '$[emoji#1] **Regio**: $[guild:region]'
+          - '$[emoji#2] **Creatie**: $[guild:created@precise] ago (`$[guild:created@exact]`)'
+          - '$[emoji#3] **Inhoudsfilter**: $[guild:explicity]'
+          - '$[emoji#4] **Verificatieniveau**: $[guild:verification]'
+          - '$[emoji#5] **Kanalen [`Tekst` / `Stem`]**: $[guild:fullChannels]'
+      owner:
+        name: '❯ Eigenaar Informatie' 
+        value:
+          - '$[emoji#6] **Label**: $[guild:owner#tag] (`$[guild:owner#id]`)'
+          - '$[emoji#7] **Creatie**: $[guild:owner#created@precise] ago (`$[guild:owner#created@exact]`)'
+          - '$[emoji#8] **Avatar**: [Click here]($[guild:owner#avatar])'
+      members:
+        name: '❯ Leden Nummers'
+        value:
+          - '$[emoji#9] Robots **⤏** $[guild:users#bot]'
+          - '$[emoji#10] Leden **⤏** $[guild:users#total]'
+          - '**_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\__**'
+          - '$[emoji#12] Online **⤏** `$[guild:users#online]`'
+          - '$[emoji#14] Idle **⤏** `$[guild:users#idle]`'
+          - '$[emoji#13] DnD **⤏** `$[guild:users#dnd]`'
+          - '$[emoji#11] Offline **⤏** `$[guild:users#offline]`'
 
 image:
     fetching	  : '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'

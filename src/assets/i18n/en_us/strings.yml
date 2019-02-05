@@ -74,10 +74,38 @@ info      :
       - '**Cooldown**: $[command:cooldown#formatted]'
       - '**Arguments**: $[command:arguments]'
     fields:
+      - 'Core'
       - 'Information'
       - 'Image'
       - 'Utility'
       - 'Developer'
+  guild:
+    fields:
+      guild:
+        name: '❯ Guild Information'
+        value:
+          - '$[emoji#0] **Name**: $[guild:name] (`$[guild:id]`)'
+          - '$[emoji#1] **Region**: $[guild:region]'
+          - '$[emoji#2] **Creation**: $[guild:created@precise] ago (`$[guild:created@exact]`)'
+          - '$[emoji#3] **Content Filter**: $[guild:explicity]'
+          - '$[emoji#4] **Verification Level**: $[guild:verification]'
+          - '$[emoji#5] **Channels [`Text` / `Voice`]**: $[guild:fullChannels]'
+      owner:
+        name: '❯ Owner Information' 
+        value:
+          - '$[emoji#6] **Tag**: $[guild:owner#tag] (`$[guild:owner#id]`)'
+          - '$[emoji#7] **Creation**: $[guild:owner#created@precise] ago (`$[guild:owner#created@exact]`)'
+          - '$[emoji#8] **Avatar**: [Click here]($[guild:owner#avatar])'
+      members:
+        name: '❯ Member Counts'
+        value:
+          - '$[emoji#9] Bots **⤏** $[guild:users#bot]'
+          - '$[emoji#10] Members **⤏** $[guild:users#total]'
+          - '**_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\__**'
+          - '$[emoji#12] Online **⤏** `$[guild:users#online]`'
+          - '$[emoji#14] Idle **⤏** `$[guild:users#idle]`'
+          - '$[emoji#13] DnD **⤏** `$[guild:users#dnd]`'
+          - '$[emoji#11] Offline **⤏** `$[guild:users#offline]`'
 
 image:
     fetching	  : '$[emoji#0] Fetching a random image, this may take some time...'
