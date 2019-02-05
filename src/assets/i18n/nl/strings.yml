@@ -105,6 +105,7 @@ info      :
           - '$[emoji#14] Idle **⤏** `$[guild:users#idle]`'
           - '$[emoji#13] DnD **⤏** `$[guild:users#dnd]`'
           - '$[emoji#11] Offline **⤏** `$[guild:users#offline]`'
+    invalid: '$[emoji#15] Geen gilde gevonden met uw zoekopdracht'
 
 image:
     fetching	  : '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'

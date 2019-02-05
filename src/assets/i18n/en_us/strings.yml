@@ -102,10 +102,11 @@ info      :
           - '$[emoji#9] Bots **⤏** $[guild:users#bot]'
           - '$[emoji#10] Members **⤏** $[guild:users#total]'
           - '**_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\__**'
-          - '$[emoji#12] Online **⤏** `$[guild:users#online]`'
-          - '$[emoji#14] Idle **⤏** `$[guild:users#idle]`'
+          - '$[emoji#11] Online **⤏** `$[guild:users#online]`'
+          - '$[emoji#12] Idle **⤏** `$[guild:users#idle]`'
           - '$[emoji#13] DnD **⤏** `$[guild:users#dnd]`'
-          - '$[emoji#11] Offline **⤏** `$[guild:users#offline]`'
+          - '$[emoji#14] Offline **⤏** `$[guild:users#offline]`'
+    invalid: '$[emoji#15] No guild found with your query'
 
 image:
     fetching	  : '$[emoji#0] Fetching a random image, this may take some time...'

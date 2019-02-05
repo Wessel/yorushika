@@ -31,7 +31,7 @@ module.exports = class name extends DiscordCommand {
   async execute(msg, args) {
     const g = this.bot.REST.getGuild((args.length >= 1 ? args.join(' ') : msg.channel.guild.id));
     
-    if (!g) return msg.channel.createMessage('INVALID');    
+    if (!g) return msg.channel.createMessage(this.localize(msg.author.locale['info']['guild']['invalid']));    
     msg.channel.createMessage({
       embed: {
         title    : g.name,
@@ -113,6 +113,7 @@ module.exports = class name extends DiscordCommand {
       .replace(/\$\[emoji#11]/g, this.bot.emote('info', 'guild', '11'))
       .replace(/\$\[emoji#12]/g, this.bot.emote('info', 'guild', '12'))
       .replace(/\$\[emoji#13]/g, this.bot.emote('info', 'guild', '13'))
-      .replace(/\$\[emoji#14]/g, this.bot.emote('info', 'guild', '14'));
+      .replace(/\$\[emoji#14]/g, this.bot.emote('info', 'guild', '14'))
+      .replace(/\$\[emoji#15]/g, this.bot.emote('info', 'guild', '15'));
   }
 };

@@ -37,7 +37,7 @@ module.exports = class RESTclient {
   getGuild($) {
     if (/^\d+$/.test($) && this.bot.guilds.get($)) return this.bot.guilds.get($);
     else {
-      const tmp = this.bot.guilds.filter((v) => v.name.toLowerCase().includes(q.toLowerCase()));
+      const tmp = this.bot.guilds.filter((v) => v.name.toLowerCase().includes($.toLowerCase()));
       if (tmp.length > 0) return tmp[0];
     }
     

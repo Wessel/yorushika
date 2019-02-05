@@ -39,10 +39,11 @@ info:
     8          : <:store:542366547180781588>       # Owner avatar
     9          : <:bot:473670328334155805>         # Total bots
     10         : <:member:542362747896201218>      # Total users
-    11         : <:offline:362670805441708032>     # Total offline members
-    12         : <:online:362670805051768833>      # Total online members
+    11         : <:online:362670805051768833>      # Total online members
+    12         : <:idle:362670805760475136>        # Total idle members
     13         : <:dnd:362670805676720128>         # Total DnD members
-    14         : <:idle:362670805760475136>        # Total idle members
+    14         : <:offline:362670805441708032>     # Total offline members
+    15         : <:exclamation:542368036255039509> # Invalid query
   commands     :
     0          : <:blueberry:506201160382939141> # Guild prefix
     1          : <:spirit:332131321759399937>    # More info
