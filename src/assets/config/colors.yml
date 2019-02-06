@@ -15,6 +15,7 @@ util   :
 info      :
   stats   : 0x02C2F33 # Dark but not black
   guild   : 0x7289DA  # Blurple
+  avatar  : 0x02C2F33 # Dark but not black
   commands: 0x02C2F33 # Dark but not black
 
 image    :

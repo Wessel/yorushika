@@ -1,6 +1,6 @@
-cooldown  : <:sad:500719642403405824> # On cooldown
-owner_only: <:sad:500719642403405824> # Only owners
-guild_only: <:sad:500719642403405824> # Only guilds
+cooldown  : <:stopwatch:542477522147868672>   # On cooldown
+owner_only: <:exclamation:542368036255039509> # Only owners
+guild_only: <:exclamation:542368036255039509> # Only guilds
 
 core    :
   locale:
@@ -13,6 +13,13 @@ core    :
     6   : <:ok_hand:497396122416054287>     # Updated (user)
     7   : <:sad:500719642403405824>         # Invalid locale
     8   : <:sad:500719642403405824>         # Missing permissions (guild)
+
+logs            :
+    ready       : '<:spacewump:542723940997529641>'
+    shard       :
+      ready     : '<:create_webhook:542716503674454016>'
+      resume    : '<:update_webhook:542716504089690124>'
+      disconnect: '<:remove_webhook:542716503624253461>'
 
 util   :
   ping :
@@ -44,6 +51,7 @@ info:
     13         : <:dnd:362670805676720128>         # Total DnD members
     14         : <:offline:362670805441708032>     # Total offline members
     15         : <:exclamation:542368036255039509> # Invalid query
+  avatar       : <:blueberry:506201160382939141> # User's avatar  
   commands     :
     0          : <:blueberry:506201160382939141> # Guild prefix
     1          : <:spirit:332131321759399937>    # More info

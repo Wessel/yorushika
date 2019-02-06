@@ -105,6 +105,9 @@ module.exports = class CommandRegistry {
         cmd    = this.bot.cmds.filter((v) => v.extData.name.toLowerCase() === cmd || v.extData.aliases.includes(cmd));
 
     if (cmd.length > 0) {
+      if (!this.bot.cache.has('commands_ran')) this.bot.cache.set('commands_ran', 1);
+      else this.bot.cache.set('commands_ran', this.bot.cache.get('commands_ran') + 1);
+
       user['entryAge']  = Date.now();
       guild['entryAge'] = Date.now();
       cmd = cmd[0];
@@ -141,7 +144,7 @@ module.exports = class CommandRegistry {
           return msg.channel.createMessage({
             embed: {
               color      : this.bot.col['cooldown'],
-              description: this.localize(msg.author.locale['cooldown'], { left: moment.duration(timeLeft).format('YYYY[y] M[M] DD[d] H[h] m[m] s[S] SS[ms]'), author: msg.author })
+              description: this.localize(msg.author.locale['cooldown'], { left: moment.duration(timeLeft).format(`YYYY[y] M[M] DD[d] H[h] m[m] ${timeLeft > 1000 ? 's[.]SS[s]' : 's[s] SS[ms]'}`), author: msg.author })
             }
           });
         }

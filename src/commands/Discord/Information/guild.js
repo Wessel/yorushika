@@ -2,7 +2,7 @@ const { DiscordCommand } = require('../../../core');
 
 const moment = require('moment'); require('../../../util/moment/diff.js');
 
-module.exports = class name extends DiscordCommand {
+module.exports = class Guild extends DiscordCommand {
   constructor(bot) {
     super(bot, {
       name        : 'guild',

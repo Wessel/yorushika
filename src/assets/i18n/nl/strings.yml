@@ -61,6 +61,7 @@ util       :
 info      :
   stats   :
     fetching: '$[emoji#0] Statistieken aan het ophalen, dit kan enige tijd duren...'
+  avatar  : '$[emoji#0] Hier is **$[user:full]** avatar'  
   commands:
     multi :
       - '$[emoji#0] Het voorvoegsel voor **$[guild:name]** is `$[guild:prefix]`'

@@ -22,7 +22,7 @@ globalize();
 let Discord, Database;
 
 process.argv = require('larg')(process.argv.slice(2));
-process.hash = String.string(Math.floor(Math.random() * 5) + 3);
+process.hash = String.string(8);
 
 process.handleError = (err, name, type, exit = false, custom = false) => {
   if (!custom) print(0, `${type ? type : green('Master')} !! ${name ? name : err.name ? err.name : 'Error'} -\n${red(`${err.message && err.stack ? `${err.message}\n${err.stack}` : err}`)}`);
@@ -71,10 +71,14 @@ process.on('SIGINT', () => {
   print(2, `${yellow('Database')} >> ${green('Connected to database')}` );
 })();
 
-
 if (conf['discord']['enabled']) {
   print(2, `${cyan('Discord')} >> Creating client...`);
   Discord = new DiscordClient(conf['discord']['token'], {
+    webhook  :{
+      token  : conf['discord']['webhook']['token'] || undefined,
+      channel: conf['discord']['webhook']['channel'] || undefined
+    },
+
     clientOptions  : {
       maxShards    : 'auto',
       getAllUsers  : false,

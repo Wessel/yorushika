@@ -1,0 +1,6 @@
+connection:
+  ready       : '`[$[date:now] / $[process:hash]]` $[emoji#0] Master client on Wump (`v$[wump:version]`) connected'
+  shard       :
+    ready     : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` connected to Wump (`v$[wump:version]`)'
+    resume    : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` resumed to Wump (`v$[wump:version]`)'
+    disconnect: '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` disconnected from Wump (`v$[wump:version]`)'

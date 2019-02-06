@@ -1,0 +1,6 @@
+connection:
+  ready       : '`[$[date:now] / $[process:hash]]` $[emoji#0] Meester client op Wump (`v$[wump:version]`) is verbonden'
+  shard       :
+    ready     : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is verbonden naar Wump (`v$[wump:version]`)'
+    resume    : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is hervat naar Wump (`v$[wump:version]`)'
+    disconnect: '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is losgekoppeld van Wump (`v$[wump:version]`)'

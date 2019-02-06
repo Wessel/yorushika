@@ -2,7 +2,7 @@ const { DiscordCommand } = require('../../../core');
 
 const w = require('wumpfetch');
 
-module.exports = class Cat extends DiscordCommand {
+module.exports = class Penguin extends DiscordCommand {
   constructor(bot) {
     super(bot, {
       name       : 'penguin',

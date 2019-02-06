@@ -1,4 +1,4 @@
-const fetch           = require('wumpfetch');
+const w               = require('wumpfetch');
 const { randomBytes } = require('crypto');
 
 module.exports = class DiscordWebhook {
@@ -11,14 +11,16 @@ module.exports = class DiscordWebhook {
     (async() => {
       try {
         if (!this.extData.token || !this.extData.channel) return this.hook = undefined;
-        this.hook = await fetch(`${this.baseURL}/${this.extData.channel}/${this.extData.token}`, { method: 'GET' }).send();
+        this.payloadURL = `${this.baseURL}/${this.extData.channel}/${this.extData.token}`;
+        this.hook       = await w(this.payloadURL).send();
         if (this.hook.statusCode !== 200) throw new SyntaxError( 'Failed to fetch webhook' );
       } catch (ex) { throw ex; }
     })();
   }
 
-  async send(data = {}) {
+  async send(payload = {}) {
     if (!this.hook) return true;
-    return await fetch(`${this.baseURL}/${this.extData.channel}/${this.extData.token}`, { method: 'POST', data: data }).send();
+    const req = await w(this.payloadURL, { method: 'POST', data: payload, sendDataAs: 'json' }).send();
+    return req;
   }
 };

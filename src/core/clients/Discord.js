@@ -39,11 +39,12 @@ module.exports = class WumpDiscord extends Eris {
     this.schema     = Schema;
     this.Collection = Collection;
 
-    this.ua   = options.ua     ? options.ua     : undefined;
-    this.pkg  = options.pkg    ? options.pkg    : undefined;
-    this.col  = options.colors ? options.colors : undefined;
-    this.ico  = options.emojis ? options.emojis : undefined;
-    this.conf = options.config ? options.config : undefined;
+    this.ua    = options.ua     ? options.ua     : undefined;
+    this.pkg   = options.pkg    ? options.pkg    : undefined;
+    this.col   = options.colors ? options.colors : undefined;
+    this.ico   = options.emojis ? options.emojis : undefined;
+    this.conf  = options.config ? options.config : undefined;
+    this.start = Date.now();
 
     this.requestHandler.userAgent = this.ua ? this.ua : `Wump (https://github.com/PassTheWessel/wump, ${this.pkg.version})`;
   }

@@ -62,6 +62,7 @@ util       :
 info      :
   stats   :
     fetching: '$[emoji#0] Fetching statistics, this may take some time...'
+  avatar  : '$[emoji#0] Here''s **$[user:full]** avatar'  
   commands:
     multi :
       - '$[emoji#0] The prefix for **$[guild:name]** is `$[guild:prefix]`'

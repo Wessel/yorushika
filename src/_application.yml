@@ -37,8 +37,14 @@ discord  :
     type  : 1        # 0 - Playing / 1 - Streaming / 2 - Listening / 3 - Watching
     status: 'online' # online / idle / dnd / invisible
 
+  webhook:
+    token  : '<--snip-->'
+    channel: '<--snip-->'
   events         :
     ready        : true
+    shardready   : true
+    shardresume  : true
+    sharddisconnect: true
     disconnect   : true
     messagecreate: true
     messagedelete: true
@@ -52,6 +58,7 @@ discord  :
     # Category   : INFORMATION
     stats        : true
     guild        : true
+    avatar       : true
     commands     : true
     # Category   : IMAGE
     cat          : true
