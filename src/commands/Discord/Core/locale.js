@@ -22,6 +22,9 @@ module.exports = class Locale extends DiscordCommand {
   }
 
   async execute(msg, args, user, guild) {
+    if (!user || user === null) user = await this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id });
+    if (!guild || guild === null) guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
+
     if (args.join(' ').includes('-u') || args.join(' ').includes('--user')) {
       for (let i = 0; i < args.length; i++) !this.bot.locales.has(args[i]) ? args.splice(i, -1) : undefined;
       if (!this.bot.locales.has(args[0])) return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['invalid']));

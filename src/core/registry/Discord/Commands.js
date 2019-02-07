@@ -68,23 +68,34 @@ module.exports = class CommandRegistry {
       perm   = msg.channel.permissionsOf(this.bot.user.id);
       gCache = this.bot.cache.has('guilds') ? this.bot.cache.get('guilds') : this.bot.cache.set('guilds', []) && this.bot.cache.get('guilds');
       uCache = this.bot.cache.has('users')  ? this.bot.cache.get('users')  : this.bot.cache.set('users', [])  && this.bot.cache.get('users');
+      
       if (!this.checkArray('guildId', msg.channel.guild.id, gCache)) {
-        guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
-        if (guild === null || !guild) {
-          guild = new this.bot.schema.guild({ guildId: msg.channel.guild.id });
-          await guild.save((err) => { if (err) process.handleError(err); });
-        } else gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'entryAge': Date.now() });
-      } else guild = gCache.filter((v) => v['guildId'] === msg.channel.guild.id );
+        // guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
+        this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id }, async (err, doc) => {
+          if (doc === null) {
+            guild = new this.bot.schema.guild({ guildId: msg.channel.guild.id });
+            guild.save((err) => { if (err) process.handleError(err); });
+            gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'entryAge': Date.now() });
+          } else {
+            guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
+            gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'entryAge': Date.now() });
+          }
+        });
+      } else guild = gCache.filter((v) => v['guildId'] === msg.channel.guild.id )[0];
 
       if (!this.checkArray('userId', msg.author.id, uCache)) {
-        user = await this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id });
-        if (user === null || !user) {
-          user = new this.bot.schema.user({ userId: msg.author.id });
-          await user.save((err) => { if (err) process.handleError(err); });
-        } else uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'entryAge': Date.now() });
+        this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id }, async (err, doc) => {
+          if (doc === null) {
+            user = new this.bot.schema.user({ userId: msg.author.id });
+            user.save((err) => { if (err) process.handleError(err); });
+            uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'prefix': user.prefix, 'entryAge': Date.now() });
+          } else {
+            user = await this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id });
+            uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'entryAge': Date.now() });
+          }
+        });
       } else user = uCache.filter((v) => v['userId'] === msg.author.id )[0];
-      msg.author.locale = this.bot.locales.get(user['locale'] ? user['locale'] : 'en_us');
-
+      msg.author.locale = this.bot.locales.get(user && user['locale'] ? user['locale'] : 'en_us');
         prefix = new RegExp([
         `^<@!?${this.bot.user.id}> `,
         `^${this.bot.conf['discord']['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}`,
@@ -108,8 +119,8 @@ module.exports = class CommandRegistry {
       if (!this.bot.cache.has('commands_ran')) this.bot.cache.set('commands_ran', 1);
       else this.bot.cache.set('commands_ran', this.bot.cache.get('commands_ran') + 1);
 
-      user['entryAge']  = Date.now();
-      guild['entryAge'] = Date.now();
+      user ? user['entryAge']  = Date.now() : undefined;
+      guild ? guild['entryAge'] = Date.now() : undefined;
       cmd = cmd[0];
 
       if (cmd.extData.ownerOnly && !this.bot.op(msg.author.id)) 

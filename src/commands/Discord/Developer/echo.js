@@ -25,8 +25,9 @@ module.exports = class Eval extends DiscordCommand {
   }
 
   localize(msg) {
+    // Empty
     if (!msg) return '';
-
+    // Main
     return msg.replace(/\$\[emoji#0]/g, this.bot.emote('developer', 'echo'));
   }
 };

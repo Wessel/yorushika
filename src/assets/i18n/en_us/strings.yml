@@ -5,12 +5,10 @@ translation  :
   orig       : 'English (United States)' # Full language name in your language
   progress   : 100                       # Progression of the translation (%)
   translator :                           # Your information (can leave fields empty)
-    email    : 'discord@go2it.eu'        # Optional
-    website  : 'https://wessel.meek.moe' # Optional
     discord  :
-      name   : 'Wesselgame'              # Required, can be set to "Clyde"
-      userid : '107130754189766656'      # Required, can be set to "1"
-      discrim: '0498'                    # Required, can be set to "0001"
+      - name   : 'Wesselgame'              # Required, can be set to "Clyde"
+        userid : '107130754189766656'      # Required, can be set to "1"
+        discrim: '0498'                    # Required, can be set to "0001"
 
 error   :
   - '$[author:mention] **>** An error occurred while executing this command'
@@ -63,6 +61,9 @@ info      :
   stats   :
     fetching: '$[emoji#0] Fetching statistics, this may take some time...'
   avatar  : '$[emoji#0] Here''s **$[user:full]** avatar'  
+  commits : 
+    - '$[emoji#1] **Total commits**: [`$[commits:total]`](https://github.com/PassTheWessel/wump/commits "Click here for a list of all commits")'
+    - '$[emoji#0] **10 most recent commits done on [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
   commands:
     multi :
       - '$[emoji#0] The prefix for **$[guild:name]** is `$[guild:prefix]`'

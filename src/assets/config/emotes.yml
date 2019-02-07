@@ -51,7 +51,10 @@ info:
     13         : <:dnd:362670805676720128>         # Total DnD members
     14         : <:offline:362670805441708032>     # Total offline members
     15         : <:exclamation:542368036255039509> # Invalid query
-  avatar       : <:blueberry:506201160382939141> # User's avatar  
+  avatar       : <:blueberry:506201160382939141> # User's avatar
+  commits      : 
+    0          : <:wumplus:542809926414761995>   # 10 most recent commits
+    1          : <:early:542366345795207178>     # Total commits
   commands     :
     0          : <:blueberry:506201160382939141> # Guild prefix
     1          : <:spirit:332131321759399937>    # More info

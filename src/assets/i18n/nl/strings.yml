@@ -5,10 +5,8 @@ translation  :
   orig       : 'Nederlands'              # Full language name in your language
   progress   : 100                       # Progression of the translation (%)
   translator :                           # Your information (can leave fields empty)
-    email    : 'discord@go2it.eu'        # Optional
-    website  : 'https://wessel.meek.moe' # Optional
     discord  :
-      name   : 'Wesselgame'              # Required, can be set to "Clyde"
+    - name   : 'Wesselgame'              # Required, can be set to "Clyde"
       userid : '107130754189766656'      # Required, can be set to "1"
       discrim: '0498'                    # Required, can be set to "0001"
 

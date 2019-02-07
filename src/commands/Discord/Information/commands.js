@@ -44,11 +44,6 @@ module.exports = class Commands extends DiscordCommand {
           description: this.localize(msg.author.locale['info']['commands']['multi'].join('\n'), { msg: msg }),
           fields     : [
             {
-              name  : msg.author.locale['info']['commands']['fields'][0],
-              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: true
-            },
-            {
               name  : msg.author.locale['info']['commands']['fields'][1],
               value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
               inline: true
@@ -66,6 +61,11 @@ module.exports = class Commands extends DiscordCommand {
             {
               name  : msg.author.locale['info']['commands']['fields'][4],
               value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              inline: true
+            },
+            {
+              name  : msg.author.locale['info']['commands']['fields'][0],
+              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
               inline: true
             }
           ]
