@@ -59,6 +59,7 @@ discord  :
     stats        : true
     guild        : true
     avatar       : true
+    commits      : true
     commands     : true
     # Category   : IMAGE
     cat          : true
