@@ -21,9 +21,29 @@ error   :
 cooldown: '$[emoji#0] $[author:mention] **>** Dit commando is op cooldown voor **$[cooldown:left]**'
 
 core        :
+  prefix    :
+    gchanged: '$[emoji#5] Het voorvoegsel van de gilde is bijgewerkt naar `$[guild:prefix]`'
+    changed : '$[emoji#6] Uw voorvoegsel is bijgewerkt naar `$[user:prefix]`'
+    gperms  : '$[emoji#8] U heeft onvoldoende rechten om dit commando uit te voeren (`MANAGE_GUILD`)'
+    gdupe   : '$[emoji#1] Het voorvoegsel van de gilde is al ingesteld op `$[guild:prefix]`'
+    dupe    : '$[emoji#0] Uw voorvoegsel is al ingesteld op `$[user:prefix]`'
+    info    :
+      - '$[emoji#2] **>** Uw huidige voorvoegsel is `$[user:prefix]`'
+      - '$[emoji#3] **>** Het voorvoegsel van de gilde is `$[guild:prefix]`'
+      - ''
+      - '$[emoji#4] **Voorvoegsel beperkingen**:'
+      - '`1.` De maximale lengte van een voorvoegsel is `32`'
+      - '`1.` Alle tekens worden omgezet in **kleine** letters'
+      - ''
+      - 'Typ `$[prefix:changeCmd]` Om het voorvoegsel van u/de gilde bij te werken'
+  
   locale    :
-    dupe    : '$[emoji#0] Uw landinstelling is al ingesteld op `$[uLocale:code]`'
+    gchanged: '$[emoji#6] De landinstelling van de gilde is bijgewerkt naar `$[gLocale:code]`'
+    changed : '$[emoji#5] Uw landinstelling is bijgewerkt naar `$[uLocale:code]`'
+    invalid : '$[emoji#7] De landinstelling dat u heeft aangegeven is geen geldige landinstelling'
+    gperms  : '$[emoji#8] U heeft onvoldoende rechten om dit commando uit te voeren (`MANAGE_GUILD`)'
     gdupe   : '$[emoji#1] De landinstelling van de gilde is al ingesteld op `$[gLocale:code]`'
+    dupe    : '$[emoji#0] Uw landinstelling is al ingesteld op `$[uLocale:code]`'
     list    :
       - '$[emoji#2] **>** Uw huidige landinstelling is `$[uLocale:code]`'
       - '$[emoji#3] **>** De landinstelling van de gilde is `$[gLocale:code]`'
@@ -31,12 +51,9 @@ core        :
       - '$[emoji#4] **Beschikbare talen**:'
       - '$[locale:map]'
       - ''
-      - 'Typ `$[locale:changeCmd]` om uw/de gilde zijn landinstelling bij te werken'
-      - 'Als u wilt helpen met het vertalen van wump, kunt u zij aansluiten bij mijn [Discord](https://discord.gg/SV7DAE9) en een pull request op [GitHub](https://github.com/PassTheWessel/wump/compare) te maken'
-    changed : '$[emoji#5] Uw landinstelling is veranderd naar `$[uLocale:code]`'
-    gchanged: '$[emoji#6] De landinstelling van de gilde is veranderd naar `$[gLocale:code]`'
-    invalid : '$[emoji#7] De landinstelling dat u heeft aangegeven is geen geldige landinstelling'
-    gperms  : '$[emoji#8] U heeft onvoldoende rechten om dit commando uit te voeren (`MANAGE_GUILD`)'
+      - 'Typ `$[locale:changeCmd]` om de landinstelling van u/de gilde bij te werken'
+      - 'Als u wilt helpen met het vertalen van Wump, kunt u zij aansluiten bij mijn [Discord](https://discord.gg/SV7DAE9) en een pull request op [GitHub](https://github.com/PassTheWessel/wump/compare) te maken'
+
 util       :
   ping     :
     busy   : '$[emoji#0] Pingen...'
@@ -100,15 +117,15 @@ info      :
           - '$[emoji#9] Robots **⤏** $[guild:users#bot]'
           - '$[emoji#10] Leden **⤏** $[guild:users#total]'
           - '**_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\__**'
-          - '$[emoji#12] Online **⤏** `$[guild:users#online]`'
-          - '$[emoji#14] Idle **⤏** `$[guild:users#idle]`'
+          - '$[emoji#11] Online **⤏** `$[guild:users#online]`'
+          - '$[emoji#12] Idle **⤏** `$[guild:users#idle]`'
           - '$[emoji#13] DnD **⤏** `$[guild:users#dnd]`'
-          - '$[emoji#11] Offline **⤏** `$[guild:users#offline]`'
+          - '$[emoji#14] Offline **⤏** `$[guild:users#offline]`'
     invalid: '$[emoji#15] Geen gilde gevonden met uw zoekopdracht'
 
 image:
     fetching	  : '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'
-    failed_cache: 'Kliek hier als het plaatje niet is geladen'
+    failed_cache: 'Klik hier als het plaatje niet is geladen'
     
 developer:
   echo    : '$[emoji#0] Ongeldig bericht om te echoën'

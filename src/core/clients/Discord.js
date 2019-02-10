@@ -8,7 +8,7 @@ const LocaleRegistry    = require('../registry/Discord/Locales');
 const CommandRegistry   = require('../registry/Discord/Commands');
 // Utilities
 const Util           = require('../../util/Util');
-const Schema         = require('../internal/Discord/Schemas');
+const Schema         = require('../internal/Discord/schema');
 const { cyan }       = require('../../util/colors');
 const Collection     = require('../../util/Collection');
 const PermissionUtil = require('../internal/Discord/Utils/PermissionUtil');

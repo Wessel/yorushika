@@ -3,6 +3,7 @@ cooldown: 0x7289DA # Blurple
 
 core    :
   locale: 0x7289DA # Blurple
+  prefix: 0x7289DA # Blurple
 
 util   :
   ping :

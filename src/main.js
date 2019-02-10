@@ -75,8 +75,8 @@ if (conf['discord']['enabled']) {
   print(2, `${cyan('Discord')} >> Creating client...`);
   Discord = new DiscordClient(conf['discord']['token'], {
     webhook  :{
-      token  : conf['discord']['webhook']['token'] || undefined,
-      channel: conf['discord']['webhook']['channel'] || undefined
+      token  : conf['discord']['webhook'] ? conf['discord']['webhook']['token'] : undefined,
+      channel: conf['discord']['webhook'] ? conf['discord']['webhook']['channel'] : undefined
     },
 
     clientOptions  : {

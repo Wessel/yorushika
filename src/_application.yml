@@ -51,6 +51,7 @@ discord  :
   commands       :
     # Category   : CORE
     locale       : true
+    prefix       : true
     # Category   : UTILITY
     ping         : true
     math         : true

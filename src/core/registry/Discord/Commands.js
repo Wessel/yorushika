@@ -91,7 +91,7 @@ module.exports = class CommandRegistry {
             uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'prefix': user.prefix, 'entryAge': Date.now() });
           } else {
             user = await this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id });
-            uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'entryAge': Date.now() });
+            uCache.push({ 'userId': msg.author.id, locale: user.locale ? user.locale : this.bot.conf['discord']['locale'], 'prefix': user.prefix, 'entryAge': Date.now() });
           }
         });
       } else user = uCache.filter((v) => v['userId'] === msg.author.id )[0];
@@ -99,7 +99,8 @@ module.exports = class CommandRegistry {
         prefix = new RegExp([
         `^<@!?${this.bot.user.id}> `,
         `^${this.bot.conf['discord']['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}`,
-        `^${guild && guild['prefix'] ? guild['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') : this.bot.conf['discord']['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}`
+        `^${guild && guild['prefix'] ? guild['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') : this.bot.conf['discord']['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}`,
+        `^${user && user['prefix'] ? user['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') : this.bot.conf['discord']['prefix'].replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}`
       ].join('|')).exec(msg.content.toLowerCase());
     } else {
       guild  = undefined;

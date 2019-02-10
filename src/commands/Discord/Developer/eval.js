@@ -22,7 +22,7 @@ module.exports = class Eval extends DiscordCommand {
     });
   }
 
-  async execute(msg, args) {
+  async execute(msg, args, user, guild) {
     let result;
     let silent  = args.join(' ').trim().endsWith('--silent') || args.join(' ').trim().endsWith('-s') ? args.pop() : false;
     let asynchr = args.join(' ').trim().includes('return') || args.join(' ').trim().includes('await');
@@ -49,11 +49,15 @@ module.exports = class Eval extends DiscordCommand {
   }
 
   sanitize(msg) {
-    // Empty
-    if (!msg) return undefined;
+    // Return nothing if empty
+    if (!msg) return msg;
     // API tokens
-    for(let _ in this.bot.conf['api']) {
+    for (let _ in this.bot.conf['api']) {
       msg = msg.replace(new RegExp(this.bot.conf['api'][_], 'gi'), '<--snip-->');
+    }
+    // Webhook information
+    for (let _ in this.bot.conf.discord.webhook) {
+      msg = msg.replace(new RegExp(this.bot.conf.discord.webhook[_], 'gi'), '<--snip-->');
     }
     // Bot tokens
     return msg

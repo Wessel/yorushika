@@ -21,9 +21,29 @@ error   :
 cooldown: '$[emoji#0] $[author:mention] **>** This command is on cooldown for **$[cooldown:left]**'
 
 core        :
+  prefix :
+    gchanged: '$[emoji#5] Successfully updated the guild''s prefix to `$[guild:prefix]`'
+    changed : '$[emoji#6] Successfully updated your prefix to `$[user:prefix]`'
+    gperms  : '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
+    gdupe   : '$[emoji#1] The guild''s prefix is already set to `$[guild:prefix]`'
+    dupe    : '$[emoji#0] Your prefix is already set to `$[user:prefix]`'
+    info    :
+      - '$[emoji#2] **>** Your current prefix is `$[user:prefix]`'
+      - '$[emoji#3] **>** The guild''s prefix is `$[guild:prefix]`'
+      - ''
+      - '$[emoji#4] **Prefix limitations**:'
+      - '`1.` The maximum length of a prefix is `32`'
+      - '`1.` All characters are transformed to **lowercase** characters'
+      - ''
+      - 'Type `$[prefix:changeCmd]` to update your/the guild''s prefix'
+
   locale    :
-    dupe    : '$[emoji#0] Your locale is already set to `$[uLocale:code]`'
+    gchanged: '$[emoji#5] Successfully updated the guild''s locale to `$[gLocale:code]`'
+    changed : '$[emoji#6] Successfully updated your locale to `$[uLocale:code]`'
+    invalid : '$[emoji#7] The locale you provided isn''t a valid locale'
+    gperms  : '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
     gdupe   : '$[emoji#1] The guild''s locale is already set to `$[gLocale:code]`'
+    dupe    : '$[emoji#0] Your locale is already set to `$[uLocale:code]`'
     list    :
       - '$[emoji#2] **>** Your current locale is `$[uLocale:code]`'
       - '$[emoji#3] **>** The guild''s locale is `$[gLocale:code]`'
@@ -33,10 +53,6 @@ core        :
       - ''
       - 'Type `$[locale:changeCmd]` to update your/the guild''s locale'
       - 'If you want to help translate wump, you can join my [Discord](https://discord.gg/SV7DAE9) and create a pull request on my [GitHub](https://github.com/PassTheWessel/wump/compare)'
-    gchanged: '$[emoji#5] The guild''s locale changed to `$[gLocale:code]`'
-    changed : '$[emoji#6] Your locale has changed to `$[uLocale:code]`'
-    invalid : '$[emoji#7] The locale you provided isn''t a valid locale'
-    gperms  : '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
 
 util       :
   ping     :

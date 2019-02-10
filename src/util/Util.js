@@ -10,7 +10,7 @@ module.exports = class WumpUtil {
     const log = `tmp\\log\\${moment(new Date).format('DD[-]MM[-]YYYY')}.log`;
 
     fs.mkdir('tmp', 777,      (err) => { if (err && err.code !== 'EEXIST') throw err; });
-    fs.mkdir('tmp\\log', 777, (err) => { if (err && err.code !== 'EEXIST') throw err; });
+    fs.mkdir('tmp/log', 777, (err) => { if (err && err.code !== 'EEXIST') throw err; });
 
     switch (lvl) {
       case 1 && conf['debug'] && conf['debug'] >= 1:
