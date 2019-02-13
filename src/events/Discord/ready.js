@@ -31,10 +31,16 @@ module.exports = class Ready extends DiscordEvent {
     const flushTime = 1800000;
     setInterval(() => {
       const uCache = this.bot.cache.get('users')  || []; 
-      
       const gCache = this.bot.cache.get('guilds') || [];
-      uCache.forEach((v, _) => (new Date(v.entryAge) <= new Date(new Date() - flushTime)) ? uCache.splice(_, 1) : undefined);
+      const vCache = this.bot.cache.get('voters') || [];
+
       gCache.forEach((v, _) => (new Date(v.entryAge) <= new Date(new Date() - flushTime)) ? gCache.splice(_, 1) : undefined);
+      uCache.forEach((v, _) => {
+        if (new Date(v.entryAge) <= new Date(new Date() - flushTime)) {
+          vCache.forEach((n, _) => n === v.userId ? vCache.splice(_, 1) : undefined);
+          uCache.splice(_, 1);
+        }
+      });
     }, flushTime);
   }
 

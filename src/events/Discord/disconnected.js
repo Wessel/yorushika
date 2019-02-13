@@ -8,6 +8,6 @@ module.exports = class Disconnect extends DiscordEvent {
   }
 
   emit() {
-    this.bot.print(1, `${cyan('Discord')}   >> All websockets disconnected from ${green(`${this.bot.user.username}#${this.bot.user.discriminator}`)}`);
+    this.bot.print(1, `${cyan('Discord')} >> All websockets disconnected from ${green(`${this.bot.user.username}#${this.bot.user.discriminator}`)}`);
   }
 };
