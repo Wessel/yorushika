@@ -85,6 +85,10 @@ info      :
   
   avatar  : '$[emoji#0] Hier is **$[user:full]** avatar'
 
+  commits : 
+    - '$[emoji#1] **Totaal aantal commits**: [`$[commits:total]`](https://github.com/PassTheWessel/wump/commits "Click here for a list of all commits")'
+    - '$[emoji#0] **10 meest recente commits gedaan op [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
+
   commands:
     multi :
       - '$[emoji#0] Het voorvoegsel voor **$[guild:name]** is `$[guild:prefix]`'
