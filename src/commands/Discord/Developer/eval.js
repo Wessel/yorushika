@@ -36,7 +36,7 @@ module.exports = class Eval extends DiscordCommand {
     catch (ex) { result = ex; errored = true; }
     finally {
       if (silent) return message.edit(this.localize(msg.author.locale['developer']['eval']['silent']));
-      result = this.bot.util.escapeMarkdown(this.sanitize(String(inspect(result))));
+      result = this.bot.util.escapeMarkdown(this.sanitize(String(result)));
 
       message.edit({
         content: '',
