@@ -28,7 +28,7 @@ core        :
   prefix    :
     gchanged: '$[emoji#5] Het voorvoegsel van de gilde is bijgewerkt naar `$[guild:prefix]`'
     changed : '$[emoji#6] Uw voorvoegsel is bijgewerkt naar `$[user:prefix]`'
-    gperms  : '$[emoji#8] U heeft onvoldoende rechten om dit commando uit te voeren (`MANAGE_GUILD`)'
+    gperms  : '$[emoji#7] U heeft onvoldoende rechten om dit commando uit te voeren (`MANAGE_GUILD`)'
     gdupe   : '$[emoji#1] Het voorvoegsel van de gilde is al ingesteld op `$[guild:prefix]`'
     dupe    : '$[emoji#0] Uw voorvoegsel is al ingesteld op `$[user:prefix]`'
     info    :

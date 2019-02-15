@@ -28,7 +28,7 @@ core        :
   prefix    :
     gchanged: '$[emoji#5] Successfully updated the guild''s prefix to `$[guild:prefix]`'
     changed : '$[emoji#6] Successfully updated your prefix to `$[user:prefix]`'
-    gperms  : '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
+    gperms  : '$[emoji#7] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
     gdupe   : '$[emoji#1] The guild''s prefix is already set to `$[guild:prefix]`'
     dupe    : '$[emoji#0] Your prefix is already set to `$[user:prefix]`'
     info    :
