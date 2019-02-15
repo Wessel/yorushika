@@ -51,7 +51,7 @@ module.exports = class CommandRegistry {
     
     if (!cmd || !dir) return false;
 
-    delete require.gCache[require.resolve(dir)];
+    delete require.cache[require.resolve(dir)];
     this.bot.cmds.delete(command);
     this.start(dir);
     return true;
