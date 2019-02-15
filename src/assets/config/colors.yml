@@ -1,5 +1,6 @@
 error   : 0xff0000 # Red
 cooldown: 0x7289DA # Blurple
+votelock: 0xF7AE69
 
 core    :
   locale: 0x7289DA # Blurple
@@ -31,5 +32,9 @@ image    :
 
 developer  :
   eval     :
+    success: 0x00ff00 # Green
+    failure: 0xff0000 # Red
+
+  exec     :
     success: 0x00ff00 # Green
     failure: 0xff0000 # Red

@@ -19,9 +19,13 @@ error   :
   - 'Message = "$[err:message]"'
   - '```'
 cooldown: '$[emoji#0] $[author:mention] **>** This command is on cooldown for **$[cooldown:left]**'
+votelock:
+  - '$[emoji#0] This command is **votelocked**, upvote [**`Wump`**](https://discordbots.org/bot/318057009188438016/vote) to unlock this command/parameters (It can take up to 10 minutes to register your vote)'
+  - ''
+  - '$[emoji#1] If you still have issues after that, you can either create an [**`issue`**](https://github.com/PassTheWessel/wump/issues) on [**`GitHub`**](https://github.com/PassTheWessel/wump) or join my [**`Discord`**](https://discord.gg/SV7DAE9) and posting it there'
 
 core        :
-  prefix :
+  prefix    :
     gchanged: '$[emoji#5] Successfully updated the guild''s prefix to `$[guild:prefix]`'
     changed : '$[emoji#6] Successfully updated your prefix to `$[user:prefix]`'
     gperms  : '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
@@ -66,9 +70,11 @@ util       :
       - '$[emoji#2] **Round-Trip**: $[roundtrip]ms'
       - '$[emoji#1] **Heartbeat**: $[latency]ms'
       - '$[emoji#3] **Health**: $[health]'
+  
   math     :
     busy   : '$[emoji#0] Calculating, this may take some time...'
     blocked: '<blocked> Method "$[math:function]" has been disabled for security reasons <blocked>'
+  
   snipe    :
     fail   : '$[emoji#0] No snipeable messages found'
     footer : 'Sniped by $[author:tag] ($[author:id])'
@@ -76,27 +82,30 @@ util       :
 info      :
   stats   :
     fetching: '$[emoji#0] Fetching statistics, this may take some time...'
+  
   avatar  : '$[emoji#0] Here''s **$[user:full]** avatar'  
   commits : 
     - '$[emoji#1] **Total commits**: [`$[commits:total]`](https://github.com/PassTheWessel/wump/commits "Click here for a list of all commits")'
     - '$[emoji#0] **10 most recent commits done on [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
+  
   commands:
     multi :
       - '$[emoji#0] The prefix for **$[guild:name]** is `$[guild:prefix]`'
       - '$[emoji#1] Type `$[guild:prefix]command <command:str>` for more information'
       - '$[emoji#2] **Links**: [`Invite`]($[bot:invite]) **|** [`Support`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
     single:
-      - '**Name**: $[command:name]'
-      - '**Syntax**: $[command:syntax]'
-      - '**Aliases**: $[command:aliases]'
-      - '**Cooldown**: $[command:cooldown#formatted]'
-      - '**Arguments**: $[command:arguments]'
+      - '$[emoji#3] **Name**: $[command:name]'
+      - '$[emoji#4] **Syntax**: $[command:syntax]'
+      - '$[emoji#5] **Aliases**: $[command:aliases]'
+      - '$[emoji#6] **Cooldown**: $[command:cooldown#formatted]'
+      - '$[emoji#7] **Arguments**: $[command:arguments]'
     fields:
       - 'Core'
       - 'Information'
       - 'Image'
       - 'Utility'
       - 'Developer'
+  
   guild:
     fields:
       guild:
@@ -126,12 +135,29 @@ info      :
           - '$[emoji#14] Offline **⤏** `$[guild:users#offline]`'
     invalid: '$[emoji#15] No guild found with your query'
 
+  user       :
+    invalid  : '$[emoji#11] No user found with your query'
+    fields   :
+      self   :
+        name : '❯ User Information'
+        value:
+          - '$[emoji#0] **Tag**: $[user:tag] (`$[user:id]`)'
+          - '$[emoji#1] **Creation**: $[user:created@precise] ago (`$[user:created@exact]`)'
+          - '$[emoji#2] **Status**: $[user:status@full]'
+      member:
+        name : '❯ Member Information' 
+        value:
+          - '$[emoji#3] **Nickname**: $[member:nickname]'
+          - '$[emoji#4] **Joined**: $[member:created@precise] ago (`$[member:created@exact]`)'
+          - '$[emoji#5] **Roles**: $[member:roles]'
+
 image:
     fetching	  : '$[emoji#0] Fetching a random image, this may take some time...'
     failed_cache: 'Click here if the image didn''t load properly'
     
 developer:
   echo    : '$[emoji#0] Invalid content to echo'
+
   eval    :
     args  : '$[emoji#0] Invalid snippet of code to evaluate'
     busy  : '$[emoji#1] Evaluating, this may take some time...'
@@ -142,5 +168,18 @@ developer:
     result:
       - '$[emoji#3] **Result** (`$[result:type]`):'
       - '```js'
+      - '$[result:message]'
+      - '```'
+
+  exec    :
+    args  : '$[emoji#0] Invalid command to execute'
+    busy  : '$[emoji#1] Executing, this may take some time...'
+    silent: '$[emoji#2] Silently executed your command'
+    types :
+      - 'succeed'
+      - 'failed'
+    result:
+      - '$[emoji#3] **Result** (`$[result:type]`):'
+      - '```sh'
       - '$[result:message]'
       - '```'

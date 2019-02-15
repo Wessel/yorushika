@@ -33,13 +33,13 @@ module.exports = class CommandRegistry {
     for (let i = 0; i < categories.length; i++) {
       if (categories[i].endsWith('md')) return;
       readdir(`${directory}/${categories[i]}`, (err, cmds) => {
-        if (err) process.handleError(err, cyan('Discord'), 'LoadError');
+        if (err) process.handleError(err, 'LoadError', cyan('Discord'));
         this.bot.print(1, `${cyan('Discord')} >> Loading ${green(cmds.length)} commands from category ${yellow(categories[i])}` );
 
         cmds.forEach((cmd) => {
           try {
             this.start(directory, categories[i], cmd);
-          } catch(ex) { process.handleError(err, cyan('Discord'), 'LoadError'); }
+          } catch(ex) { process.handleError(err, 'LoadError', cyan('Discord')); }
         });
       });
     }
@@ -167,7 +167,7 @@ module.exports = class CommandRegistry {
         this.bot.print(3, `${cyan('Discord')} >> event "${yellow('COMMAND_EXECUTE')}" fired`);
         this.bot.print(3, `${cyan(`DShard #${msg.channel.guild ? msg.channel.guild.shard.id : 0}`)} >> Command '${cmd.extData.name}' executed by ${yellow(msg.author.id)}`);
       } catch (ex) {
-        process.handleError(ex, cyan('Discord'), 'CommandError');
+        process.handleError(ex, 'CommandError', cyan('Discord'));
         msg.channel.createMessage({
           embed: {
             color      : this.bot.col['error'],

@@ -7,7 +7,7 @@ const conf = yaml.safeLoad(fs.readFileSync('application.yml', { encoding: 'utf8'
 
 module.exports = class WumpUtil {
   static print(lvl = 0, msg = '') {
-    const log = `tmp\\log\\${moment(new Date).format('DD[-]MM[-]YYYY')}.log`;
+    const log = `tmp/log/${moment(new Date).format('DD[-]MM[-]YYYY')}.log`;
 
     fs.mkdir('tmp', 777,      (err) => { if (err && err.code !== 'EEXIST') throw err; });
     fs.mkdir('tmp/log', 777, (err) => { if (err && err.code !== 'EEXIST') throw err; });
@@ -35,13 +35,18 @@ module.exports = class WumpUtil {
     }
   }
 
-  static getPercentage(o, n) { return ( ( o - n ) / o ) * 100; }
-
-  static shorten(t = '', m = 2000) { return t.length > m ? `${t.substr( 0, m - 3 )}...` : t; }
-
-  static escapeMarkdown(t = '', oc = false, oi = false) {
-    if (oc) return t.replace(/```/g, '\u200b`\u200b`\u200b`');
-    if (oi) return t.replace(/\\([`\\])/g, '$1').replace(/([`\\])/g, '\u200b$1');
-    return t.replace(/([*_`~\\])/g , '\u200b$1').replace(/\\([*_`~\\])/g, '$1');
+  static getPercentage(o, n) {
+    return (( o - n ) / o) * 100;
   }
+
+  static shorten(t = '', m = 2000) {
+    return t.length > m ? `${t.substr( 0, m - 3 )}...` : t;
+  }
+
+  static escapeMarkdown(text, onlyCodeBlock = false, onlyInlineCode = false) {
+    if (onlyCodeBlock) return text.replace(/```/g, '`\u200b``');
+    if (onlyInlineCode) return text.replace(/\\(`|\\)/g, '$1').replace(/(`|\\)/g, '\\$1');
+    return text.replace(/\\(\*|_|`|~|\\)/g, '$1').replace(/(\*|_|`|~|\\)/g, '\\$1');
+  }
+
 };

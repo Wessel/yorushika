@@ -1,13 +1,13 @@
 const { DiscordCommand } = require('../../../core');
 
-module.exports = class Eval extends DiscordCommand {
+module.exports = class Echo extends DiscordCommand {
   constructor(bot) {
     super(bot, {
       name        : 'echo',
       syntax      : 'echo <...message:str>',
       aliases     : [],
       argument    : [ '<...message:str>' ],
-      description : 'Evaluate a snippet',
+      description : 'Repeat your input',
 
       hidden      : false,
       enabled     : true,
@@ -26,7 +26,9 @@ module.exports = class Eval extends DiscordCommand {
 
   localize(msg) {
     // Empty
-    if (!msg) return '';
+    if (!msg) {
+      return '';
+    }
     // Main
     return msg.replace(/\$\[emoji#0]/g, this.bot.emote('developer', 'echo'));
   }

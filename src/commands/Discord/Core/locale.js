@@ -1,7 +1,5 @@
 const { DiscordCommand } = require('../../../core');
 
-const larg = require('larg');
-
 module.exports = class Locale extends DiscordCommand {
   constructor(bot) {
     super(bot, {
@@ -13,7 +11,7 @@ module.exports = class Locale extends DiscordCommand {
 
       hidden      : false,
       enabled     : true,
-      cooldown    : 1000,
+      cooldown    : 10000,
       category    : 'Core',
       ownerOnly   : false,
       guildOnly   : false,
@@ -26,11 +24,20 @@ module.exports = class Locale extends DiscordCommand {
     if (!guild || guild === null) guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
 
     if (args.join(' ').includes('-u') || args.join(' ').includes('--user')) {
-      for (let i = 0; i < args.length; i++) !this.bot.locales.has(args[i]) ? args.splice(i, -1) : undefined;
-      if (!this.bot.locales.has(args[0])) return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['invalid']));
-      if (user.locale === args[0]) return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['dupe'], { uLocale: user.locale }));
+      for (let _ = 0; _ < args.length; _++) {
+        if (!this.bot.locales.has(args[_])) args.splice(_, -1);
+      };
+
+      if (!this.bot.locales.has(args[0])) {
+        return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['invalid']));
+      }
+      if (user.locale === args[0]) {
+        return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['dupe'], { uLocale: user.locale || 'en_us' }));
+      }
       
-      this.bot.m.connection.collection('dUsers').findOneAndUpdate({ 'userId': user.userId }, { $set: { locale: args[0] } }, (err) => { if (err) throw err; });
+      this.bot.m.connection.collection('dUsers').findOneAndUpdate({ 'userId': user.userId }, { $set: { locale: args[0] } }, (err) => {
+        if (err) throw err;
+      });
       this.bot.cache.get('users').some((v, _) => { if (v['userId'] === msg.author.id) this.bot.cache.get('users').splice(_, 1); });
       msg.channel.createMessage(this.localize(this.bot.locales.get(args[0])['core']['locale']['changed'], { uLocale: args[0] }));
     } else if (args.join(' ').includes('-g') || args.join(' ').includes('--guild')) {

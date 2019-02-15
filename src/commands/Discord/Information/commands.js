@@ -93,6 +93,11 @@ module.exports = class Commands extends DiscordCommand {
     return msg
       .replace(/\$\[emoji#0]/g, this.bot.emote('info', 'commands', '0'))
       .replace(/\$\[emoji#1]/g, this.bot.emote('info', 'commands', '1'))
-      .replace(/\$\[emoji#2]/g, this.bot.emote('info', 'commands', '2'));
+      .replace(/\$\[emoji#2]/g, this.bot.emote('info', 'commands', '2'))
+      .replace(/\$\[emoji#3]/g, this.bot.emote('info', 'commands', '3'))
+      .replace(/\$\[emoji#4]/g, this.bot.emote('info', 'commands', '4'))
+      .replace(/\$\[emoji#5]/g, this.bot.emote('info', 'commands', '5'))
+      .replace(/\$\[emoji#6]/g, this.bot.emote('info', 'commands', '6'))
+      .replace(/\$\[emoji#7]/g, this.bot.emote('info', 'commands', '7'));
   }
 };

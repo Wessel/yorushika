@@ -57,9 +57,11 @@ discord  :
     math         : true
     snipe        : true
     # Category   : INFORMATION
+    user         : true
     stats        : true
     guild        : true
     avatar       : true
+    github       : true
     commits      : true
     commands     : true
     # Category   : IMAGE
@@ -73,6 +75,8 @@ discord  :
     # Category   : DEVELOPER
     eval         : true
     echo         : true
+    exec         : true
 
 api  :
   lol: '<--snip-->'
+  dbl: '<--snip-->'

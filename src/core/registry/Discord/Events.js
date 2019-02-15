@@ -9,7 +9,7 @@ module.exports = class EventStore {
   execute(event) {    
     const execAsync = async(...args) => {
       try { await event.emit(...args); }
-      catch (ex) { process.handleError(ex, cyan('Discord'), 'EventError'); }
+      catch (ex) { process.handleError(ex, 'EventError', cyan('Discord')); }
     };
 
     this.bot.on(event.extData.name, execAsync);

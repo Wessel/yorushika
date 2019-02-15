@@ -17,9 +17,13 @@ module.exports = class WumpCommand {
       guildOnly   : false,     // Guild only          ( true / false )
       permissions : []         // Bot permissions     ( optional )
     }, opts);
+
+    this.static  = {};
+    this.mutable = {};
+    Object.freeze(this.static);
   }
 
   async execute(msg, args, user, guild) {}
 
-  localize(msg) {}
+  _localize(msg) {}
 };

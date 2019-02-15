@@ -6,5 +6,5 @@ module.exports = class WumpEvent {
 
   emit(...args) {}
 
-  localize(msg) {}
+  _localize(msg) {}
 };

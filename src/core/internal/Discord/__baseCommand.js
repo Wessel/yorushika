@@ -21,5 +21,5 @@ module.exports = class name extends DiscordCommand {
 
   async execute(msg, args, user, guild) {}
 
-  localize(msg) {}
+  _localize(msg) {}
 };

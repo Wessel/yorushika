@@ -1,6 +1,10 @@
+votelock  :
+  0       : <:exclamation:542368036255039509>
+  1       : <:send:544852981254848513>
 cooldown  : <:stopwatch:542477522147868672>   # On cooldown
 owner_only: <:exclamation:542368036255039509> # Only owners
 guild_only: <:exclamation:542368036255039509> # Only guilds
+
 
 core    :
   locale:
@@ -13,6 +17,7 @@ core    :
     6   : <:ok_hand:497396122416054287>     # Updated (user)
     7   : <:sad:500719642403405824>         # Invalid locale
     8   : <:sad:500719642403405824>         # Missing permissions (guild)
+  
   prefix:
     0   : <:wumpus_blob:541629681120837648> # Dupe prefix (user)
     1   : <:wumpus_blob:541629681120837648> # Dupe prefix (guild)
@@ -23,8 +28,9 @@ core    :
     6   : <:ok_hand:497396122416054287>     # Updated (user)
     7   : <:sad:500719642403405824>         # Missing permissions (guild)
 
-logs            :
-    ready       : '<:spacewump:542723940997529641>'
+logs     :
+    ready: '<:spacewump:542723940997529641>'
+
     shard       :
       ready     : '<:create_webhook:542716503674454016>'
       resume    : '<:update_webhook:542716504089690124>'
@@ -36,68 +42,100 @@ util   :
     1  : <:thumbsup:501844577725054976>        # Heartbeat
     2  : <:blueberry:506201160382939141>       # Round-trip
     3  : <:WumpLove:506200781549076482>        # Health
+  
   math :
     0  : <:blueberry:506201160382939141>       # Calculating
     1  : <a:ablobdevil:494927811451027458>     # Evaluation
     2  : <a:agoogleoctopus:494927680911704067> # Invalid equation
+    
   snipe: <:snipe:508653323788877825>           # No snipes found
 
 info:
-  guild        :
-    0          : <:search:542368817163010057>      # Guild Name
-    1          : <:wumpus_flag:495525134220787713> # Guild region
-    2          : <:cloud:542368816911613963>       # Guild creation
-    3          : <:alert:542367222279176202>       # Content filter
-    4          : <:exclamation:542368036255039509> # Verification level
-    5          : <:hashtag:542367004024242176>     # Channels
-    6          : <:owner:542365741844922368>       # Owner tag
-    7          : <:early:542366345795207178>       # Owner creation
-    8          : <:store:542366547180781588>       # Owner avatar
-    9          : <:bot:473670328334155805>         # Total bots
-    10         : <:member:542362747896201218>      # Total users
-    11         : <:online:362670805051768833>      # Total online members
-    12         : <:idle:362670805760475136>        # Total idle members
-    13         : <:dnd:362670805676720128>         # Total DnD members
-    14         : <:offline:362670805441708032>     # Total offline members
-    15         : <:exclamation:542368036255039509> # Invalid query
-  avatar       : <:blueberry:506201160382939141> # User's avatar
-  commits      : 
-    0          : <:wumplus:542809926414761995>   # 10 most recent commits
-    1          : <:early:542366345795207178>     # Total commits
-  commands     :
-    0          : <:blueberry:506201160382939141> # Guild prefix
-    1          : <:spirit:332131321759399937>    # More info
-    2          : <:WumpLove:506200781549076482>  # Links
-  statistics   :
-    0          : <:ok_hand:497396122416054287>         # Fetching
-    1          : <:blueberry:506201160382939141>       # Operating System
-    2          : <:happy:500719642231177220>           # Process hash
-    3          : <:WumpLove:506200781549076482>        # Load average
-    4          : <a:ablobangel:494926715592900608>     # OS uptime
-    5          : <a:agoogleoctopus:494927680911704067> # Uptime
-    6          : <:monkey:369880931630317568>          # Memory usage
-    7          : <:spirit:332131321759399937>          # User agent
-    8          : <:dev_server:495573905092902942>      # Shards
-    9          : <:beetle_tank:445274774579445771>     # Cache
-    10         : <:srv_server:495680009197977617>      # Channels
-    11         : <:srv_tags:496035430052134912>        # Guilds
-    12         : <:srv_user:495917052784148480>        # Users
+  guild:
+    0  : <:search:542368817163010057>      # Guild Name
+    1  : <:wumpus_flag:495525134220787713> # Guild region
+    2  : <:cloud:542368816911613963>       # Guild creation
+    3  : <:alert:542367222279176202>       # Content filter
+    4  : <:exclamation:542368036255039509> # Verification level
+    5  : <:hashtag:542367004024242176>     # Channels
+    6  : <:owner:542365741844922368>       # Owner tag
+    7  : <:early:542366345795207178>       # Owner creation
+    8  : <:store:542366547180781588>       # Owner avatar
+    9  : <:bot:473670328334155805>         # Total bots
+    10 : <:member:542362747896201218>      # Total users
+    11 : <:online:362670805051768833>      # Total online members
+    12 : <:idle:362670805760475136>        # Total idle members
+    13 : <:dnd:362670805676720128>         # Total DnD members
+    14 : <:offline:362670805441708032>     # Total offline members
+    15 : <:exclamation:542368036255039509> # Invalid query
+  
+  user:
+    0 : <:hashtag:542367004024242176>      # User tag
+    1 : <:early:542366345795207178>        # Creation date
+    2 : <:streaming:362670805185724418>    # User status
+    3 : <:wumpus_blob:541629681120837648>  # Nickname
+    4 : <:join:546066271318441994>         # Joined date
+    5 : <:create_role:546066640417325066>  # Roles
+    6 : <:exclamation:542368036255039509>  # Status (unknown)
+    7 : <:online:362670805051768833>       # Status (online)
+    8 : <:idle:362670805760475136>         # Status (away)
+    9 : <:dnd:362670805676720128>          # Status (DnD)
+    10: <:offline:362670805441708032>      # Status (offline)
+    11: <:exclamation:542368036255039509>  # Invalid user
 
-image    :
-  cat    :
-    0    : <:blueberry:506201160382939141> # Fetching
-    1    : <:spirit:332131321759399937>    # Cat fact
-  dog    :
-    0    : <:blueberry:506201160382939141> # Fetching
-    1    : <:spirit:332131321759399937>    # dog fact
+  avatar: <:blueberry:506201160382939141> # User's avatar
+  
+  commits: 
+    0    : <:wumplus:542809926414761995>   # 10 most recent commits
+    1    : <:early:542366345795207178>     # Total commits
+  
+  commands:
+    0     : <:blueberry:506201160382939141>   # Guild prefix
+    1     : <:spirit:332131321759399937>      # More info
+    2     : <:WumpLove:506200781549076482>    # Links
+    3     : <:Starlinator:332182009680101376> # Name
+    4     : <:beetle_tank:445274774579445771> # Syntax
+    5     : <:chubi:447107570239537152>       # Aliases
+    6     : <:reptice:331951247445983235>     # Cooldown
+    7     : <:the_mole:445271536690003968>    # Arguments
+
+  statistics:
+    0       : <:ok_hand:497396122416054287>         # Fetching
+    1       : <:blueberry:506201160382939141>       # Operating System
+    2       : <:happy:500719642231177220>           # Process hash
+    3       : <:WumpLove:506200781549076482>        # Load average
+    4       : <a:ablobangel:494926715592900608>     # OS uptime
+    5       : <a:agoogleoctopus:494927680911704067> # Uptime
+    6       : <:monkey:369880931630317568>          # Memory usage
+    7       : <:spirit:332131321759399937>          # User agent
+    8       : <:dev_server:495573905092902942>      # Shards
+    9       : <:beetle_tank:445274774579445771>     # Cache
+    10      : <:srv_server:495680009197977617>      # Channels
+    11      : <:srv_tags:496035430052134912>        # Guilds
+    12      : <:srv_user:495917052784148480>        # Users
+
+image:
+  cat:
+    0: <:blueberry:506201160382939141> # Fetching
+    1: <:spirit:332131321759399937>    # Cat fact
+
+  dog:
+    0: <:blueberry:506201160382939141> # Fetching
+    1: <:spirit:332131321759399937>    # dog fact
+
   fox    : <:blueberry:506201160382939141> # Fetching
+
   birb   : <:blueberry:506201160382939141> # Fetching
+
   duck   : <:blueberry:506201160382939141> # Fetching
+
   lizard : <:blueberry:506201160382939141> # Fetching
+
   penguin: <:blueberry:506201160382939141> # Fetching
 
 developer:
   echo   : <a:voting:501106582915121154>         # Invalid message
+
   eval   :
     0    : <a:voting:501106582915121154>         # Invalid snippet
     1    : <a:agoogleoctopus:494927680911704067> # Evaluating

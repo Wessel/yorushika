@@ -66,14 +66,16 @@ module.exports = class Guild extends DiscordCommand {
             o.cs = [
               o.c.years >= 1  ?  `${o.c.years} years`  : undefined,
               o.c.months >= 1 ? `${o.c.months} months` : undefined,
-              o.c.days >= 1   ? `${o.c.days} days`     : undefined
+              o.c.days >= 1   ? `${o.c.days} days`     : undefined,
+              o.days <= 0 && o.months <= 0 && o.years <= 0 ? 'Less than a day' : undefined              
             ].join(' ');
 
       extData.guild.c  = moment.preciseDiff(new Date(), new Date(extData.guild.createdAt), true);
       extData.guild.cs = [
         extData.guild.c.years >= 1  ?  `${extData.guild.c.years} years`  : undefined,
         extData.guild.c.months >= 1 ? `${extData.guild.c.months} months` : undefined,
-        extData.guild.c.days >= 1   ? `${extData.guild.c.days} days`     : undefined
+        extData.guild.c.days >= 1   ? `${extData.guild.c.days} days`     : undefined,
+        extData.guild.days <= 0 && extData.guild.months <= 0 && extData.guild.years <= 0 ? 'Less than a day' : undefined
       ].join(' ');
 
       msg = msg

@@ -19,6 +19,10 @@ error   :
   - 'Bericht = "$[err:message]"'
   - '```'
 cooldown: '$[emoji#0] $[author:mention] **>** Dit commando is op cooldown voor **$[cooldown:left]**'
+votelock:
+  - '$[emoji#0] Dit commando is **votelocked**, stem voor [**`Wump`**](https://discordbots.org/bot/318057009188438016/vote) om dit commando/parameters te ontgrendelen (Het kan tot 10 minuten duren om uw stem te registreren)'
+  - ''
+  - '$[emoji#1] Als u nogsteeds problemen hebt ná dat, kunt u een [**`issue`**](https://github.com/PassTheWessel/wump/issues) maken op [**`GitHub`**](https://github.com/PassTheWessel/wump) of mijn [**`Discord`**](https://discord.gg/SV7DAE9) joinen en het daar te plaatsen'
 
 core        :
   prefix    :
@@ -66,9 +70,11 @@ util       :
       - '$[emoji#2] **Rondvaart**: $[roundtrip]ms'
       - '$[emoji#1] **Hartslag**: $[latency]ms'
       - '$[emoji#3] **Gezondheid**: $[health]'
+
   math     :
     busy   : '$[emoji#0] Aam het berekenen, dit kan enige tijd duren...'
     blocked: '<geblokkeerd> De methode "$[math:function]" is om veiligheidsredenen uitgeschakeld <geblokkeerd>'
+
   snipe    :
     fail   : '$[emoji#0] Geen snipebare berichten gevonden'
     footer : 'Sniped door $[author:tag] ($[author:id])'
@@ -76,18 +82,20 @@ util       :
 info      :
   stats   :
     fetching: '$[emoji#0] Statistieken aan het ophalen, dit kan enige tijd duren...'
-  avatar  : '$[emoji#0] Hier is **$[user:full]** avatar'  
+  
+  avatar  : '$[emoji#0] Hier is **$[user:full]** avatar'
+
   commands:
     multi :
       - '$[emoji#0] Het voorvoegsel voor **$[guild:name]** is `$[guild:prefix]`'
       - '$[emoji#1] typ `$[guild:prefix]command <command:str>` voor meer informatie'
       - '$[emoji#2] **Links**: [`Uitnodiging`]($[bot:invite]) **|** [`Ondersteuning`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
     single:
-      - '**Naam**: $[command:name]'
-      - '**Syntaxis**: $[command:syntax]'
-      - '**Aliassen**: $[command:aliases]'
-      - '**Cooldown**: $[command:cooldown#formatted]'
-      - '**Argumenten**: $[command:arguments]'
+      - '$[emoji#3] **Naam**: $[command:name]'
+      - '$[emoji#4] **Syntaxis**: $[command:syntax]'
+      - '$[emoji#5] **Aliassen**: $[command:aliases]'
+      - '$[emoji#6] **Cooldown**: $[command:cooldown#formatted]'
+      - '$[emoji#7] **Argumenten**: $[command:arguments]'
     fields:
       - 'Kern'
       - 'Informatie'
@@ -123,12 +131,30 @@ info      :
           - '$[emoji#14] Offline **⤏** `$[guild:users#offline]`'
     invalid: '$[emoji#15] Geen gilde gevonden met uw zoekopdracht'
 
+  user       :
+    invalid  : '$[emoji#11] Geen gebruiker gevonden met uw zoekopdracht'
+    fields   :
+      self   :
+        name : '❯ Gebruikers Informatie'
+        value:
+          - '$[emoji#0] **Label**: $[user:tag] (`$[user:id]`)'
+          - '$[emoji#1] **Creatie**: $[user:created@precise] ago (`$[user:created@exact]`)'
+          - '$[emoji#2] **Staat**: $[user:status@full]'
+      member:
+        name : '❯ Ledeninformatie' 
+        value:
+          - '$[emoji#3] **Bijnaam**: $[member:nickname]'
+          - '$[emoji#4] **Aangesloten**: $[member:created@precise] ago (`$[member:created@exact]`)'
+          - '$[emoji#5] **Rollen**: $[member:roles]'
+
+
 image:
     fetching	  : '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'
     failed_cache: 'Klik hier als het plaatje niet is geladen'
     
 developer:
   echo    : '$[emoji#0] Ongeldig bericht om te echoën'
+  
   eval    :
     args  : '$[emoji#0] Ongeldig codefragment om te evalueren'
     busy  : '$[emoji#1] Aan het evalueren, Dit kan enige tijd duren...'
@@ -139,5 +165,18 @@ developer:
     result:
       - '$[emoji#3] **Resultaat** (`$[result:type]`):'
       - '```js'
+      - '$[result:message]'
+      - '```'
+
+  exec    :
+    args  : '$[emoji#0] Ongeldig commando om uit te voeren'
+    busy  : '$[emoji#1] Aan het uitvoeren, dit kan enige tijd duren...'
+    silent: '$[emoji#2] Commando stil uitgevoerd'
+    types :
+      - 'geslaagd'
+      - 'mislukt'
+    result:
+      - '$[emoji#3] **Resultaat** (`$[result:type]`):'
+      - '```sh'
       - '$[result:message]'
       - '```'

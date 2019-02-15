@@ -73,6 +73,7 @@ module.exports = class RESTclient {
   }
 
   getMember($, g, n = false) {
+    if (!$ || !g) return undefined;
     if (/^\d+$/.test($) && g.members.get($)) return g.members.get($);
     else if (/^<@!?(\d+)>$/.test($)) {
       const m = $.match(/^<@!?(\d+)>$/);

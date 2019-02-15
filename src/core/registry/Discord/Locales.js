@@ -24,7 +24,7 @@ module.exports = class LocaleRegistry {
             }
           }
         } catch (ex) {
-          process.handleError(ex, cyan('Discord'), 'LoadError');
+          process.handleError(ex, 'LoadError', cyan('Discord'));
           return { success: false, err: ex };
         }
 

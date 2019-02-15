@@ -38,8 +38,8 @@ const col  = safeLoad(readFileSync( 'assets/config/colors.yml'));
 const conf = safeLoad(readFileSync('application.yml'));
 print(3, `${magenta('Debug')} >> Configuration files loaded`);
 
-process.on('uncaughtException', process.handleError);
-process.on('unhandledRejection', process.handleError);
+process.on('uncaughtException', (err) => process.handleError(err));
+process.on('unhandledRejection', (err) => process.handleError(err));
 process.on('SIGINT', () => {
   if (Database) {
     try {
@@ -67,7 +67,7 @@ process.on('SIGINT', () => {
   if (!conf['db']) process.handleError(undefined, undefined, undefined, 1, red('!! Failed to start: No database found !!'));
   print(2, `${yellow('Database' )} >> Connecting to database...`);
   Database = mongoose.connect(conf['db'], { useNewUrlParser: true });
-  mongoose.connection.on('error', process.handleError);
+  mongoose.connection.on('error', (err) => process.handleError(err));
   print(2, `${yellow('Database')} >> ${green('Connected to database')}` );
 })();
 
