@@ -2,9 +2,9 @@
 [ ] = Planned
 [x] = In progress
 
-- [ ] Utility
-    - [ ] Commands
-        - [ ] Tesseract (Donator)
+- [x] Utility
+    - [x] Commands
+        - [x] Tesseract (Donator)
 - [ ] Tags
     - [ ] Commands
         - [ ] Use
@@ -32,7 +32,7 @@
         - [ ] Un(mute)
         - [ ] Infractions
 
-_***Finished (for now)***_:
+## Finished (for now):
 - [x] Global
     - [x] Commands
         - [x] user lookup 
