@@ -1,6 +1,6 @@
 # Things that are either planned or being worked on
-[ ] = Planned
-[x] = In progress
+- [ ] = Planned
+- [x] = In progress
 
 - [x] Utility
     - [x] Commands
