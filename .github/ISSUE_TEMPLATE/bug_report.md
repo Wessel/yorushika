@@ -1,6 +1,9 @@
 ---
 name: Bug Report
-description: Report incorrect or unexpected behaviour
+about: Report an issue with Wump
+title: "[BUG] Somenthing broke"
+labels: bug
+assignees: PassTheWessel
 
 ---
 

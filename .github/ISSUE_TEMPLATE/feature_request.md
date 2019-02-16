@@ -1,9 +1,11 @@
 ---
 name: Feature request
-about: Request a feature
+about: Request a feature for Wump
+title: "[ENHANCEMENT] This is an amazing new idea!"
+labels: enhancement
+assignees: PassTheWessel
 
 ---
-
 
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
