@@ -59,7 +59,25 @@ module.exports = class Guild extends DiscordCommand {
       });
     }
 
+    const mutual = this.bot.guilds.filter((v) => v.members.has(u.id)).map((v) => v.name);
+    structure.embed.fields.push({
+      name: msg.author.locale['info']['user']['fields']['mutual'],
+      value: mutual.length >= 1 ? this._limit(mutual, 25).join(' **/** ') : 'none',
+      inline: true
+    });
+
     msg.channel.createMessage(structure);
+  }
+
+  _limit(array, max) {
+    if (array.length <= max) return array;
+    else {
+      const length = array.length - max;
+      array.splice(max, array.length - max);
+      array.push(`And ${length} more...`);
+      
+      return array;
+    }
   }
 
   _localize(msg, extData) {

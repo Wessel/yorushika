@@ -24,13 +24,13 @@ votelock:
   - ''
   - '$[emoji#1] If you still have issues after that, you can either create an [**`issue`**](https://github.com/PassTheWessel/wump/issues) on [**`GitHub`**](https://github.com/PassTheWessel/wump) or join my [**`Discord`**](https://discord.gg/SV7DAE9) and posting it there'
 
-core        :
-  prefix    :
+core:
+  prefix:
+    dupe: '$[emoji#0] Your prefix is already set to `$[user:prefix]`'
+    gdupe: '$[emoji#1] The guild''s prefix is already set to `$[guild:prefix]`'
+    gperms: '$[emoji#7] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
+    changed: '$[emoji#6] Successfully updated your prefix to `$[user:prefix]`'
     gchanged: '$[emoji#5] Successfully updated the guild''s prefix to `$[guild:prefix]`'
-    changed : '$[emoji#6] Successfully updated your prefix to `$[user:prefix]`'
-    gperms  : '$[emoji#7] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
-    gdupe   : '$[emoji#1] The guild''s prefix is already set to `$[guild:prefix]`'
-    dupe    : '$[emoji#0] Your prefix is already set to `$[user:prefix]`'
     info    :
       - '$[emoji#2] **>** Your current prefix is `$[user:prefix]`'
       - '$[emoji#3] **>** The guild''s prefix is `$[guild:prefix]`'
@@ -41,14 +41,14 @@ core        :
       - ''
       - 'Type `$[prefix:changeCmd]` to update your/the guild''s prefix'
 
-  locale    :
+  locale:
+    dupe: '$[emoji#0] Your locale is already set to `$[uLocale:code]`'
+    gdupe: '$[emoji#1] The guild''s locale is already set to `$[gLocale:code]`'
+    gperms: '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
+    invalid: '$[emoji#7] The locale you provided isn''t a valid locale'
+    changed: '$[emoji#6] Successfully updated your locale to `$[uLocale:code]`'
     gchanged: '$[emoji#5] Successfully updated the guild''s locale to `$[gLocale:code]`'
-    changed : '$[emoji#6] Successfully updated your locale to `$[uLocale:code]`'
-    invalid : '$[emoji#7] The locale you provided isn''t a valid locale'
-    gperms  : '$[emoji#8] You''re missing permissions in order to execute this command (`MANAGE_GUILD`)'
-    gdupe   : '$[emoji#1] The guild''s locale is already set to `$[gLocale:code]`'
-    dupe    : '$[emoji#0] Your locale is already set to `$[uLocale:code]`'
-    list    :
+    list:
       - '$[emoji#2] **>** Your current locale is `$[uLocale:code]`'
       - '$[emoji#3] **>** The guild''s locale is `$[gLocale:code]`'
       - ''
@@ -58,48 +58,48 @@ core        :
       - 'Type `$[locale:changeCmd]` to update your/the guild''s locale'
       - 'If you want to help translate wump, you can join my [Discord](https://discord.gg/SV7DAE9) and create a pull request on my [GitHub](https://github.com/PassTheWessel/wump/compare)'
 
-util       :
-  ping     :
-    busy   : '$[emoji#0] Pinging...'
-    health :
+util:
+  ping:
+    busy: '$[emoji#0] Pinging...'
+    health:
       - 'Unknown'
       - 'Good'
       - 'Okay'
       - 'Bad'
-    result :
+    result:
       - '$[emoji#2] **Round-Trip**: $[roundtrip]ms'
       - '$[emoji#1] **Heartbeat**: $[latency]ms'
       - '$[emoji#3] **Health**: $[health]'
   
-  math     :
-    busy   : '$[emoji#0] Calculating, this may take some time...'
+  math:
+    busy: '$[emoji#0] Calculating, this may take some time...'
     blocked: '<blocked> Method "$[math:function]" has been disabled for security reasons <blocked>'
   
-  snipe    :
-    fail   : '$[emoji#0] No snipeable messages found'
-    footer : 'Sniped by $[author:tag] ($[author:id])'
+  snipe:
+    fail: '$[emoji#0] No snipeable messages found'
+    footer: 'Sniped by $[author:tag] ($[author:id])'
 
-info      :
-  stats   :
+info:
+  stats:
     fetching: '$[emoji#0] Fetching statistics, this may take some time...'
   
-  avatar  : '$[emoji#0] Here''s **$[user:full]** avatar'  
+  avatar: '$[emoji#0] Here''s **$[user:full]** avatar'  
   
-  commits : 
+  commits: 
     - '$[emoji#1] **Total commits**: [`$[commits:total]`](https://github.com/PassTheWessel/wump/commits "Click here for a list of all commits")'
     - '$[emoji#0] **10 most recent commits done on [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
   
   commands:
-    multi :
-      - '$[emoji#0] The prefix for **$[guild:name]** is `$[guild:prefix]`'
-      - '$[emoji#1] Type `$[guild:prefix]command <command:str>` for more information'
-      - '$[emoji#2] **Links**: [`Invite`]($[bot:invite]) **|** [`Support`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
     single:
       - '$[emoji#3] **Name**: $[command:name]'
       - '$[emoji#4] **Syntax**: $[command:syntax]'
       - '$[emoji#5] **Aliases**: $[command:aliases]'
       - '$[emoji#6] **Cooldown**: $[command:cooldown#formatted]'
       - '$[emoji#7] **Arguments**: $[command:arguments]'
+    multi:
+      - '$[emoji#0] The prefix for **$[guild:name]** is `$[guild:prefix]`'
+      - '$[emoji#1] Type `$[guild:prefix]command <command:str>` for more information'
+      - '$[emoji#2] **Links**: [`Invite`]($[bot:invite]) **|** [`Support`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
     fields:
       - 'Core'
       - 'Information'
@@ -136,26 +136,34 @@ info      :
           - '$[emoji#14] Offline **⤏** `$[guild:users#offline]`'
     invalid: '$[emoji#15] No guild found with your query'
 
-  user       :
-    invalid  : '$[emoji#11] No user found with your query'
-    fields   :
-      self   :
-        name : '❯ User Information'
+  user:
+    invalid: '$[emoji#11] No user found with your query'
+    fields:
+      self:
+        name: '❯ User Information'
         value:
           - '$[emoji#0] **Tag**: $[user:tag] (`$[user:id]`)'
           - '$[emoji#1] **Creation**: $[user:created@precise] ago (`$[user:created@exact]`)'
           - '$[emoji#2] **Status**: $[user:status@full]'
+      mutual: '❯ Mutual Guilds'          
       member:
-        name : '❯ Member Information' 
+        name: '❯ Member Information' 
         value:
           - '$[emoji#3] **Nickname**: $[member:nickname]'
           - '$[emoji#4] **Joined**: $[member:created@precise] ago (`$[member:created@exact]`)'
           - '$[emoji#5] **Roles**: $[member:roles]'
 
 image:
-    fetching	  : '$[emoji#0] Fetching a random image, this may take some time...'
+    fetching: '$[emoji#0] Fetching a random image, this may take some time...'
     failed_cache: 'Click here if the image didn''t load properly'
-    
+
+games:
+  splatoon:
+    - 'The current maps are:'
+    - '<:turf_wars:393051690393272320> **Turf War maps ⟿** $[maps:turf@first] **and** $[maps:turf@second]'
+    - '<:league:393051694096842762> **League Battle maps ⟿** $[maps:league@first] **and** $[maps:league@second]'
+    - '<:ranked:393051690108190721> **Ranked Battle maps ⟿** $[maps:ranked@first] **and** $[maps:ranked@second]'
+
 developer:
   echo    : '$[emoji#0] Invalid content to echo'
 

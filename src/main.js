@@ -25,7 +25,7 @@ process.argv = require('larg')(process.argv.slice(2));
 process.hash = String.string(8);
 
 process.handleError = (err, name, type, exit = false, custom = false) => {
-  if (!custom) print(0, `${type ? type : green('Master')} !! ${name ? name : err.name ? err.name : 'Error'} -\n${red(`${err.message && err.stack ? `${err.message}\n${err.stack}` : err}`)}`);
+  if (!custom) print(0, `${type ? type : green('Master')} !! ${name ? name : err.name ? err.name : 'Error'} -\n${red(`${err && err.message && err.stack ? `${err.message}\n${err.stack}` : err}`)}`);
   else print(0, custom);
   
   if (exit) process.exit(process.type(exit) === 8 ? exit : 1);

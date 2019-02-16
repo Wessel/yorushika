@@ -75,10 +75,12 @@ module.exports = class Avatar extends DiscordCommand {
         tmp = await w(avatarURL).send(); 
         tmp = tmp.body;
         // Resizing
-        dim = sizeOf(tmp);
-        tmp = await s(tmp)
-          .resize(dim.width * 2, dim.height * 2, { kernel: resize === 'LINEAR_B' ? s.kernel.linearB : resize === 'LINEAR_A' ? s.kernel.linearA : resize === 'NEAREST' ? s.kernel.nearest : s.kernel.linearA }) // { fit: 'inside' }
-          .toBuffer();
+        if (this.mutable.reg[0].test(oArgs)) {
+          dim = sizeOf(tmp);
+          tmp = await s(tmp)
+            .resize(dim.width * 2, dim.height * 2, { kernel: resize === 'LINEAR_B' ? s.kernel.linearB : resize === 'LINEAR_A' ? s.kernel.linearA : resize === 'NEAREST' ? s.kernel.nearest : s.kernel.linearA }) // { fit: 'inside' }
+            .toBuffer();
+        }
         // Utility customization
         if (this.mutable.reg[2].test(oArgs)) tmp = await s(tmp).greyscale().toBuffer();
         if (this.mutable.reg[3].test(oArgs)) tmp = await s(tmp).jpeg({ quality: 5 }).toBuffer();

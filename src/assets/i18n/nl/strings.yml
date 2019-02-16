@@ -135,17 +135,18 @@ info      :
           - '$[emoji#14] Offline **⤏** `$[guild:users#offline]`'
     invalid: '$[emoji#15] Geen gilde gevonden met uw zoekopdracht'
 
-  user       :
-    invalid  : '$[emoji#11] Geen gebruiker gevonden met uw zoekopdracht'
-    fields   :
-      self   :
-        name : '❯ Gebruikers Informatie'
+  user:
+    invalid: '$[emoji#11] Geen gebruiker gevonden met uw zoekopdracht'
+    fields:
+      self:
+        name: '❯ Gebruikers Informatie'
         value:
           - '$[emoji#0] **Label**: $[user:tag] (`$[user:id]`)'
           - '$[emoji#1] **Creatie**: $[user:created@precise] ago (`$[user:created@exact]`)'
           - '$[emoji#2] **Staat**: $[user:status@full]'
+      mutual: '❯ Wederzijdse Gilden'          
       member:
-        name : '❯ Ledeninformatie' 
+        name: '❯ Ledeninformatie' 
         value:
           - '$[emoji#3] **Bijnaam**: $[member:nickname]'
           - '$[emoji#4] **Aangesloten**: $[member:created@precise] ago (`$[member:created@exact]`)'
@@ -153,9 +154,16 @@ info      :
 
 
 image:
-    fetching	  : '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'
+    fetching: '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'
     failed_cache: 'Klik hier als het plaatje niet is geladen'
-    
+
+games:
+  splatoon:
+    - 'The current maps are:'
+    - '<:turf_wars:393051690393272320> **Turf War maps ⟿** $[maps:turf@first] **and** $[maps:turf@second]'
+    - '<:league:393051694096842762> **League Battle maps ⟿** $[maps:league@first] **and** $[maps:league@second]'
+    - '<:ranked:393051690108190721> **Ranked Battle maps ⟿** $[maps:ranked@first] **and** $[maps:ranked@second]'
+
 developer:
   echo    : '$[emoji#0] Ongeldig bericht om te echoën'
   

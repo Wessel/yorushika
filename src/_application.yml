@@ -72,6 +72,8 @@ discord  :
     birb         : true
     lizard       : true
     penguin      : true
+    # Category   : GAMES
+    splatoon     : true
     # Category   : DEVELOPER
     eval         : true
     echo         : true
