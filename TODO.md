@@ -2,6 +2,9 @@
 [ ] = Planned
 [x] = In progress
 
+- [ ] Utility
+    - [ ] Commands
+        - [ ] Tesseract (Donator)
 - [ ] Tags
     - [ ] Commands
         - [ ] Use
