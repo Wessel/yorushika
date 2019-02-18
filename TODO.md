@@ -5,14 +5,14 @@
 - [x] Utility
     - [x] Commands
         - [x] Tesseract (Donator)
-- [ ] Tags
-    - [ ] Commands
-        - [ ] Use
+- [x] Tags
+    - [x] Commands
+        - [x] Use
         - [ ] Edit
         - [ ] Info
-        - [ ] Create
-        - [ ] Delete
-        - [ ] Source
+        - [x] Create
+        - [x] Delete
+        - [x] Source
         - [ ] Transfer
 - [ ] Moderation
     - [ ] Logging
@@ -28,8 +28,9 @@
         - [ ] Warn
         - [ ] Purge
         - [ ] Softban
-        - [ ] Hack(ban)
+        - [ ] Lockdown
         - [ ] Un(mute)
+        - [ ] Hack(ban)
         - [ ] Infractions
 
 ## Finished (for now):

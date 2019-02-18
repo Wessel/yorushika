@@ -7,11 +7,12 @@ const EventRegistry     = require('../registry/Discord/Events');
 const LocaleRegistry    = require('../registry/Discord/Locales');
 const CommandRegistry   = require('../registry/Discord/Commands');
 // Utilities
-const Util           = require('../../util/Util');
-const Schema         = require('../internal/Discord/schema');
-const { cyan }       = require('../../util/colors');
-const Collection     = require('../../util/Collection');
-const PermissionUtil = require('../internal/Discord/Utils/PermissionUtil');
+const Util             = require('../../util/Util');
+const Schema           = require('../internal/Discord/schema');
+const { cyan }         = require('../../util/colors');
+const Collection       = require('../../util/Collection');
+const PermissionUtil   = require('../internal/Discord/Utils/PermissionUtil');
+const MessageCollector = require('../internal/Discord/Utils/MessageCollector');
 
 module.exports = class WumpDiscord extends Eris {
   constructor(token, options = {}) {
@@ -30,6 +31,7 @@ module.exports = class WumpDiscord extends Eris {
 
     this.m               = options.db;
     this.REST            = new RESTclient(this);
+    this.collector       = new MessageCollector(this);
     this.eventRegistry   = new EventRegistry(this);
     this.localeRegistry  = new LocaleRegistry(this);
     this.commandRegistry = new CommandRegistry(this);

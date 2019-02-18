@@ -18,6 +18,7 @@ error   :
   - 'Code    = "$[err:code]"'
   - 'Message = "$[err:message]"'
   - '```'
+cancelled: '$[emoji#0] This prompt has been cancelled'
 cooldown: '$[emoji#0] $[author:mention] **>** This command is on cooldown for **$[cooldown:left]**'
 votelock:
   - '$[emoji#0] This command is **votelocked**, upvote [**`Wump`**](https://discordbots.org/bot/318057009188438016/vote) to unlock this command/parameters (It can take up to 10 minutes to register your vote)'
@@ -106,6 +107,7 @@ info:
       - 'Image'
       - 'Utility'
       - 'Developer'
+      - 'Tags'
   
   guild:
     fields:
@@ -157,6 +159,29 @@ image:
     fetching: '$[emoji#0] Fetching a random image, this may take some time...'
     failed_cache: 'Click here if the image didn''t load properly'
 
+tags:
+  exec: '$[emoji#0] No tags found matching your query'
+  
+  source: '$[emoji#1] **Here''s the source to `$[tag:name]`**: ```$[tag:content]```'
+
+  add:
+    success: '$[emoji#1] Your tag (`$[tag:name]`) has been created'
+    invalid: '$[emoji#2] You''ve provided an invalid name for your tag (*It may already exist or it''s the name/alias of a command*)'
+    content:
+      - '$[emoji#3] What do you want your tag''s contents to be?'
+      - '$[emoji#4] Reply to this prompt within **30 seconds**, type `--cancel` to cancel it manually.'
+    name:
+      - '$[emoji#5] What do you want to call your tag?'
+      - '$[emoji#6] Reply to this prompt within **30 seconds**, type `--cancel` to cancel it manually.'
+
+  delete:
+    busy: '$[emoji#1] Deleting tag `$[tag:name]`, this may take some time...'
+    done: '$[emoji#2] The tag `$[tag:name]` has been deleted'
+    perms: '$[emoji#3] You don''t have sufficient permissions to delete this tag (`TAG_OWNER` / `MANAGE_MESSAGES`)'
+    invalid: '$[emoji#4] No tags found matching your query'
+    confirm: 
+      - '$[emoji#5] Are you sure you want to delete the tag `$[tag:name]`? **(** **Y**es **/** **N**o **)**'
+      - '$[emoji#6] Reply to this prompt within **30 seconds**, type `--cancel` to cancel it manually.'
 games:
   splatoon:
     - 'The current maps are:'

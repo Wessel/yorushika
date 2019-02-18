@@ -19,7 +19,10 @@ info      :
   guild   : 0x7289DA  # Blurple
   commits : 0x7289DA  # Blurple
   avatar  : 0x02C2F33 # Dark but not black
-  commands: 0x02C2F33 # Dark but not black
+  
+  commands:
+    multi : 0x34363C # Dark
+    single: 0x34363C # Dark
 
 image    :
   cat    : 0x7289DA # Blurple

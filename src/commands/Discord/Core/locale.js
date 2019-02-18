@@ -34,11 +34,12 @@ module.exports = class Locale extends DiscordCommand {
       if (user.locale === args[0]) {
         return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['dupe'], { uLocale: user.locale || 'en_us' }));
       }
-      
-      this.bot.m.connection.collection('dUsers').findOneAndUpdate({ 'userId': user.userId }, { $set: { locale: args[0] } }, (err) => {
+
+      this.bot.cache.get('users').some((v, _) => { if (v['userId'] === msg.author.id) v.locale = args[0]; });      
+      this.bot.m.connection.collection('dUsers').findOneAndUpdate({ 'userId': msg.author.id }, { $set: { locale: args[0] } }, (err) => {
         if (err) throw err;
       });
-      this.bot.cache.get('users').some((v, _) => { if (v['userId'] === msg.author.id) this.bot.cache.get('users').splice(_, 1); });
+
       msg.channel.createMessage(this.localize(this.bot.locales.get(args[0])['core']['locale']['changed'], { uLocale: args[0] }));
     } else if (args.join(' ').includes('-g') || args.join(' ').includes('--guild')) {
       for (let i = 0; i < args.length; i++) !this.bot.locales.has(args[i]) ? args.splice(i, 1) : undefined;
@@ -47,8 +48,8 @@ module.exports = class Locale extends DiscordCommand {
       if (!this.bot.locales.has(args[0])) return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['invalid']));
       if (guild.locale === args[0]) return msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['gdupe'], { gLocale: guild.locale }));
       
-      this.bot.m.connection.collection('dGuilds').findOneAndUpdate({ 'guildId': guild.guildId }, { $set: { locale: args[0] } }, (err, d) => { if (err) throw err; });
       this.bot.cache.get('guilds').some((v, _) => { if (v['guildId'] === msg.channel.guild.id) this.bot.cache.get('guilds').splice(_, 1); });
+      this.bot.m.connection.collection('dGuilds').findOneAndUpdate({ 'guildId': msg.channel.guild.id }, { $set: { locale: args[0] } }, (err, d) => { if (err) throw err; });
       msg.channel.createMessage(this.localize(msg.author.locale['core']['locale']['gchanged'], { gLocale: args[0] }));
     } else {
       return msg.channel.createMessage({

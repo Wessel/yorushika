@@ -28,6 +28,30 @@ core    :
     6   : <:ok_hand:497396122416054287>     # Updated (user)
     7   : <:sad:500719642403405824>         # Missing permissions (guild)
 
+tags:
+  exec: <:wumpus_blob:541629681120837648>
+
+  source:
+    0   : <:wumpus_blob:541629681120837648>
+    1   : <:ok_hand:497396122416054287>
+  
+  add:
+    0: <:wumpus_blob:541629681120837648> # Invalid name
+    1: <:ok_hand:497396122416054287>     # Created
+    2: <:wumpus_love:506200781549076482>
+    3: <:wumpus_love:506200781549076482>
+    4: <:wumpus_love:506200781549076482>
+    5: <:wumpus_love:506200781549076482>
+    6: 
+
+  del:
+    0: <:wumpus_blob:541629681120837648>
+    1: <:wumpus_blob:541629681120837648>
+    2: <:wumpus_love:506200781549076482>
+    3: <:wumpus_love:506200781549076482>
+    4: <:wumpus_love:506200781549076482>
+    5: <:wumpus_love:506200781549076482>
+
 logs     :
     ready: '<:spacewump:542723940997529641>'
 

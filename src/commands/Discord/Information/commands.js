@@ -33,41 +33,47 @@ module.exports = class Commands extends DiscordCommand {
 
       msg.channel.createMessage({
         embed: {
+          color      : this.bot.col['info']['commands']['single'],
           description: this.localize(msg.author.locale['info']['commands']['single'].join('\n'), { msg: msg, cmd: cmd })
         }
       });
     } else {
       msg.channel.createMessage({
         embed: {
-          color      : this.bot.col['info']['commands'],
+          color      : this.bot.col['info']['commands']['multi'],
           thumbnail  : { url: 'attachment://thumb.png' },
           description: this.localize(msg.author.locale['info']['commands']['multi'].join('\n'), { msg: msg }),
           fields     : [
-            {
-              name  : msg.author.locale['info']['commands']['fields'][1],
-              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: true
-            },
-            {
-              name  : msg.author.locale['info']['commands']['fields'][2],
-              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'image' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: true
-            },
-            {
-              name  : msg.author.locale['info']['commands']['fields'][3],
-              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'utility' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: true
-            },
-            {
-              name  : msg.author.locale['info']['commands']['fields'][4],
-              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: true
-            },
-            {
+            this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden).length >= 1 ? {
               name  : msg.author.locale['info']['commands']['fields'][0],
               value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
               inline: true
-            }
+            } : undefined,
+            this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden).length >= 1 ? {
+              name  : msg.author.locale['info']['commands']['fields'][1],
+              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              inline: true
+            } : undefined,
+            this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'image' && !v.extData.hidden).length >= 1 ? {
+              name  : msg.author.locale['info']['commands']['fields'][2],
+              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'image' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              inline: true
+            } : undefined,
+            this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'utility' && !v.extData.hidden).length >= 1 ? {
+              name  : msg.author.locale['info']['commands']['fields'][3],
+              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'utility' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              inline: true
+            } : undefined,
+            this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden).length >= 1 ? {
+              name  : msg.author.locale['info']['commands']['fields'][4],
+              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              inline: true
+            } : undefined,
+            this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'tags' && !v.extData.hidden).length >= 1 ? {
+              name  : msg.author.locale['info']['commands']['fields'][5],
+              value : this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'tags' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              inline: true
+            } : undefined
           ]
         }
       },

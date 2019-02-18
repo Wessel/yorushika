@@ -45,15 +45,13 @@ module.exports = class Prefix extends DiscordCommand {
       if (user.prefix === prefix) {
         return msg.channel.createMessage(this.localize(msg.author.locale['core']['prefix']['dupe'], { uPrefix: user.prefix }));
       }
+
+      // Update user's entry in cache
+      this.bot.cache.get('users').some((v, _) => { if (v['userId'] === msg.author.id) v.prefix = prefix; });      
       // Update document
-      this.bot.m.connection.collection('dUsers').findOneAndUpdate({ 'userId': user.userId }, { $set: { prefix: prefix } }, (err) => {
+      this.bot.m.connection.collection('dUsers').findOneAndUpdate({ 'userId': msg.author.id }, { $set: { prefix: prefix } }, (err) => {
         if (err) throw err;
         });
-      // Update user's entry in cache
-      const entry = this.bot.cache.get('users').filter((v) => v.userId = msg.author.id)[0];
-      if (entry) {
-        entry.prefix = prefix;
-      }
 
       msg.channel.createMessage(this.localize(msg.author.locale['core']['prefix']['changed'], { uPrefix: prefix }));
     } else if (args.join(' ').includes('-g') || args.join(' ').includes('--guild')) {
@@ -68,16 +66,12 @@ module.exports = class Prefix extends DiscordCommand {
       if (guild.prefix === prefix) {
         return msg.channel.createMessage(this.localize(msg.author.locale['core']['prefix']['gdupe'], { gPrefix: guild.prefix }));
       }
+      // Update user's entry in cache
+      this.bot.cache.get('users').some((v, _) => { if (v['userId'] === msg.author.id) this.bot.cache.get('users').splice(_, 1); });      
       // Update document
-      this.bot.m.connection.collection('dGuilds').findOneAndUpdate({ 'guildId': guild.guildId }, { $set: { prefix: prefix } }, (err) => {
+      this.bot.m.connection.collection('dGuilds').findOneAndUpdate({ 'guildId': msg.channel.guild.id }, { $set: { prefix: prefix } }, (err) => {
         if (err) throw err;
       });
-      // Update guild's entry in cache
-      const entry = this.bot.cache.get('guilds').filter((v) => v.guildId = msg.channel.guild.id)[0];
-      if (entry) {
-        entry.prefix = prefix;
-      }
-
       msg.channel.createMessage(this.localize(msg.author.locale['core']['prefix']['gchanged'], { gPrefix: prefix }));
     } else {
       return msg.channel.createMessage({

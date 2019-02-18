@@ -18,6 +18,7 @@ error   :
   - 'Code    = "$[err:code]"'
   - 'Bericht = "$[err:message]"'
   - '```'
+cancelled: '$[emoji#0] Dit prompt is geannuleerd'
 cooldown: '$[emoji#0] $[author:mention] **>** Dit commando is op cooldown voor **$[cooldown:left]**'
 votelock:
   - '$[emoji#0] Dit commando is **votelocked**, stem voor [**`Wump`**](https://discordbots.org/bot/318057009188438016/vote) om dit commando/parameters te ontgrendelen (Het kan tot 10 minuten duren om uw stem te registreren)'
@@ -106,6 +107,8 @@ info      :
       - 'Plaatjes'
       - 'Overig'
       - 'Ontwikkelaar'
+      - 'Etiketten'
+
   guild:
     fields:
       guild:
@@ -156,6 +159,29 @@ info      :
 image:
     fetching: '$[emoji#0] Een willekeurig plaatje aan het ophalen, dit kan enige tijd duren...'
     failed_cache: 'Klik hier als het plaatje niet is geladen'
+tags:
+  exec: '$[emoji#0] Geen etiketten gevonden met uw zoekopdracht'
+  
+  source: '$[emoji#1] **Hier is de bron voor `$[tag:name]`**: ```$[tag:content]```'
+
+  add:
+    success: '$[emoji#1] Uw etiket (`$[tag:name]`) is aangemaakt'
+    invalid: '$[emoji#2] U hebt een ongeldige naam opgegeven voor uw etiket (*deze kan al bestaan of is de naam/alias van een commando*)'
+    content:
+      - '$[emoji#3] Wat wilt u dat de inhoud van uw etiket is?'
+      - '$[emoji#4] Reageer op dit prompt binnen ** 30 seconden **, typ `--cancel` om het handmatig te annuleren.'
+    name:
+      - '$[emoji#5] Hoe wilt u uw etiket noemen?'
+      - '$[emoji#4] Reageer op dit prompt binnen ** 30 seconden **, typ `--cancel` om het handmatig te annuleren.'
+
+  delete:
+    busy: '$[emoji#1] Aan het verwijderen van etiket `$[tag:name]`, dit kan enige tijd duren...'
+    done: '$[emoji#2] Het etiket `$[tag:name]` is successvol verwijderd'
+    perms: '$[emoji#3] U hebt onvoldoende machtigingen om dit etiket te verwijderen (`TAG_OWNER` / `MANAGE_MESSAGES`)'
+    invalid: '$[emoji#4] Geen etiketten gevonden met uw zoekopdracht'
+    confirm: 
+      - '$[emoji#5] Weet u zeker dat u het etiket `$[tag:name]` wilt verwijderen? **(** **Y**es **/** **N**o **)**'  # Keep yes/no as it is!
+      - '$[emoji#4] Reageer op dit prompt binnen ** 30 seconden **, typ `--cancel` om het handmatig te annuleren.'
 
 games:
   splatoon:
