@@ -34,7 +34,7 @@ module.exports = class CommandRegistry {
       if (categories[i].endsWith('md')) return;
       readdir(`${directory}/${categories[i]}`, (err, cmds) => {
         if (err) process.handleError(err, 'LoadError', cyan('Discord'));
-        this.bot.print(1, `${cyan('Discord')} >> Loading ${green(cmds.length)} commands from category ${yellow(categories[i])}` );
+        this.bot.print(2, `${cyan('Discord')} >> Loading ${green(cmds.length)} commands from category ${yellow(categories[i])}` );
 
         cmds.forEach((cmd) => {
           try {

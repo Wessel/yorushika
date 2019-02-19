@@ -24,6 +24,8 @@ info      :
     multi : 0x34363C # Dark
     single: 0x34363C # Dark
 
+tags: 0x7289DA # Blurple
+
 image    :
   cat    : 0x7289DA # Blurple
   dog    : 0x7289DA # Blurple

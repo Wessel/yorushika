@@ -12,15 +12,15 @@
   "dependencies": {
     "eris": "^0.9.0",
     "js-yaml": "^3.12.1",
-    "larg": "^0.0.1",
+    "larg": "^0.0.4",
     "mathjs": "^5.4.2",
     "moment": "^2.24.0",
-    "mongoose": "^5.4.10",
+    "mongoose": "^5.4.14",
     "nabbit": "^0.0.2",
     "sharp": "^0.21.3",
-    "table": "^5.2.2",
+    "table": "^5.2.3",
     "vm2": "^3.6.10",
-    "wumpfetch": "^0.0.5"
+    "wumpfetch": "^0.0.7"
   },
   "devDependencies": {
     "eslint": "^5.6.0"

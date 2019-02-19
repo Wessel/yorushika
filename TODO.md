@@ -8,6 +8,7 @@
 - [x] Tags
     - [x] Commands
         - [x] Use
+        - [x] List
         - [ ] Edit
         - [ ] Info
         - [x] Create

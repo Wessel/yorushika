@@ -35,7 +35,7 @@ module.exports = class TagDel extends DiscordCommand {
     const res = await this.bot.collector.awaitMessage(msg.channel.id, msg.author.id, 30e3);
 
     if (res && res.content.toLowerCase() === 'y' || res.content.toLowerCase() === 'ye' || res.content.toLowerCase() === 'yes') {
-      mess.edit(this._localize(msg.author.locale.tags.delete.busy, { name: tag.name.replace(/`/g, '`\u200b') }));
+      if (mess) mess.edit(this._localize(msg.author.locale.tags.delete.busy, { name: tag.name.replace(/`/g, '`\u200b') }));
       this.bot.m.connection.collection('dTags').deleteOne({ name: tag.name, 'author.guild': msg.channel.guild.id });
       if (mess) {
         mess.delete().catch(() => { return; });
@@ -43,7 +43,9 @@ module.exports = class TagDel extends DiscordCommand {
       
       msg.channel.createMessage(this._localize(msg.author.locale.tags.delete.done, { name: tag.name.replace(/`/g, '`\u200b') }));
     } else {
-      return mess.edit(this._localize(msg.author.locale.cancelled));
+      if (mess) {
+        return mess.edit(this._localize(msg.author.locale.cancelled));
+      }
     }
   }
 

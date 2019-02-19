@@ -163,7 +163,15 @@ tags:
   exec: '$[emoji#0] Geen etiketten gevonden met uw zoekopdracht'
   
   source: '$[emoji#1] **Hier is de bron voor `$[tag:name]`**: ```$[tag:content]```'
-
+  
+  all:
+    none: '$[emoji#0] Er zijn nog geen etiketten, typ `$[tag:cmd]` om er een aan te maken!'
+    list:
+      - '$[emoji#1] Alle toegangbare etiketten in **$[guild:name]**:'
+      - ''
+      - '$[tag:list]'
+    extend: '$[emoji#2] [klik hier voor een list met al de etiketten]($[tag:full])'
+    
   add:
     success: '$[emoji#1] Uw etiket (`$[tag:name]`) is aangemaakt'
     invalid: '$[emoji#2] U hebt een ongeldige naam opgegeven voor uw etiket (*deze kan al bestaan of is de naam/alias van een commando*)'

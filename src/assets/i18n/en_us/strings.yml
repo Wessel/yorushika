@@ -164,6 +164,14 @@ tags:
   
   source: '$[emoji#1] **Here''s the source to `$[tag:name]`**: ```$[tag:content]```'
 
+  all:
+    none: '$[emoji#0] There are no tags yet, type `$[tag:cmd]` to create one!'
+    list:
+      - '$[emoji#1] All available tags in **$[guild:name]**:'
+      - ''
+      - '$[tag:list]'
+    extend: '$[emoji#2] [Click here for a list of all tags]($[tag:full])'
+    
   add:
     success: '$[emoji#1] Your tag (`$[tag:name]`) has been created'
     invalid: '$[emoji#2] You''ve provided an invalid name for your tag (*It may already exist or it''s the name/alias of a command*)'

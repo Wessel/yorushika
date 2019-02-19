@@ -12,26 +12,21 @@ module.exports = class WumpUtil {
     fs.mkdir('tmp', 777,      (err) => { if (err && err.code !== 'EEXIST') throw err; });
     fs.mkdir('tmp/log', 777, (err) => { if (err && err.code !== 'EEXIST') throw err; });
 
-    switch (lvl) {
-      case 1 && conf['debug'] && conf['debug'] >= 1:
-        console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
-        fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
-        break;
-      case 2 && conf['debug'] && conf['debug'] >= 2:
-        console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
-        fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
-        break;
-      case 3 && conf['debug'] && conf['debug'] >= 3:
-        console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
-        fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
-        break;
-      case 4 && conf['debug'] && conf['debug'] >= 4:
-        console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
-        fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
-        break;
-      default:
-        console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
-        fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
+    if (lvl === 1 && conf.debug && conf.debug >= 1) {
+      console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
+      fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
+    } else if (lvl === 2 && conf.debug && conf.debug >= 2) {
+      console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
+      fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
+    } else if (lvl === 3 && conf.debug && conf.debug >= 3) {
+      console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
+      fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
+    } else if (lvl === 4 && conf.debug && conf.debug >= 4) {
+      console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
+      fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
+    } else if (lvl === 0) {
+      console.log(`[${moment(new Date).format( 'HH[:]mm[:]ss' )} / ${process.hash}] ${msg}`);
+      fs.appendFileSync(log, `[${moment(new Date).format('HH[:]mm[:]ss')} / ${process.hash}] ${strip(msg)}\r\n`);
     }
   }
 

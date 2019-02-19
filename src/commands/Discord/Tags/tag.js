@@ -17,6 +17,10 @@ module.exports = class Tag extends DiscordCommand {
       guildOnly   : true,
       permissions : []
     });
+
+    this.mutable = {
+      MAX_INT32: 2147483647
+    };
   }
 
   async execute(msg, args) {
@@ -26,6 +30,7 @@ module.exports = class Tag extends DiscordCommand {
     }
 
     msg.channel.createMessage(tag.content);
+    this.bot.m.connection.collection('dTags').findOneAndUpdate({ name: tag.name, 'author.guild': msg.channel.guild.id }, { $set: { uses: tag.uses < this.mutable.MAX_INT32 ? +1 : this.mutable.MAX_INT32 } });
   }
 
   _localize(msg) {

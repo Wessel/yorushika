@@ -7,7 +7,7 @@
 # follow the licensing. - Wessel                  #
 #-------------[ Configurable values ]-------------#
 # db      - <String>: The db URI (Mongo)          #
-# debug   - <Number[0-3]>: The logging level      #
+# debug   - <Number[0-3]>: The logging leven      #
 # nightly - <Boolean>: Run inside of dev mode     #
 # discord:                                        #
 #   enabled  - <Boolean>: Enable/disable client   #
@@ -72,6 +72,12 @@ discord  :
     birb         : true
     lizard       : true
     penguin      : true
+    # Category   : TAGS
+    tag          : true
+    tags         : true
+    tag-add      : true
+    tag-del      : true
+    tag-source   : true
     # Category   : GAMES
     splatoon     : true
     # Category   : DEVELOPER

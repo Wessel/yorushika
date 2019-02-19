@@ -6,7 +6,7 @@ module.exports = class TagAdd extends DiscordCommand {
   constructor(bot) {
     super(bot, {
       name        : 'tag-add',
-      syntax      : 'tag-add <...name:str> <..content:string>',
+      syntax      : 'tag-add <...name:str> | <..content:string>',
       aliases     : [ 'tagadd', 'addtag', 'createtag', 'tagcreate', 'maketag', 'make-tag', 'tag-create' ],
       argument    : [ '<...name:str>', '<..content:string>' ],
       description : 'Create a tag',
