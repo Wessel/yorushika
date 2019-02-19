@@ -5,6 +5,6 @@
 - [ ] Code changes have been tested and there aren't any typos in it
 
 **Semantic versioning classification:**  
-- [ ] This PR changes the library's interface (methods or parameters added)
+- [ ] This PR changes wump's core codebase (methods or parameters added)
   - [ ] This PR includes breaking changes (methods removed or renamed, parameters moved or removed)
 - [ ] This PR **only** includes non-code changes, like changes to documentation, README, etc.
