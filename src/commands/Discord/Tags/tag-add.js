@@ -31,7 +31,7 @@ module.exports = class TagAdd extends DiscordCommand {
       creation: new Date(),
 
       history: [
-        `TAG_CREATE:${msg.author.id}@${m(new Date()).format('DD-MM-YYYY')}`
+        `TAG_CREATE:${msg.author.id}@${Date.now()}`
       ],
       author   : {
         id     : msg.author.id,
@@ -82,13 +82,12 @@ module.exports = class TagAdd extends DiscordCommand {
     } finally {
       let entry = await this.bot.m.connection.collection('dTags').findOne({ name: tag.name, 'author.guild': msg.channel.guild.id });
       if (entry !== null || this.bot.cmds.filter((v) => v.extData.name === tag.name || v.extData.aliases.includes(tag.name)).length > 0) {
-
         return msg.channel.createMessage(this._localize(msg.author.locale.tags.add.invalid));
       }
 
       entry = new this.bot.schema.tag(tag);
       await entry.save();
-      msg.channel.createMessage(this._localize(msg.author.locale.tags.add.success, { name: tag.name.replace(/`/g, '`\u200b') }));
+      msg.channel.createMessage(this._localize(msg.author.locale.tags.add.success, { name: this.bot.util.escapeMarkdown(tag.name) }));
     }
   }
 

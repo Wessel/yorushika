@@ -171,9 +171,17 @@ tags:
       - ''
       - '$[tag:list]'
     extend: '$[emoji#2] [Click here for a list of all tags]($[tag:full])'
-    
+  
+  info:
+    - '$[emoji#1] **Name**: $[tag:name]'
+    - '$[emoji#2] **Used**: $[tag:uses] time(s)'
+    - '$[emoji#3] **Creator**: $[tag:creator#tag]'
+    - '$[emoji#4] **Creation**: $[tag:creation]'
+    - '$[emoji#5] **Recent history**:'
+    - '$[tag:history]'
+
   add:
-    success: '$[emoji#1] Your tag (`$[tag:name]`) has been created'
+    success: '$[emoji#1] Your tag ($[tag:name]) has been created'
     invalid: '$[emoji#2] You''ve provided an invalid name for your tag (*It may already exist or it''s the name/alias of a command*)'
     content:
       - '$[emoji#3] What do you want your tag''s contents to be?'
@@ -183,13 +191,14 @@ tags:
       - '$[emoji#6] Reply to this prompt within **30 seconds**, type `--cancel` to cancel it manually.'
 
   delete:
-    busy: '$[emoji#1] Deleting tag `$[tag:name]`, this may take some time...'
-    done: '$[emoji#2] The tag `$[tag:name]` has been deleted'
+    busy: '$[emoji#1] Deleting tag "$[tag:name]"", this may take some time...'
+    done: '$[emoji#2] The tag "$[tag:name]" has been deleted'
     perms: '$[emoji#3] You don''t have sufficient permissions to delete this tag (`TAG_OWNER` / `MANAGE_MESSAGES`)'
     invalid: '$[emoji#4] No tags found matching your query'
     confirm: 
-      - '$[emoji#5] Are you sure you want to delete the tag `$[tag:name]`? **(** **Y**es **/** **N**o **)**'
+      - '$[emoji#5] Are you sure you want to delete the tag "$[tag:name]"? **(** **Y**es **/** **N**o **)**'
       - '$[emoji#6] Reply to this prompt within **30 seconds**, type `--cancel` to cancel it manually.'
+
 games:
   splatoon:
     - 'The current maps are:'

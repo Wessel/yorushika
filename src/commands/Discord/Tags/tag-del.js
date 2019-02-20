@@ -41,7 +41,7 @@ module.exports = class TagDel extends DiscordCommand {
         mess.delete().catch(() => { return; });
       }
       
-      msg.channel.createMessage(this._localize(msg.author.locale.tags.delete.done, { name: tag.name.replace(/`/g, '`\u200b') }));
+      msg.channel.createMessage(this._localize(msg.author.locale.tags.delete.done, { name: this.bot.util.escapeMarkdown(tag.name) }));
     } else {
       if (mess) {
         return mess.edit(this._localize(msg.author.locale.cancelled));

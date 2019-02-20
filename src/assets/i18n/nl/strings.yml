@@ -171,9 +171,17 @@ tags:
       - ''
       - '$[tag:list]'
     extend: '$[emoji#2] [klik hier voor een list met al de etiketten]($[tag:full])'
-    
+  
+  info:
+    - '$[emoji#1] **Naam**: $[tag:name]'
+    - '$[emoji#2] **gebruikt**: $[tag:uses] keer'
+    - '$[emoji#3] **Auteur**: $[tag:creator#tag]'
+    - '$[emoji#4] **Creatie**: $[tag:creation]'
+    - '$[emoji#5] **Recente Geschiedenis**:'
+    - '$[tag:history]'
+
   add:
-    success: '$[emoji#1] Uw etiket (`$[tag:name]`) is aangemaakt'
+    success: '$[emoji#1] Uw etiket ($[tag:name]) is aangemaakt'
     invalid: '$[emoji#2] U hebt een ongeldige naam opgegeven voor uw etiket (*deze kan al bestaan of is de naam/alias van een commando*)'
     content:
       - '$[emoji#3] Wat wilt u dat de inhoud van uw etiket is?'
@@ -183,8 +191,8 @@ tags:
       - '$[emoji#4] Reageer op dit prompt binnen ** 30 seconden **, typ `--cancel` om het handmatig te annuleren.'
 
   delete:
-    busy: '$[emoji#1] Aan het verwijderen van etiket `$[tag:name]`, dit kan enige tijd duren...'
-    done: '$[emoji#2] Het etiket `$[tag:name]` is successvol verwijderd'
+    busy: '$[emoji#1] Aan het verwijderen van etiket "$[tag:name]", dit kan enige tijd duren...'
+    done: '$[emoji#2] Het etiket "$[tag:name] is successvol verwijderd'
     perms: '$[emoji#3] U hebt onvoldoende machtigingen om dit etiket te verwijderen (`TAG_OWNER` / `MANAGE_MESSAGES`)'
     invalid: '$[emoji#4] Geen etiketten gevonden met uw zoekopdracht'
     confirm: 

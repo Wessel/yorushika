@@ -3,6 +3,7 @@ const { DiscordCommand } = require('../../../core');
 const os               = require('os');
 const larg             = require('larg');
 const moment           = require('moment'); require('../../../util/moment/format');
+const { table }        = require('table');
 const { readFileSync } = require('fs');
 
 module.exports = class Stats extends DiscordCommand {
@@ -25,6 +26,34 @@ module.exports = class Stats extends DiscordCommand {
 
     try { this.thumb = readFileSync('./assets/img/thumb/stats.png'); }
     catch(ex) { this.thumb = undefined; }
+
+    this.mutable = {
+      TABLE_CONFIG: {
+        border: {
+            topBody: `-`,
+            topJoin: `+`,
+            topLeft: `+`,
+            topRight: `+`,
+
+            bottomBody: `-`,
+            bottomJoin: `+`,
+            bottomLeft: `+`,
+            bottomRight: `+`,
+
+            bodyLeft: `|`,
+            bodyRight: `|`,
+            bodyJoin: `|`,
+
+            joinBody: `-`,
+            joinLeft: `+`,
+            joinRight: `+`,
+            joinJoin: `+`
+        },
+        drawHorizontalLine: (_, s) => {
+            return _ === 0 || _ === 1 || _ === s;
+        }
+      }
+    };
   }
 
   async execute( msg, args ) {
@@ -50,7 +79,7 @@ module.exports = class Stats extends DiscordCommand {
       default       : platform.platform = 'Unknown';
     }
 
-    const fields = [];
+    let fields = [];
 
     if (!args['no-bot']) {
       fields.push({
@@ -74,7 +103,7 @@ module.exports = class Stats extends DiscordCommand {
         [
           `${this.bot.emote('info', 'statistics', '1')} **Operating System**: ${platform.platform} ${platform.release} **(**${platform.arch}**)**`,
           `${this.bot.emote('info', 'statistics', '2')} **Process Hash**: ${process.hash}`,
-          `${this.bot.emote('info', 'statistics', '3')} **Load Average**: ${os.loadavg().join(' **/** ')}`,
+          `${this.bot.emote('info', 'statistics', '3')} **Load Average**: ${os.loadavg().map(v => v.toFixed(2)).join(' **/** ')}`,
           `${this.bot.emote('info', 'statistics', '4')} **OS Uptime**: ${moment.duration(os.uptime() * 1000).format('YYYY[y] MM[M] DD[d] HH[h] mm[m] ss[s]')}`,
           `${this.bot.emote('info', 'statistics', '5')} **Uptime**: ${moment.duration(this.bot.uptime).format('YYYY[y] MM[M] DD[d] HH[h] mm[m] ss[s]')}`,
           `${this.bot.emote('info', 'statistics', '6')} **Memory**: ${this.formatBytes(process.memoryUsage().heapUsed)} **/** ${this.formatBytes(os.totalmem())} **(**${((process.memoryUsage().heapUsed / os.totalmem()) * 100).toFixed(2)}%**)**`    
@@ -96,17 +125,40 @@ module.exports = class Stats extends DiscordCommand {
       inline: true
     });
   }
+  
+  if (args['raw']) {
+    fields = {
+      raw: true,
+      content: [
+        [ 'Key', 'Value' ],
+        [ 'Shards [Current / Total]', `${msg.channel.guild.shard.id} / ${this.bot.shards.size}` ],
+        [ 'Cache [Users / Guilds]', `${this.bot.cache.get('users').length || 0} / ${this.bot.cache.get('guilds').length || 0}`],
+        [ 'Channels', Object.keys(this.bot.channelGuildMap).length ],
+        [ 'Guilds', this.bot.guilds.size ],
+        [ 'Users', this.bot.users.size ],
+        [ '', '' ],
+        [ 'OS', `${platform.platform} ${platform.release} (${platform.arch})` ],
+        [ 'Uptime', moment.duration(this.bot.uptime).format('YYYY[y] MM[M] DD[d] HH[h] mm[m] ss[s]') ],
+        [ 'OS Uptime', moment.duration(os.uptime() * 1000).format('YYYY[y] MM[M] DD[d] HH[h] mm[m] ss[s]') ],
+        [ 'User-Agent', this.bot.ua ],
+        [ 'Memory Usage', `${this.formatBytes(process.memoryUsage().heapUsed)} / ${this.formatBytes(os.totalmem())} (${((process.memoryUsage().heapUsed / os.totalmem()) * 100).toFixed(2)}%)` ],
+        [ 'Process Hash', process.hash ],
+        [ 'Load average', os.loadavg().map(v => v.toFixed(2)).join(' / ') ]
+        ]
+    };
+  }
 
-
-    msg.channel.createMessage({
-      content: '',
-      embed: {
-        color    : this.bot.col['info']['stats'],
-        fields   : fields,
-        thumbnail: { url: !args['no-thumb'] ? 'attachment://thumb.png' : '' }
-      }
-    },
-    this.thumb && !args['no-thumb'] ? { file: this.thumb, name: 'thumb.png' } : '');
+    msg.channel.createMessage(
+      fields.raw ? `\`\`\`${table(fields.content, this.mutable.TABLE_CONFIG)}\`\`\`` :
+      {
+        content: '',
+        embed: {
+          color    : this.bot.col['info']['stats'],
+          fields   : fields,
+          thumbnail: { url: !args['no-thumb'] ? 'attachment://thumb.png' : '' }
+        }
+      },
+      this.thumb && !fields.raw && !args['no-thumb'] ? { file: this.thumb, name: 'thumb.png' } : '');
     message.delete();
   }
 

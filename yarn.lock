@@ -1485,10 +1485,10 @@ ws@^6.0.0:
   dependencies:
     async-limiter "~1.0.0"
 
-wumpfetch@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/wumpfetch/-/wumpfetch-0.0.7.tgz#2c113aa35035772c43468da191ae8ac959146ead"
-  integrity sha512-Q+h9dO/5gNQmmIMK1hdPlNbR03u+OmBLaDWH7KIXyNk3pDuBbWuf60kcQ2ofjt8vjr3MVGUoBj9sroIZKXfHqg==
+wumpfetch@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/wumpfetch/-/wumpfetch-0.0.8.tgz#4a3f86a7d966846f4ef68ffe98027b05e36cef56"
+  integrity sha512-RXwB+JwUTMYWHaKQ0n32CoCLwJVO8jU4BTPC2qqhhgmyKawIdu+Dq/m73aUW4y1AZvM8iBcDcMBELmVgT8bMJA==
 
 xtend@^4.0.0:
   version "4.0.1"

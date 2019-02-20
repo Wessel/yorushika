@@ -10,7 +10,7 @@
         - [x] Use
         - [x] List
         - [ ] Edit
-        - [ ] Info
+        - [x] Info
         - [x] Create
         - [x] Delete
         - [x] Source

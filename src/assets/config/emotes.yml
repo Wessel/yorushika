@@ -52,6 +52,14 @@ tags:
     4: <:wumpus_love:506200781549076482>
     5: <:wumpus_love:506200781549076482>
   
+  info:
+    0: <:wumpus_blob:541629681120837648> # Invalid tag
+    1: <:send:544872984708513825> # Name
+    2: <:wumpus_love:506200781549076482> # Used
+    3: <:wumpking:544167185329815589>    # Creator
+    4: <:wumplus:542809926414761995>     # Creation
+    5: <:spacewump:542723940997529641>   # History
+
   list:
     0 : <:wumpus_blob:541629681120837648>
     1 : <:ok_hand:497396122416054287>

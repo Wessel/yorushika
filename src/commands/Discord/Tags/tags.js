@@ -61,7 +61,7 @@ module.exports = class Tags extends DiscordCommand {
     }
 
     const extData = {
-      tags: Array.list(tags.map((v) => `${v.name.replace(/\*/g, '*\u200b').replace(/`/g, '*\u200b')} (\`${v.uses}\`)`).slice(0, this.mutable.LIMIT), '**,** ', '**and** '),
+      tags: Array.list(tags.map((v) => `${this.bot.util.escapeMarkdown(v.name)} (\`${v.uses}\`)`).slice(0, this.mutable.LIMIT), '**,** ', '**and** '),
       guild: msg.channel.guild.name
     };
     
