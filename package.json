@@ -1,6 +1,6 @@
 {
   "name": "wump",
-  "version": "1.4.1",
+  "version": "1.5.3",
   "displayName": "Wump",
   "description": "A multi-platform bot written in Node.js",
   "author": "Wessel \"wesselgame\" T <discord@go2it.eu>",

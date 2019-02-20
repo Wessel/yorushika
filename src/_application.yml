@@ -7,7 +7,7 @@
 # follow the licensing. - Wessel                  #
 #-------------[ Configurable values ]-------------#
 # db      - <String>: The db URI (Mongo)          #
-# debug   - <Number[0-3]>: The logging leven      #
+# debug   - <Number[0-3]>: The logging level      #
 # nightly - <Boolean>: Run inside of dev mode     #
 # discord:                                        #
 #   enabled  - <Boolean>: Enable/disable client   #
@@ -77,6 +77,7 @@ discord  :
     tags         : true
     tag-add      : true
     tag-del      : true
+    tag-info     : true
     tag-source   : true
     # Category   : GAMES
     splatoon     : true
