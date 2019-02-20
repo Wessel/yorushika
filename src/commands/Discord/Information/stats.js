@@ -131,8 +131,8 @@ module.exports = class Stats extends DiscordCommand {
       raw: true,
       content: [
         [ 'Key', 'Value' ],
-        [ 'Shards [Current / Total]', `${msg.channel.guild.shard.id} / ${this.bot.shards.size}` ],
-        [ 'Cache [Users / Guilds]', `${this.bot.cache.get('users').length || 0} / ${this.bot.cache.get('guilds').length || 0}`],
+        [ 'Shards [C / T]', `${msg.channel.guild.shard.id} / ${this.bot.shards.size}` ],
+        [ 'Cache [U / G]', `${this.bot.cache.get('users').length || 0} / ${this.bot.cache.get('guilds').length || 0}`],
         [ 'Channels', Object.keys(this.bot.channelGuildMap).length ],
         [ 'Guilds', this.bot.guilds.size ],
         [ 'Users', this.bot.users.size ],
