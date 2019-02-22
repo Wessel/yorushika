@@ -18,7 +18,7 @@
         - [ ] Edit
         - [x] Info
         - [x] Create
-        - [x] Delete
+        - [ ] Delete
         - [x] Source
         - [ ] Transfer
 - [ ] Moderation
