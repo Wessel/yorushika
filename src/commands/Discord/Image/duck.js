@@ -13,33 +13,52 @@ module.exports = class Duck extends DiscordCommand {
 
       hidden     : false,
       enabled    : true,
-      cooldown   : 5000,
+      cooldown   : 2500,
       category   : 'Image',
       ownerOnly  : false,
       guildOnly  : false,
       permissions: [ 'embedLinks' ]
     });
+    
+    this.static = {
+      BASE_URL: 'https://random-d.uk',
+      REQ_DATA: {
+        headers: {
+          'User-Agent': this.bot.ua
+        }
+      }
+    };
+
+    Object.freeze(this);
+    Object.freeze(this.static);
   }
 
   async execute(msg) {
-    const message = await msg.channel.createMessage(this.localize(msg.author.locale['image']['fetching']));
+    const message = await msg.channel.createMessage(this._localize(msg.author.locale['image']['fetching']));
 
-    let img = await w('https://random-d.uk/api/v1/random', { headers: { 'User-Agent': this.bot.ua } }).send();
+    let img = await w(`${this.static.BASE_URL}/api/v1/random`, this.static.REQ_DATA).send();
         img = img.json();
     
     msg.channel.createMessage({
       embed: {
-        color      : this.bot.col['image']['duck'],
-        image      : { url: img.url ? img.url : '' },
-        description: `*[\`${msg.author.locale['image']['failed_cache']}\`](${img && img.url ? img.url : 'https://www.google.com/'})*`
+        color: this.bot.col.image.duck,
+        image: {
+          url: img.url || ''
+        },
+        description: `*[\`${msg.author.locale.image.failed_cache}\`](${img && img.url ? img.url : 'https://www.google.com/'})*`
       }
     });
+
     message.delete();
   }
 
-  localize(msg) {
-    if (!msg) return '';
-    
-    return msg.replace(/\$\[emoji#0]/g, this.bot.emote('image', 'duck'));
+  _localize(msg) {
+    try {
+      if (!msg) throw 'INVALID_STRING';
+      
+      return msg.replace(/\$\[emoji#0]/g, this.bot.emote('image', 'duck'));
+    } catch(ex) {
+      return `LOCALIZE_ERROR:${ex.code}`;
+    }
   }
 };

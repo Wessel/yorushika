@@ -1,14 +1,6 @@
-/*
-  m = Maps
-  r = Request
-  w = Wumpfetch
-*/
-
 const { DiscordCommand } = require('../../../core');
 
 const w = require('wumpfetch');
-const l = require('larg');
-const s = require('../../../util/smartSearch');
 
 module.exports = class Splatoon extends DiscordCommand {
   constructor(bot) {
@@ -21,41 +13,50 @@ module.exports = class Splatoon extends DiscordCommand {
 
       hidden     : false,
       enabled    : true,
-      cooldown   : 1000,
+      cooldown   : 2000,
       category   : 'Games',
       ownerOnly  : false,
       guildOnly  : false,
-      permissions: [ 'embedLinks' ]
+      permissions: []
     });
     
-    this.mutable.BASE_URL = 'https://splatoon.ink';
-    this.mutable.REQ_DATA = {
-      headers: {
-        'User-Agent': this.bot.ua
+    this.static = {
+      BASE_URL: 'https://splatoon.ink',
+      REQ_DATA: {
+        headers: {
+          'User-Agent': this.bot.ua
+        }
       }
     };
+
+    Object.freeze(this);
+    Object.freeze(this.static);
   }
 
-  async execute(msg, args) {
-      let r = await w(`${this.mutable.BASE_URL}/schedule2.json`, this.mutable.REQ_DATA).send();
-      r = r.json();
+  async execute(msg) {
+      const req = await w(`${this.mutable.BASE_URL}/schedule2.json`, this.static.REQ_DATA).send();
+      const res = req.json();
       
-      msg.channel.createMessage(this._localize(msg.author.locale.games.splatoon.join('\n'), { maps: r }));
+      msg.channel.createMessage(this._localize(msg.author.locale.games.splatoon.join('\n'), res));
   }
 
   _localize(msg, extData) {
-    if (extData && extData.maps) {
-      const m = extData.maps;
-      return msg
-      .replace(/\$\[maps:turf@first]/g, m.modes.regular[0].maps[0])
-      .replace(/\$\[maps:ranked@first]/g, m.modes.gachi[0].maps[0])
-      .replace(/\$\[maps:league@first]/g, m.modes.league[0].maps[0])
-      .replace(/\$\[maps:turf@second]/g, m.modes.regular[0].maps[1])
-      .replace(/\$\[maps:ranked@second]/g, m.modes.gachi[0].maps[1])
-      .replace(/\$\[maps:league@second]/g, m.modes.league[0].maps[1]);
-    }
+    try {
+      if (!msg) throw 'INVALID_STRING';
 
-    return msg;
+      if (extData) {
+        return msg
+          .replace(/\$\[maps:turf@first]/g, extData.modes.regular[0].maps[0])
+          .replace(/\$\[maps:turf@second]/g, extData.modes.regular[0].maps[1])
+          .replace(/\$\[maps:ranked@first]/g, extData.modes.gachi[0].maps[0])
+          .replace(/\$\[maps:league@first]/g, extData.modes.league[0].maps[0])
+          .replace(/\$\[maps:ranked@second]/g, extData.modes.gachi[0].maps[1])
+          .replace(/\$\[maps:league@second]/g, extData.modes.league[0].maps[1]);
+      }
+
+      return msg;
+    } catch (ex) {
+      return `LOCALIZE_ERROR:${ex.code}`;
+    }
   }
 };
-

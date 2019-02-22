@@ -2,6 +2,12 @@
 - [ ] = Planned
 - [x] = In progress
 
+- [ ] Global
+    - [ ] Clean code / refractor
+    - [ ] Clean locales
+- [ ] Information
+    - [ ] Commands
+        - [ ] Stats (rewrite)
 - [x] Utility
     - [x] Commands
         - [x] Tesseract (Donator)

@@ -78,6 +78,7 @@ util:
   
   snipe:
     fail: '$[emoji#0] No snipeable messages found'
+    embed: 'Embed Body'
     footer: 'Sniped by $[author:tag] ($[author:id])'
 
 info:
