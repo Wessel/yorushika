@@ -184,7 +184,7 @@ module.exports = class CommandRegistry {
     } else return false;
   }
 
-  localize(msg, extData) {
+  localize(msg, extData = {}) {
     if (!msg) return '';
 
     if (extData.err)    msg = msg

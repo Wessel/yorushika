@@ -16,7 +16,7 @@ module.exports = class ShardReady extends DiscordEvent {
     this.bot.hook.send({ content: this.localize(this.strings['connection']['shard']['ready'],  { shard: id }) });
   }
 
-  localize(msg, extData) {
+  localize(msg, extData = {}) {
     if (!msg) return '';
     return msg
       .replace(/\$\[shard:id]/g, extData.shard)

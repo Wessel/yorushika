@@ -83,7 +83,7 @@ module.exports = class Prefix extends DiscordCommand {
     }
   }
 
-  localize(msg, extData) {
+  localize(msg, extData = {}) {
     if (!msg) return '';
     // Optional replacements
     if (extData) {

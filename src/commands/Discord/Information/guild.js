@@ -91,7 +91,7 @@ module.exports = class Guild extends DiscordCommand {
     });
   }
 
-  _localize(msg, extData) {
+  _localize(msg, extData = {}) {
     try {
       if (!msg) throw 'INVALID_STRING';
       

@@ -40,7 +40,7 @@ module.exports = class Splatoon extends DiscordCommand {
       msg.channel.createMessage(this._localize(msg.author.locale.games.splatoon.join('\n'), res));
   }
 
-  _localize(msg, extData) {
+  _localize(msg, extData = {}) {
     try {
       if (!msg) throw 'INVALID_STRING';
 

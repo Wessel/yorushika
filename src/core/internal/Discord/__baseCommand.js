@@ -7,7 +7,7 @@ module.exports = class name extends DiscordCommand {
       syntax      : '',
       aliases     : [],
       argument    : [],
-      description : '',
+      description: '',
 
       hidden      : false,
       enabled     : true,

@@ -146,7 +146,7 @@ module.exports = class Avatar extends DiscordCommand {
     });
   }
 
-  _localize(msg, extData) {
+  _localize(msg, extData = {}) {
     try {
       if (!msg) throw 'INVALID_STRING';
       

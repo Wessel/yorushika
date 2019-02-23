@@ -6,23 +6,23 @@ const { table } = require('table');
 module.exports = class Tags extends DiscordCommand {
   constructor(bot) {
     super(bot, {
-      name        : 'tags',
-      syntax      : 'tags',
-      aliases     : [],
-      argument    : [],
-      description : 'A list of all tags',
+      name       : 'tags',
+      syntax     : 'tags',
+      aliases    : [],
+      argument   : [],
+      description: 'A list of all tags',
 
-      hidden      : false,
-      enabled     : true,
-      cooldown    : 2500,
-      category    : 'Tags',
-      ownerOnly   : false,
-      guildOnly   : true,
-      permissions : []
+      hidden     : false,
+      enabled    : true,
+      cooldown   : 2500,
+      category   : 'Tags',
+      ownerOnly  : false,
+      guildOnly  : true,
+      permissions: []
     });
 
-    this.mutable = {
-      LIMIT: 35,
+    this.static = {
+      limit: 35,
       BASE_URL: 'https://hastebin.com',
       TABLE_CONFIG: {
         border: {
@@ -50,6 +50,9 @@ module.exports = class Tags extends DiscordCommand {
         }
       }
     };
+
+    Object.freeze(this);
+    Object.freeze(this.static);
   }
 
   async execute(msg) {
@@ -61,46 +64,52 @@ module.exports = class Tags extends DiscordCommand {
     }
 
     const extData = {
-      tags: Array.list(tags.map((v) => `${this.bot.util.escapeMarkdown(v.name)} (\`${v.uses}\`)`).slice(0, this.mutable.LIMIT), '**,** ', '**and** '),
+      tags: Array.list(tags.map((v) => `${this.bot.util.escapeMarkdown(v.name)} (\`${v.uses}\`)`).slice(0, this.static.limit), '**,** ', '**and** '),
       guild: msg.channel.guild.name
     };
     
-    if (tags.length > this.mutable.LIMIT) {
+    if (tags.length > this.static.limit) {
       tags.map((v) => data.push([ v.name, `${v.author.name}#${v.author.discrim}`, v.uses ]));
 
-      let res = await w(`${this.mutable.BASE_URL}/documents`, { method: 'POST', data: table(data, this.mutable.TABLE_CONFIG) }).send();
-          res = res.json();
+      const req = await w(`${this.mutable.BASE_URL}/documents`, { method: 'POST', data: table(data, this.mutable.TABLE_CONFIG) }).send();
+      const res = req.json();
       
       extData.tags += `\n${this._localize(msg.author.locale.tags.all.extend, { extend: `${this.mutable.BASE_URL}/raw/${res.key}.txt` })}`;
     }
 
     msg.channel.createMessage({
       embed: {
-        color: this.bot.col['tags'],
+        color: this.bot.col.tag.list,
         description: this._localize(msg.author.locale.tags.all.list.join('\n'), extData)
       }
     });
   }
 
-  _localize(msg, extData) {
-    if (extData) {
-      if (extData.guild) {
-        msg = msg.replace(/\$\[guild:name]/g, extData.guild);
-      }
-      if (extData.tags) {
-        msg = msg.replace(/\$\[tag:list]/g, extData.tags);
-      }
-      if (extData.extend) {
-        msg = msg.replace(/\$\[tag:full]/g, extData.extend);
-      }
-      if (extData.prefix) {
-        msg = msg.replace(/\$\[tag:cmd]/g, `${extData.prefix}${this.bot.cmds.get('tag-add').extData.syntax}`);
-      }
-    }
+  _localize(msg, extData = {}) {
+    try {
+      if (!msg) throw 'INVALID_STRING';
 
-    return msg
-      .replace(/\$\[emoji#0]/g, this.bot.emote('tags', 'list', '0'))
-      .replace(/\$\[emoji#1]/g, this.bot.emote('tags', 'list', '1'))
-      .replace(/\$\[emoji#2]/g, this.bot.emote('tags', 'list', '2'));
+      if (extData) {
+        if (extData.guild) {
+          msg = msg.replace(/\$\[guild:name]/g, extData.guild);
+        }
+        if (extData.tags) {
+          msg = msg.replace(/\$\[tag:list]/g, extData.tags);
+        }
+        if (extData.extend) {
+          msg = msg.replace(/\$\[tag:full]/g, extData.extend);
+        }
+        if (extData.prefix) {
+          msg = msg.replace(/\$\[tag:cmd]/g, `${extData.prefix}${this.bot.cmds.get('tag-add').extData.syntax}`);
+        }
+      }
+    
+      return msg
+        .replace(/\$\[emoji#0]/g, this.bot.emote('tags', 'list', '0'))
+        .replace(/\$\[emoji#1]/g, this.bot.emote('tags', 'list', '1'))
+        .replace(/\$\[emoji#2]/g, this.bot.emote('tags', 'list', '2'));
+    } catch (ex) {
+      return `LOCALIZE_ERROR:${ex}`;
+    }
   }
 };

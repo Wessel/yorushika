@@ -74,7 +74,7 @@ module.exports = class Eval extends DiscordCommand {
     }
   }
 
-  _localize(msg, extData) {
+  _localize(msg, extData = {}) {
     try {
       if (!msg) return 'INVALID_STRING';
 

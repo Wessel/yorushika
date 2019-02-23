@@ -91,7 +91,7 @@ module.exports = class Snipe extends DiscordCommand {
     this.bot.cache.delete(`${msg.channel.id}:SNIPE`);
   }
 
-  _localize(msg, extData) {
+  _localize(msg, extData = {}) {
     try {
       if (!msg) throw 'INVALID_STRING';
 

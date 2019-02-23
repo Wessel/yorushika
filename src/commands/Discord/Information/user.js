@@ -29,6 +29,9 @@ module.exports = class User extends DiscordCommand {
         'offline' : `${this.bot.emote('info', 'user', '10')}offline`
       }
     };
+
+    Object.freeze(this);
+    Object.freeze(this.static);
   }
 
   async execute(msg, args) {
@@ -84,44 +87,44 @@ module.exports = class User extends DiscordCommand {
     }
   }
 
-  _localize(msg, extData) {
+  _localize(msg, extData = {}) {
     try {
       if (!msg) throw 'INVALID_STRING';
       
       if (extData) {
         if (extData.user) {
-          const u = extData.user;
-          u.c = moment.preciseDiff(new Date(), new Date(u.createdAt), true);
-          u.cs = [
-            u.c.years >= 1 ? `${u.c.years} years` : undefined,
-            u.c.months >= 1 ? `${u.c.months} months` : undefined,
-            u.c.days >= 1 ? `${u.c.days} days` : undefined,
-            u.c.days <= 0 && u.c.months <= 0 && u.c.years <= 0 ? 'Less than a day' : undefined
+          const { user } = extData;
+          user.c = moment.preciseDiff(new Date(), new Date(user.createdAt), true);
+          user.cs = [
+            user.c.years >= 1 ? `${user.c.years} years` : undefined,
+            user.c.months >= 1 ? `${user.c.months} months` : undefined,
+            user.c.days >= 1 ? `${user.c.days} days` : undefined,
+            user.c.days <= 0 && user.c.months <= 0 && user.c.years <= 0 ? 'Less than a day' : undefined
           ].join(' ');
         
         msg = msg
-        .replace(/\$\[user:id]/g , u.id)
-        .replace(/\$\[user:tag]/g , `${u.username}#${u.discriminator}`)
-        .replace(/\$\[user:created@exact]/g, moment(u.createdAt).format('YYYY[/]MM[/]DD HH[:]mm'))
-        .replace(/\$\[user:created@precise]/g, u.cs)
+        .replace(/\$\[user:id]/g , user.id)
+        .replace(/\$\[user:tag]/g , `${user.username}#${user.discriminator}`)
+        .replace(/\$\[user:created@exact]/g, moment(user.createdAt).format('YYYY[/]MM[/]DD HH[:]mm'))
+        .replace(/\$\[user:created@precise]/g, user.cs)
         .replace(/\$\[user:status@full]/g, extData.member && this.static.status[extData.member.status] ? this.static.status[extData.member.status] : this.static.status['_unknown']);
       }
 
         if (extData.member) {
-          const m = extData.member;
-          m.c  = moment.preciseDiff(new Date(), new Date(m.joinedAt), true);
-          m.cs = [
-            m.c.years >= 1 ? `${m.c.years} years` : undefined,
-            m.c.months >= 1 ? `${m.c.months} months` : undefined,
-            m.c.days >= 1 ? `${m.c.days} days` : undefined,
-            m.c.days <= 0 && m.c.months <= 0 && m.c.years <= 0 ? 'Less than a day' : undefined
+          const { member } = extData;
+          member.c  = moment.preciseDiff(new Date(), new Date(member.joinedAt), true);
+          member.cs = [
+            member.c.years >= 1 ? `${member.c.years} years` : undefined,
+            member.c.months >= 1 ? `${member.c.months} months` : undefined,
+            member.c.days >= 1 ? `${member.c.days} days` : undefined,
+            member.c.days <= 0 && member.c.months <= 0 && member.c.years <= 0 ? 'Less than a day' : undefined
           ].join(' ');
           
           msg = msg
-            .replace(/\$\[member:nickname]/g, m && m.nick ? this.bot.util.escapeMarkdown(m.nick) : '*No nickname set*')
-            .replace(/\$\[member:roles]/g, m.roles.length >= 1 ? this._limit(m.roles.map((v) => `<@&${v}>`), 25).join(' **/** ') : 'none')
-            .replace(/\$\[member:created@exact]/g, moment(m.joinedAt).format('YYYY[/]MM[/]DD HH[:]mm'))
-            .replace(/\$\[member:created@precise]/g, m.cs);
+            .replace(/\$\[member:nickname]/g, member && member.nick ? this.bot.util.escapeMarkdown(member.nick) : '*No nickname set*')
+            .replace(/\$\[member:roles]/g, member.roles.length >= 1 ? this._limit(member.roles.map((v) => `<@&${v}>`), 25).join(' **/** ') : 'none')
+            .replace(/\$\[member:created@exact]/g, moment(member.joinedAt).format('YYYY[/]MM[/]DD HH[:]mm'))
+            .replace(/\$\[member:created@precise]/g, member.cs);
         }
       }
     

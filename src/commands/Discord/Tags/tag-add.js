@@ -1,29 +1,28 @@
+// @TODO: refractor
 const { DiscordCommand } = require('../../../core');
-
-const m = require('moment');
 
 module.exports = class TagAdd extends DiscordCommand {
   constructor(bot) {
     super(bot, {
-      name        : 'tag-add',
-      syntax      : 'tag-add <...name:str> | <..content:string>',
-      aliases     : [ 'tagadd', 'addtag', 'createtag', 'tagcreate', 'maketag', 'make-tag', 'tag-create' ],
-      argument    : [ '<...name:str>', '<..content:string>' ],
-      description : 'Create a tag',
+      name       : 'tag-add',
+      syntax     : 'tag-add <...name:str> | <..content:string>',
+      aliases    : [ 'tagadd', 'addtag', 'createtag', 'tagcreate', 'maketag', 'make-tag', 'tag-create' ],
+      argument   : [ '<...name:str>', '<..content:string>' ],
+      description: 'Create a tag',
 
-      hidden      : false,
-      enabled     : true,
-      cooldown    : 1000,
-      category    : 'Tags',
-      ownerOnly   : false,
-      guildOnly   : true,
-      permissions : []
+      hidden     : false,
+      enabled    : true,
+      cooldown   : 1000,
+      category   : 'Tags',
+      ownerOnly  : false,
+      guildOnly  : true,
+      permissions: []
     });
   }
 
   async execute(msg, args) {
-
-    let components = args.join(' ').split(/\|/g);
+    let components = args.join(' ').split(/\|/g).filter((v) => { return v.length >= 1 });
+    let mess;
     let tag = {
       name    : undefined,
       uses    : 0,
@@ -41,12 +40,6 @@ module.exports = class TagAdd extends DiscordCommand {
       }
     };
 
-    // Delete all empty elements in `components`
-    components = components.filter((v) => {
-      return v.length >= 1;
-    });
-
-    let mess;
 
     if (!components[0]) {
             mess = await msg.channel.createMessage(this._localize(msg.author.locale.tags.add.name.join('\n')));
@@ -83,21 +76,27 @@ module.exports = class TagAdd extends DiscordCommand {
 
     entry = new this.bot.schema.tag(tag);
     await entry.save();
-    msg.channel.createMessage(this._localize(msg.author.locale.tags.add.success, { name: this.bot.util.escapeMarkdown(tag.name) }));
+    msg.channel.createMessage(this._localize(msg.author.locale.tags.add.success, this.bot.util.escapeMarkdown(tag.name)));
   }
 
-  _localize(msg, extData) {
-    if (extData) {
-      msg = msg.replace(/\$\[tag:name]/g, extData.name);
+  _localize(msg, extData = {}) {
+    try {
+      if (!msg) throw 'INVALID_STRING';
+
+      if (extData) {
+        msg = msg.replace(/\$\[tag:name]/g, extData);
+      }
+      
+      return msg
+        .replace(/\$\[emoji#0]/g, this.bot.emote('tags', 'add', '0'))
+        .replace(/\$\[emoji#1]/g, this.bot.emote('tags', 'add', '1'))
+        .replace(/\$\[emoji#2]/g, this.bot.emote('tags', 'add', '2'))
+        .replace(/\$\[emoji#3]/g, this.bot.emote('tags', 'add', '3'))
+        .replace(/\$\[emoji#4]/g, this.bot.emote('tags', 'add', '4'))
+        .replace(/\$\[emoji#5]/g, this.bot.emote('tags', 'add', '5'))
+        .replace(/\$\[emoji#6]/g, this.bot.emote('tags', 'add', '6'));
+    } catch (ex) {
+      return `LOCALIZE_ERROR:${ex}`;
     }
-    
-    return msg
-      .replace(/\$\[emoji#0]/g, this.bot.emote('tags', 'add', '0'))
-      .replace(/\$\[emoji#1]/g, this.bot.emote('tags', 'add', '1'))
-      .replace(/\$\[emoji#2]/g, this.bot.emote('tags', 'add', '2'))
-      .replace(/\$\[emoji#3]/g, this.bot.emote('tags', 'add', '3'))
-      .replace(/\$\[emoji#4]/g, this.bot.emote('tags', 'add', '4'))
-      .replace(/\$\[emoji#5]/g, this.bot.emote('tags', 'add', '5'))
-      .replace(/\$\[emoji#6]/g, this.bot.emote('tags', 'add', '6'));
   }
 };

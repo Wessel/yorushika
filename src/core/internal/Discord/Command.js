@@ -7,7 +7,7 @@ module.exports = class WumpCommand {
       syntax      : null,      // Command syntax      ( optional )
       aliases     : [],        // Command aliases     ( optional )
       argument    : [],        // Command arguments   ( optional )
-      description : null,      // Command description ( optional )
+      description: null,      // Command description ( optional )
       // Checks
       hidden      : false,     // Hidden from view    ( true / false )
       enabled     : true,      // Enabled or disabled ( true / false )

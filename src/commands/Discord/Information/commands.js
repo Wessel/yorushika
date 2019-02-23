@@ -96,7 +96,7 @@ module.exports = class Commands extends DiscordCommand {
     }
   }
 
-  localize(msg, extData) {
+  localize(msg, extData = {}) {
     try {
       if (!msg) throw 'INVALID_STRING';
       

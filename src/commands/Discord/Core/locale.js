@@ -7,7 +7,7 @@ module.exports = class Locale extends DiscordCommand {
       syntax      : 'locale <locale:code> <-u|-g>',
       aliases     : [],
       argument    : [ '<locale:code>', '-<u|g>' ],
-      description : 'Change your locale',
+      description: 'Change your locale',
 
       hidden      : false,
       enabled     : true,
@@ -61,7 +61,7 @@ module.exports = class Locale extends DiscordCommand {
     }
   }
 
-  localize(msg, extData) {
+  localize(msg, extData = {}) {
     if (!msg) return '';
 
     if (extData && extData.uLocale) msg = msg.replace(/\$\[uLocale:code]/g, extData.uLocale);
