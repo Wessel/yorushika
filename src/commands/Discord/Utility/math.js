@@ -62,7 +62,7 @@ module.exports = class Math extends DiscordCommand {
       }
 
       return msg.replace(/\$\[emoji#0]/g, this.bot.emote('util', 'math', '0'));
-    } catch(ex) {
+    } catch (ex) {
       return `LOCALIZE_ERROR:${ex.code}`;
     }
   }

@@ -58,6 +58,6 @@ module.exports = class TagInfo extends DiscordCommand {
       .replace(/\$\[emoji#3]/g, this.bot.emote('tags', 'info', '3'))
       .replace(/\$\[emoji#4]/g, this.bot.emote('tags', 'info', '4'))
       .replace(/\$\[emoji#5]/g, this.bot.emote('tags', 'info', '5'));
-    } catch(ex) {}
+    } catch (ex) {}
   }
 };

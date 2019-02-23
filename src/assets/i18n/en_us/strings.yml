@@ -87,9 +87,7 @@ info:
   
   avatar: '$[emoji#0] Here''s **$[user:full]** avatar'  
   
-  commits: 
-    - '$[emoji#1] **Total commits**: [`$[commits:total]`](https://github.com/PassTheWessel/wump/commits "Click here for a list of all commits")'
-    - '$[emoji#0] **10 most recent commits done on [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
+  commits: '$[emoji#0] **10 most recent commits done on [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
   
   commands:
     single:

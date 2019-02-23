@@ -102,7 +102,7 @@ module.exports = class Snipe extends DiscordCommand {
       }
     
       return msg.replace(/\$\[emoji#0]/g, this.bot.emote('util', 'snipe'));
-    } catch(ex) {
+    } catch (ex) {
       return `LOCALIZE_ERROR:${ex.code}`; 
     }
   }

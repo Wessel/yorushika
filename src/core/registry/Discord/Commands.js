@@ -39,7 +39,7 @@ module.exports = class CommandRegistry {
         cmds.forEach((cmd) => {
           try {
             this.start(directory, categories[i], cmd);
-          } catch(ex) { process.handleError(err, 'LoadError', cyan('Discord')); }
+          } catch (ex) { process.handleError(err, 'LoadError', cyan('Discord')); }
         });
       });
     }

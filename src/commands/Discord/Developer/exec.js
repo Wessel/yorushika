@@ -34,19 +34,23 @@ module.exports = class Exec extends DiscordCommand {
     try {
       result = execSync(args.join(' '), { timeout: 100000 });
     } catch (ex) {
-      result = ex; errored = true;
+      result = ex;
+      errored = true;
     } finally {
       if (silent) return message.edit(this._localize(msg.author.locale.developer.exec.silent));
       result = this.bot.util.escapeMarkdown(this.bot.util.shorten(this._sanitize(String(result)), 1850), true);
 
-      if (raw) return msg.channel.createMessage(`\`\`\`sh\n${result}\`\`\``);
-      message.edit({
-        content: '',
-        embed: {
-          color: errored ? this.bot.col.developer.exec.failure : this.bot.col.developer.exec.success,
-          description: this._localize(msg.author.locale.developer.exec.result.join('\n'), { resultType: errored ? msg.author.locale.developer.exec.types[1] : msg.author.locale.developer.exec.types[0], resultMessage: result || '$' })
-        }
-      });
+      if (raw) {
+        message.edit(`\`\`\`sh\n${result}\`\`\``);
+      } else {
+        message.edit({
+          content: '',
+          embed: {
+            color: errored ? this.bot.col.developer.exec.failure : this.bot.col.developer.exec.success,
+            description: this._localize(msg.author.locale.developer.exec.result.join('\n'), { resultType: errored ? msg.author.locale.developer.exec.types[1] : msg.author.locale.developer.exec.types[0], resultMessage: result || '$' })
+          }
+        });
+      }
     };
   }
 

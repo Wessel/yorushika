@@ -57,7 +57,7 @@ module.exports = class Duck extends DiscordCommand {
       if (!msg) throw 'INVALID_STRING';
       
       return msg.replace(/\$\[emoji#0]/g, this.bot.emote('image', 'duck'));
-    } catch(ex) {
+    } catch (ex) {
       return `LOCALIZE_ERROR:${ex.code}`;
     }
   }
