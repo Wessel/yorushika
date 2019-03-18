@@ -6,8 +6,10 @@ const { table } = require('table');
 module.exports = class Tags extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'tags',
       syntax     : 'tags',
+      bearer     : 'yorushika',
       aliases    : [],
       argument   : [],
       description: 'A list of all tags',

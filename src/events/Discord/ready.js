@@ -15,7 +15,7 @@ module.exports = class Ready extends DiscordEvent {
       this.bot.editStatus({
         url    : this.bot.conf.discord.playing.url    || null,
         type   : this.bot.conf.discord.playing.type   || 3,
-        name   : this.bot.conf.discord.playing.name   || 'Wump',
+        name   : this.bot.conf.discord.playing.name   || 'Yorushika',
         status : this.bot.conf.discord.playing.status || 'online'
       });
     }

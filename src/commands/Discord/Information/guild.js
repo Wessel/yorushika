@@ -5,8 +5,10 @@ const moment = require('moment'); require('../../../util/moment/diff.js');
 module.exports = class Guild extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'guild',
       syntax     : 'guild <...guild:str>',
+      bearer     : 'yorushika',
       aliases    : [ '<...guild:str>' ],
       argument   : [],
       description: 'Get a guild\'s information',

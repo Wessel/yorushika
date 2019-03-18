@@ -21,9 +21,9 @@ error   :
 cancelled: '$[emoji#0] Dit prompt is geannuleerd'
 cooldown: '$[emoji#0] $[author:mention] **>** Dit commando is op cooldown voor **$[cooldown:left]**'
 votelock:
-  - '$[emoji#0] Dit commando is **votelocked**, stem voor [**`Wump`**](https://discordbots.org/bot/318057009188438016/vote) om dit commando/parameters te ontgrendelen (Het kan tot 10 minuten duren om uw stem te registreren)'
+  - '$[emoji#0] Dit commando is **votelocked**, stem voor [**`Yorushika`**](https://discordbots.org/bot/318057009188438016/vote) om dit commando/parameters te ontgrendelen (Het kan tot 10 minuten duren om uw stem te registreren)'
   - ''
-  - '$[emoji#1] Als u nogsteeds problemen hebt ná dat, kunt u een [**`issue`**](https://github.com/PassTheWessel/wump/issues) maken op [**`GitHub`**](https://github.com/PassTheWessel/wump) of mijn [**`Discord`**](https://discord.gg/SV7DAE9) joinen en het daar te plaatsen'
+  - '$[emoji#1] Als u nogsteeds problemen hebt ná dat, kunt u een [**`issue`**](https://github.com/PassTheWessel/yorushika/issues) maken op [**`GitHub`**](https://github.com/PassTheWessel/yorushika) of mijn [**`Discord`**](https://discord.gg/SV7DAE9) joinen en het daar te plaatsen'
 
 core        :
   prefix    :
@@ -57,7 +57,7 @@ core        :
       - '$[locale:map]'
       - ''
       - 'Typ `$[locale:changeCmd]` om de landinstelling van u/de gilde bij te werken'
-      - 'Als u wilt helpen met het vertalen van Wump, kunt u zij aansluiten bij mijn [Discord](https://discord.gg/SV7DAE9) en een pull request op [GitHub](https://github.com/PassTheWessel/wump/compare) te maken'
+      - 'Als u wilt helpen met het vertalen van Yorushika, kunt u zij aansluiten bij mijn [Discord](https://discord.gg/SV7DAE9) en een pull request op [GitHub](https://github.com/PassTheWessel/yorushika/compare) te maken'
 
 util       :
   ping     :
@@ -87,13 +87,13 @@ info      :
   
   avatar  : '$[emoji#0] Hier is **$[user:full]** avatar'
 
-  commits : '$[emoji#0] **10 meest recente commits gedaan op [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
+  commits : '$[emoji#0] **10 meest recente commits gedaan op [`PassTheWessel/yorushika`](https://github.com/PassTheWessel/yorushika/)**: $[commits:list]'
 
   commands:
     multi :
       - '$[emoji#0] Het voorvoegsel voor **$[guild:name]** is `$[guild:prefix]`'
       - '$[emoji#1] typ `$[guild:prefix]command <command:str>` voor meer informatie'
-      - '$[emoji#2] **Links**: [`Uitnodiging`]($[bot:invite]) **|** [`Ondersteuning`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
+      - '$[emoji#2] **Links**: [`Uitnodiging`]($[bot:invite]) **|** [`Ondersteuning`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/yorushika) **|** [`Patreon`](https://patreon.com/wessel)'
     single:
       - '$[emoji#3] **Naam**: $[command:name]'
       - '$[emoji#4] **Syntaxis**: $[command:syntax]'

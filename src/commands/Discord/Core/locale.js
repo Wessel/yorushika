@@ -4,8 +4,10 @@ const { DiscordCommand } = require('../../../core');
 module.exports = class Locale extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path        : undefined,
       name        : 'locale',
       syntax      : 'locale <locale:code> <-u|-g>',
+      bearer      : 'yorushika',
       aliases     : [],
       argument    : [ '<locale:code>', '-<u|g>' ],
       description: 'Change your locale',

@@ -5,8 +5,10 @@ const w = require('wumpfetch');
 module.exports = class Splatoon extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'splatoon',
       syntax     : 'splatoon',
+      bearer     : 'yorushika',
       aliases    : [],
       argument   : [],
       description: 'Get splatoon\'s current maps',

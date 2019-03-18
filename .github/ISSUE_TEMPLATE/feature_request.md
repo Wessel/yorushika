@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Request a feature for Wump
+about: Request a feature for Yorushika
 title: "[ENHANCEMENT] This is an amazing new idea!"
 labels: enhancement
 assignees: PassTheWessel

@@ -81,9 +81,10 @@ module.exports = class GuildMemberAdd extends DiscordEvent {
         const prohibited = new RegExp((this.bot.locales.get('badwords') || []).join('|'), 'gi');
 
         member.bans = {
-          'ksoft.si': this.bot.conf.api.ksoft ? await get(`${this.static.BASE_URL[0]}/bans/info/?user=${member.id}`, this.static.REQ_DATA[1]).send() : undefined,
+          'ksoft.si': this.bot.conf.api.ksoft ? await get(`${this.static.BASE_URL[1]}/bans/info?user=${member.id}`, this.static.REQ_DATA[1]).send() : undefined,
           'discord.services': await get(`${this.static.BASE_URL[0]}/api/ban/${member.id}`, this.static.REQ_DATA[0]).send()
         };
+
 
         member.c = moment.preciseDiff(new Date(), new Date(member.createdAt), true);
         let notes = [];
@@ -104,7 +105,7 @@ module.exports = class GuildMemberAdd extends DiscordEvent {
           notes.push(`${this.bot.emote('logs', 'message_delete', '4')} ${strings.member.add.notes[3].replace(/{e\.ban\.reason}/, member.bans['discord.services'].body.reason || 'Unknown')}`);
         }
         if (member.bans['ksoft.si'] && !member.bans['ksoft.si'].body.code) {
-          notes.push(`${this.bot.emote('logs', 'message_delete', '5')} ${strings.member.add.notes[5].replace(/{e\.ban\.reason}/, member.bans['ksoft.si'].body.reason || 'Unknown')}`);
+          notes.push(`${this.bot.emote('logs', 'message_delete', '5')} ${strings.member.add.notes[4].replace(/{e\.ban\.reason}/, member.bans['ksoft.si'].body.reason || 'Unknown')}`);
         }
 
         this.bot.createMessage(entry.logger.channel, {

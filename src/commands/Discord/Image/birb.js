@@ -5,8 +5,10 @@ const w = require('wumpfetch');
 module.exports = class Birb extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'birb',
       syntax     : 'birb',
+      bearer      : 'yorushika',
       aliases    : [ 'bird' ],
       argument   : [],
       description: 'Get a random birb',

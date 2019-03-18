@@ -3,8 +3,10 @@ const { DiscordCommand } = require('../../../core');
 module.exports = class Tag extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'tag',
       syntax     : 'tag <...tag:str>',
+      bearer     : 'yorushika',
       aliases    : [ 'show-tag', 'disp-tag' ],
       argument   : [ '<...tag:str>' ],
       description: 'Display a tag',

@@ -5,8 +5,10 @@ const moment = require('moment'); require('../../../util/moment/diff.js');
 module.exports = class User extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'user',
       syntax     : 'user <...user:string>',
+      bearer     : 'yorushika',
       aliases    : [ '<...user:string>' ],
       argument   : [],
       description: 'Get a user\'s information',

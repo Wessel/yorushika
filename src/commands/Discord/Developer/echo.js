@@ -3,8 +3,10 @@ const { DiscordCommand } = require('../../../core');
 module.exports = class Echo extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'echo',
       syntax     : 'echo <...message:str>',
+      bearer     : 'yorushika',
       aliases    : [],
       argument   : [ '<...message:str>' ],
       description: 'Repeat your input',

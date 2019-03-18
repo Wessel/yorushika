@@ -15,8 +15,10 @@ try {
 module.exports = class Avatar extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'avatar',
       syntax     : 'avatar [...user:string] [--large] [--(nearest|linear)] [--greyscale] [--jpeg] [--blur]',
+      bearer     : 'yorushika',
       aliases    : [ 'avt', 'pfp' ],
       argument   : [ '[...user:string]', '[--large]', '[--(nearest|linear)]', '[--greyscale]', '[--jpeg]', '[--blur]' ],
       description: 'Get a user\'s avatar',

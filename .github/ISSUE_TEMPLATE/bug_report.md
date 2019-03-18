@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report an issue with Wump
+about: Report an issue with Yorushika
 title: "[BUG] Somenthing broke"
 labels: bug
 assignees: PassTheWessel

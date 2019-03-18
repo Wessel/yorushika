@@ -3,8 +3,10 @@ const { DiscordCommand } = require('../../../core');
 module.exports = class TagSource extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'tag-source',
       syntax     : 'tag-source <...tag:str>',
+      bearer     : 'yorushika',
       aliases    : [ 'tagsource', 'tagsrc', 'tag-src' ],
       argument   : [ '<...tag:str>' ],
       description: 'Source of a tag',

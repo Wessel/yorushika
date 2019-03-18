@@ -9,8 +9,10 @@ const { readFileSync } = require('fs');
 module.exports = class Stats extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'stats',
       syntax     : 'stats [--{no-deps|no-bot|no-sys|no-cpu|no-thumb}]',
+      bearer     : 'yorushika',
       aliases    : [ 'statistics' ],
       argument   : [ '[--{no-deps|no-bot|no-sys|no-cpu|no-thumb}]' ],
       description: 'Some small statistics',

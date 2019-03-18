@@ -5,13 +5,14 @@ const { inspect } = require('util');
 module.exports = class Eval extends DiscordCommand {
   constructor(bot) {
     super(bot, {
-      // Information
+      path       : undefined,
       name       : 'eval',
       syntax     : 'eval <...code:str>',
+      bearer     : 'yorushika',
       aliases    : [],
       argument   : [],
       description: 'Evaluate a snippet',
-      // Checks
+
       hidden     : false,
       enabled    : true,
       cooldown   : 0,

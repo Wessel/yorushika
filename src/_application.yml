@@ -1,91 +1,56 @@
-#-----------------[ Wump config ]-----------------#
-# This is the configuration file of "Wump", all   #
-# your sensitive information is stored inside of  #
-# this file. Do **not** give this file or it's    #
-# contents to **anyone**, they can do a lot of    #
-# bad things with your tokens. Don't forget to    #
-# follow the licensing. - Wessel                  #
-#-------------[ Configurable values ]-------------#
-# db      - <String>: The db URI (Mongo)          #
-# debug   - <Number[0-3]>: The logging level      #
-# nightly - <Boolean>: Run inside of dev mode     #
-# discord:                                        #
-#   enabled  - <Boolean>: Enable/disable client   #
-#   op       - <Array>: The bot's OwnerIDs        #
-#   token    - <String>: The bot's tokens         #
-#   prefix   - <String>: The command prefix       #
-#   events   - Each<Boolean>: Enable/disable evts #
-#   playing  - Each<any>: The bot's status        #
-#   commands - Each<Boolean>: Enable/disable cmds #
-#-------------------------------------------------#
-
-db     : 'mongodb://localhost:27017/Wump'
-debug  : 3
+#-----------------[ Yorushika config ]-----------------#
+# This is the configuration file of "Wump", all your   #
+# sensitive information is stored inside of this file. #
+# Do **not** give this file or it's contents to        #
+# **anyone**, they can do a lot of bad things with     #
+# your tokens. Please be kind and follow the license.  #
+# - Wessel                                             #
+#------------------------------------------------------#
+debug: 4
 nightly: true
 
-discord  :
-  enabled: true
-  token  : '<--snip-->'
-  prefix : '!'
-  locale : 'en_us'
+db: 'mongodb://localhost:27017/Wump'
 
-  op      :
+discord:
+  token: '<--snip-->'
+  prefix: '!'
+  locale: 'en_us'
+  enabled: true
+
+  op:
     - '107130754189766656'
-  playing :
-    url   : 'https://twitch.tv/wumpusapp'
-    name  : 'type !help'
-    type  : 1        # 0 - Playing / 1 - Streaming / 2 - Listening / 3 - Watching
+  
+  playing:
+    url: 'https://twitch.tv/wumpusapp'
+    name: 'type $help'
+    type: 1          # 0 - Playing / 1 - Streaming / 2 - Listening / 3 - Watching
     status: 'online' # online / idle / dnd / invisible
 
   webhook:
-    token  : '<--snip-->'
-    channel: '<--snip-->'
-  events         :
-    ready        : true
-    shardready   : true
-    shardresume  : true
-    sharddisconnect: true
-    disconnect   : true
-    messagecreate: true
-    messagedelete: true
-  commands       :
-    # Category   : CORE
-    locale       : true
-    prefix       : true
-    # Category   : UTILITY
-    ping         : true
-    math         : true
-    snipe        : true
-    # Category   : INFORMATION
-    user         : true
-    stats        : true
-    guild        : true
-    avatar       : true
-    github       : true
-    commits      : true
-    commands     : true
-    # Category   : IMAGE
-    cat          : true
-    dog          : true
-    fox          : true
-    duck         : true
-    birb         : true
-    lizard       : true
-    penguin      : true
-    # Category   : TAGS
-    tag          : true
-    tags         : true
-    tag-add      : true
-    tag-del      : true
-    tag-info     : true
-    tag-source   : true
-    # Category   : GAMES
-    splatoon     : true
-    # Category   : DEVELOPER
-    eval         : true
-    echo         : true
-    exec         : true
+    token: false
+    channel: false
 
-api  :
+  events:
+    - ready
+    - shardReady
+    - shardResume
+    - disconnect
+    - messageCreate
+    - messageDelete
+    - guildMemberAdd
+    - shardDisconnect
+
+  commands:
+    - yorushika.core.locale
+    - yorushika.core.prefix
+    - yorushika.utility.*
+    - yorushika.information.*
+    - yorushika.image.*
+    - yorushika.tags.*
+    - yorushika.games.*
+    - yorushika.developer.*
+
+api:
   lol: '<--snip-->'
   dbl: '<--snip-->'
+  ksoft: '<--snip-->'

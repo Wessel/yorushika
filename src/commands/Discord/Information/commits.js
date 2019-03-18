@@ -6,8 +6,10 @@ const { table } = require('table');
 module.exports = class Stats extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'commits',
       syntax     : 'commits',
+      bearer     : 'yorushika',
       aliases    : [],
       argument   : [],
       description: '10 most recent commits',
@@ -61,7 +63,7 @@ module.exports = class Stats extends DiscordCommand {
   }
 
   async execute(msg, args) {
-    let res = await w(`${this.static.BASE_URL}/repos/PassTheWessel/wump/commits`, this.static.REQ_DATA).send();
+    let res = await w(`${this.static.BASE_URL}/repos/PassTheWessel/yorushika/commits`, this.static.REQ_DATA).send();
         res = res.json();
     
     if (larg(args)['raw'] || larg(args)['r']) {

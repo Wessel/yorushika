@@ -4,8 +4,10 @@ const { DiscordCommand } = require('../../../core');
 module.exports = class TagAdd extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'tag-add',
       syntax     : 'tag-add <...name:str> | <..content:string>',
+      bearer     : 'yorushika',
       aliases    : [ 'tagadd', 'addtag', 'createtag', 'tagcreate', 'maketag', 'make-tag', 'tag-create' ],
       argument   : [ '<...name:str>', '<..content:string>' ],
       description: 'Create a tag',

@@ -5,11 +5,14 @@ const { execSync } = require('child_process');
 module.exports = class Exec extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'exec',
       syntax     : 'exec <...cmd:str>',
+      bearer     : 'yorushika',
       aliases    : [],
       argument   : [ '<...cmd:str>' ],
       description: 'Execute a command',
+      
       hidden     : false,
       enabled    : true,
       cooldown   : 0,

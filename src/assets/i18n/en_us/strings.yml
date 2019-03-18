@@ -21,9 +21,9 @@ error   :
 cancelled: '$[emoji#0] This prompt has been cancelled'
 cooldown: '$[emoji#0] $[author:mention] **>** This command is on cooldown for **$[cooldown:left]**'
 votelock:
-  - '$[emoji#0] This command is **votelocked**, upvote [**`Wump`**](https://discordbots.org/bot/318057009188438016/vote) to unlock this command/parameters (It can take up to 10 minutes to register your vote)'
+  - '$[emoji#0] This command is **votelocked**, upvote [**`Yorushika`**](https://discordbots.org/bot/318057009188438016/vote) to unlock this command/parameters (It can take up to 10 minutes to register your vote)'
   - ''
-  - '$[emoji#1] If you still have issues after that, you can either create an [**`issue`**](https://github.com/PassTheWessel/wump/issues) on [**`GitHub`**](https://github.com/PassTheWessel/wump) or join my [**`Discord`**](https://discord.gg/SV7DAE9) and posting it there'
+  - '$[emoji#1] If you still have issues after that, you can either create an [**`issue`**](https://github.com/PassTheWessel/yorushika/issues) on [**`GitHub`**](https://github.com/PassTheWessel/yorushika) or join my [**`Discord`**](https://discord.gg/SV7DAE9) and posting it there'
 
 core:
   prefix:
@@ -57,7 +57,7 @@ core:
       - '$[locale:map]'
       - ''
       - 'Type `$[locale:changeCmd]` to update your/the guild''s locale'
-      - 'If you want to help translate wump, you can join my [Discord](https://discord.gg/SV7DAE9) and create a pull request on my [GitHub](https://github.com/PassTheWessel/wump/compare)'
+      - 'If you want to help translate yorushika, you can join my [Discord](https://discord.gg/SV7DAE9) and create a pull request on my [GitHub](https://github.com/PassTheWessel/yorushika/compare)'
 
 util:
   ping:
@@ -93,7 +93,7 @@ info:
   
   avatar: '$[emoji#0] Here''s **$[user:full]** avatar'  
   
-  commits: '$[emoji#0] **10 most recent commits done on [`PassTheWessel/wump`](https://github.com/PassTheWessel/wump/)**: $[commits:list]'
+  commits: '$[emoji#0] **10 most recent commits done on [`PassTheWessel/yorushika`](https://github.com/PassTheWessel/yorushika/)**: $[commits:list]'
   
   commands:
     single:
@@ -105,7 +105,7 @@ info:
     multi:
       - '$[emoji#0] The prefix for **$[guild:name]** is `$[guild:prefix]`'
       - '$[emoji#1] Type `$[guild:prefix]command <command:str>` for more information'
-      - '$[emoji#2] **Links**: [`Invite`]($[bot:invite]) **|** [`Support`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/wump) **|** [`Patreon`](https://patreon.com/wessel)'
+      - '$[emoji#2] **Links**: [`Invite`]($[bot:invite]) **|** [`Support`](https://discord.gg/SV7DAE9) **|** [`GitHub`](https://github.com/PassTheWessel/yorushika) **|** [`Patreon`](https://patreon.com/wessel)'
     fields:
       - 'Core'
       - 'Information'

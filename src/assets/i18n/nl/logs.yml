@@ -14,8 +14,8 @@ member:
       - 'Gebruiker is verbannen van ksoft.si ({e.ban.reason})'
 
 connection:
-  ready       : '`[$[date:now] / $[process:hash]]` $[emoji#0] Meester client op Wump (`v$[wump:version]`) is verbonden'
+  ready       : '`[$[date:now] / $[process:hash]]` $[emoji#0] Meester client op Yorushika (`v$[yorushika:version]`) is verbonden'
   shard       :
-    ready     : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is verbonden naar Wump (`v$[wump:version]`)'
-    resume    : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is hervat naar Wump (`v$[wump:version]`)'
-    disconnect: '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is losgekoppeld van Wump (`v$[wump:version]`)'
+    ready     : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is verbonden naar Yorushika (`v$[yorushika:version]`)'
+    resume    : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is hervat naar Yorushika (`v$[yorushika:version]`)'
+    disconnect: '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is losgekoppeld van Yorushika (`v$[yorushika:version]`)'

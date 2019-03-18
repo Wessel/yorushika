@@ -5,8 +5,10 @@ const moment = require('moment');
 module.exports = class TagInfo extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name        : 'tag-info',
       syntax      : 'tag-info <...tag:str>',
+      bearer     : 'yorushika',
       aliases     : [],
       argument    : [ '<...tag:str>' ],
       description: 'Info about a tag',

@@ -25,7 +25,7 @@ module.exports = class EventStore {
       if (!e.endsWith('.js' )) return;
       const event = new(require(`${directory}/${e}`))(this.bot);
 
-      if (!this.bot.conf['discord']['events'][event.extData.name.toLowerCase()]) return false;
+      if (!this.bot.conf.discord.events.includes(event.extData.name)) return false;
       if (this.bot.events.has(event.extData.name)) return this.bot.print(1, `[${cyan('Discord')}] -- Duplicate event found - ${red(`${directory}/${event.extData.name}`)}`);
 
       this.bot.events.set(event.extData.name, event);

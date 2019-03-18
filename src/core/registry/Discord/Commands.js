@@ -10,16 +10,24 @@ const startTimestamp     = Date.now();
 module.exports = class CommandRegistry {
   constructor(bot) {
     this.bot        = bot;
+    this.ignored    = [ 'js', 'md' ];
     this.ratelimits = new Collection();
   }
 
   start(directory, category, file) {
     try {
       const cmd            = new(require(`${directory}/${category}/${file}`))(this.bot);
-      cmd.extData.location = `${directory}/${category}/${file}`;
       
+      cmd.extData.path = cmd.extData.path || [ cmd.extData.bearer || 'yorushika', cmd.extData.category || 'utility', cmd.extData.name || '*' ];
+      cmd.extData.location = `${directory}/${category}/${file}`;
+
       if (!cmd.extData.enabled) return;
-      if (!this.bot.conf['discord']['commands'][cmd.extData.name]) return;
+      if (
+        !this.bot.conf.discord.commands.includes(cmd.extData.path.join('.').toLowerCase()) &&
+        !this.bot.conf.discord.commands.includes(`${cmd.extData.path[0].toLowerCase()}.${cmd.extData.path[1].toLowerCase()}.*`) &&
+        !this.bot.conf.discord.commands.includes(`${cmd.extData.path[0].toLowerCase()}.*`) &&
+        !this.bot.conf.discord.commands.includes(`*`)
+        ) return;
       if (this.bot.cmds.has(cmd.extData.name)) return this.bot.print(1, `${cyan('Discord')} -- Duplicate command found - ${red(`${directory}/${category}/${file}`)}` );
     
       this.bot.cmds.set(cmd.extData.name, cmd);
@@ -31,7 +39,7 @@ module.exports = class CommandRegistry {
     const categories = await readdirSync(directory);
 
     for (let i = 0; i < categories.length; i++) {
-      if (categories[i].endsWith('md')) return;
+      if (this.ignored.some((v) => categories[i].endsWith(v))) return;
       readdir(`${directory}/${categories[i]}`, (err, cmds) => {
         if (err) process.handleError(err, 'LoadError', cyan('Discord'));
         this.bot.print(2, `${cyan('Discord')} >> Loading ${green(cmds.length)} commands from category ${yellow(categories[i])}` );

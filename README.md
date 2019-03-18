@@ -1,7 +1,7 @@
 <div align="center">
   <br />
   <p>
-    <a href="https://github.com/PassTheWessel/wump">Wump</a>
+    <a href="https://github.com/PassTheWessel/yorushika">Yorushika</a>
   </p>
   <br />
   <p>
@@ -11,5 +11,8 @@
 </div>
 
 > A multi-platform bot written fully in Node.js
+
+# Documentation
+Yorushika's documentation can be found at [https://wumpusapp.gitbook.io](https://wumpusapp.gitbook.io)
 
 You may use this project, but only **if** you follow the [licensing](./LICENSE)

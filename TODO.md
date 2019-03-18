@@ -3,7 +3,7 @@
 - [x] = In progress
 
 - [ ] Global
-    - [ ] Clean locales
+    - [x] Clean locales
 - [ ] Information
     - [ ] Commands
         - [ ] Stats (rewrite)

@@ -6,8 +6,10 @@ const { readFileSync } = require('fs');
 module.exports = class Commands extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'commands',
       syntax     : 'commands [command:str]',
+      bearer     : 'yorushika',
       aliases    : [ 'command', 'cmds', 'cmd', 'help' ],
       argument   : [ '[command:str]' ],
       description: 'Lists all commands',
@@ -57,34 +59,43 @@ module.exports = class Commands extends DiscordCommand {
           description: this._localize(msg.author.locale.info.commands.multi.join('\n'), { msg: msg }),
           fields: [
             this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden).length >= 1 ? {
-              name: msg.author.locale.info.commands.fields[0],
-              value: this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              name: `${msg.author.locale.info.commands.fields[0]} (${this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden).length})`,
+              value: this.bot.cmds
+                .filter((v) => v.extData.category.toLowerCase() === 'core' && !v.extData.hidden)
+                .map((v) => `[\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id})`).join(', '),
               inline: this.static.inline
             } : undefined,
             this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden).length >= 1 ? {
-              name: msg.author.locale.info.commands.fields[1],
-              value: this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              name: `${msg.author.locale.info.commands.fields[1]} (${this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden).length})`,
+              value: this.bot.cmds
+                .filter((v) => v.extData.category.toLowerCase() === 'information' && !v.extData.hidden)
+                .map((v) => `[\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id})`).join(', '),
               inline: this.static.inline
             } : undefined,
             this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'image' && !v.extData.hidden).length >= 1 ? {
-              name: msg.author.locale.info.commands.fields[2],
-              value: this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'image' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
+              name: `${msg.author.locale.info.commands.fields[2]} (${this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'image' && !v.extData.hidden).length})`,
+              value: this.bot.cmds
+                .filter((v) => v.extData.category.toLowerCase() === 'image' && !v.extData.hidden)
+                .map((v) => `[\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id})`).join(', '),
               inline: this.static.inline
             } : undefined,
             this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'utility' && !v.extData.hidden).length >= 1 ? {
-              name: msg.author.locale.info.commands.fields[3],
-              value: this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'utility' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: this.static.inline
+              name: `${msg.author.locale.info.commands.fields[3]} (${this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'utility' && !v.extData.hidden).length})`,
+              value: this.bot.cmds
+                .filter((v) => v.extData.category.toLowerCase() === 'utility' && !v.extData.hidden)
+                .map((v) => `[\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id})`).join(', '),
             } : undefined,
             this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden).length >= 1 ? {
-              name: msg.author.locale.info.commands.fields[4],
-              value: this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: this.static.inline
+              name: `${msg.author.locale.info.commands.fields[4]} (${this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden).length})`,
+              value: this.bot.cmds
+                .filter((v) => v.extData.category.toLowerCase() === 'developer' && !v.extData.hidden)
+                .map((v) => `[\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id})`).join(', '),
             } : undefined,
             this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'tags' && !v.extData.hidden).length >= 1 ? {
-              name: msg.author.locale.info.commands.fields[5],
-              value: this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'tags' && !v.extData.hidden).map((v) => `**•** [\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id}) ${v.extData.description ? `**-** ${v.extData.description}` : ''}`).join('\n'),
-              inline: this.static.inline
+              name: `${msg.author.locale.info.commands.fields[5]} (${this.bot.cmds.filter((v) => v.extData.category.toLowerCase() === 'tags' && !v.extData.hidden).length})`,
+              value: this.bot.cmds
+                .filter((v) => v.extData.category.toLowerCase() === 'tags' && !v.extData.hidden)
+                .map((v) => `[\`${msg.prefix}${v.extData.name}\`](https://discordapp.com/channels/${msg.channel.guild.id}/${msg.channel.id}/${msg.id})`).join(', '),
             } : undefined
           ]
         }

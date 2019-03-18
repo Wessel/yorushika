@@ -3,8 +3,10 @@ const { DiscordCommand } = require('../../../core');
 module.exports = class Ping extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'ping',
       syntax     : 'ping',
+      bearer     : 'yorushika',
       aliases    : [ 'pong' ],
       argument   : [],
       description: 'Lists latencies',

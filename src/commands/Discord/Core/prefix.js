@@ -5,6 +5,7 @@ module.exports = class Prefix extends DiscordCommand {
     super(bot, {
       name       : 'prefix',
       syntax     : 'prefix <...prefix:str> <-u|-g>',
+      bearer      : 'yorushika',
       aliases    : [],
       argument   : [ '<...prefix:string>', '-<(u|g)>' ],
       description: 'Change your prefix',

@@ -1,8 +1,7 @@
 /**
- * @name Wunp
+ * @name Yorushika
  * @author Wessel "wesselgame" T < discord@go2it.eu >
  * @license GPL-3.0
- * @version 0.1.1
  * @description A multi-functional bot written in Node.js
  */
 
@@ -85,7 +84,7 @@ if (conf['discord']['enabled']) {
       autoreconnect: true
     },
 
-    ua    : `${pkg.displayName}/${conf['nightly'] ? 'nightly' : 'distribution'} (https://github.com/PassTheWessel/wump)`,
+    ua    : `${pkg.displayName}/${conf['nightly'] ? 'nightly' : 'distribution'} (https://github.com/PassTheWessel/yorushika)`,
     db    : mongoose,
     pkg   : pkg,
     colors: col,

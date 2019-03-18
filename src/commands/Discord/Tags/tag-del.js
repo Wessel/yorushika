@@ -3,8 +3,10 @@ const { DiscordCommand } = require('../../../core');
 module.exports = class TagDel extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'tag-del',
       syntax     : 'tag-del <...tag:str>',
+      bearer     : 'yorushika',
       aliases    : [ 'tagdel', 'deltag', 'tagdelete', 'deletetag', 'del-tag', 'tag-delete', 'delete-tag' ],
       argument   : [ '<...tag:str>' ],
       description: 'Delete a tag',

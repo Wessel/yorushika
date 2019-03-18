@@ -3,10 +3,12 @@ const { DiscordCommand } = require('../../../core/');
 module.exports = class Snipe extends DiscordCommand {
   constructor(bot) {
     super(bot, {
-      name: 'snipe',
-      syntax: 'snipe',
-      aliases: [],
-      argument: [],
+      path       : undefined,
+      name       : 'snipe',
+      syntax     : 'snipe',
+      bearer     : 'yorushika',
+      aliases    : [],
+      argument   : [],
       description: 'Re-post a deleted message',
 
       hidden: false,

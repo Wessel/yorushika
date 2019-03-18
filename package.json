@@ -1,7 +1,7 @@
 {
-  "name": "wump",
-  "version": "1.5.3",
-  "displayName": "Wump",
+  "name": "yorushika",
+  "version": "1.5.5",
+  "displayName": "Yorushika",
   "description": "A multi-platform bot written in Node.js",
   "author": "Wessel \"wesselgame\" T <discord@go2it.eu>",
   "contributors": [],
@@ -26,5 +26,5 @@
     "eslint": "^5.6.0"
   },
   "main": "src/main.js",
-  "repository": "https://github.com/PassTheWessel/wump"
+  "repository": "https://github.com/PassTheWessel/yorushika"
 }

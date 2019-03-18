@@ -14,9 +14,9 @@ member:
       - 'User is banned from ksoft.si ({e.ban.reason})'
 
 connection:
-  ready: '`[{date@now}] / {process.hash}]` {emoji} Master client on Wump (`v{global.version}`) connected'
+  ready: '`[{date@now}] / {process.hash}]` {emoji} Master client on Yorushika (`v{global.version}`) connected'
   
   shard       :
-    ready     : '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` connected to Wump (`v{global.version}`)'
-    resume    : '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` resumed to Wump (`v{global.version}`)'
-    disconnect: '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` disconnected from Wump (`v{global.version}`)'
+    ready     : '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` connected to Yorushika (`v{global.version}`)'
+    resume    : '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` resumed to Yorushika (`v{global.version}`)'
+    disconnect: '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` disconnected from Yorushika (`v{global.version}`)'

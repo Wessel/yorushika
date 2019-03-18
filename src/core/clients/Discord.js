@@ -48,7 +48,7 @@ module.exports = class WumpDiscord extends Eris {
     this.conf  = options.config ? options.config : undefined;
     this.start = Date.now();
 
-    this.requestHandler.userAgent = this.ua ? this.ua : `Wump (https://github.com/PassTheWessel/wump, ${this.pkg.version})`;
+    this.requestHandler.userAgent = this.ua ? this.ua : `Yorushika (https://github.com/PassTheWessel/yorushika, ${this.pkg.version})`;
   }
 
   async launch(events, commands, locales) {

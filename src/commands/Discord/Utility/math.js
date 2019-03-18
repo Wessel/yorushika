@@ -6,8 +6,10 @@ const { eval: mEval, config } = require('mathjs');
 module.exports = class Math extends DiscordCommand {
   constructor(bot) {
     super(bot, {
+      path       : undefined,
       name       : 'math',
       syntax     : 'math <...equation:str>',
+      bearer     : 'yorushika',
       aliases    : [],
       argument   : [ '<...equation:str>' ],
       description: 'Evaluate an equation',
