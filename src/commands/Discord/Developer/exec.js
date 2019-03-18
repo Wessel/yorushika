@@ -22,10 +22,10 @@ module.exports = class Exec extends DiscordCommand {
 
   async execute(msg, args) {
     let result  = '$';
+    let errored = false;
     
     const raw = args.join(' ').trim().endsWith('--raw') ? args.pop() : false;
     const silent = args.join(' ').trim().endsWith('--silent') || args.join(' ').trim().endsWith('-s') ? args.pop() : false;
-    const errored = false;
 
     if (args.length <= 0) return msg.channel.createMessage(this._localize(msg.author.locale.developer.exec.args));
 

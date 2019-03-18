@@ -81,6 +81,12 @@ util:
     embed: 'Embed Body'
     footer: 'Sniped by $[author:tag] ($[author:id])'
 
+  monstercat:
+    result: |-
+      **Track Title**: $[track:name]
+      **Duration**: $[track:duration]s
+      **Artists Title**: $[track:artist]
+      **Beats per Minute**: $[track:bpm]
 info:
   stats:
     fetching: '$[emoji#0] Fetching statistics, this may take some time...'

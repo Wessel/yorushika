@@ -75,10 +75,10 @@ module.exports = class CommandRegistry {
           if (doc === null) {
             guild = new this.bot.schema.guild({ guildId: msg.channel.guild.id });
             guild.save((err) => { if (err) process.handleError(err); });
-            gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'entryAge': Date.now() });
+            gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'locale': guild.locale, 'entryAge': Date.now() });
           } else {
             guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
-            gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'entryAge': Date.now() });
+            gCache.push({ 'guildId': msg.channel.guild.id, 'prefix': guild.prefix, 'locale': guild.locale, 'logger': guild.logger, 'entryAge': Date.now() });
           }
         });
       } else guild = gCache.filter((v) => v['guildId'] === msg.channel.guild.id )[0];

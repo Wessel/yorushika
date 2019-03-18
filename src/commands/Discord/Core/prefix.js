@@ -1,14 +1,12 @@
 const { DiscordCommand } = require('../../../core');
 
-const larg = require('larg');
-
 module.exports = class Prefix extends DiscordCommand {
   constructor(bot) {
     super(bot, {
       name       : 'prefix',
-      syntax     : 'prefix <..prefix:string> <-u|-g>',
+      syntax     : 'prefix <...prefix:str> <-u|-g>',
       aliases    : [],
-      argument   : [ '<...prefix:string>', '-<u|g>' ],
+      argument   : [ '<...prefix:string>', '-<(u|g)>' ],
       description: 'Change your prefix',
 
       hidden     : false,
@@ -22,25 +20,27 @@ module.exports = class Prefix extends DiscordCommand {
   }
 
   async execute(msg, args, user, guild) {
-    if (!user || user === null) user = await this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id });
-    if (!guild || guild === null) guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
+    if (!user || user === null) {
+      user = await this.bot.m.connection.collection('dUsers').findOne({ userId: msg.author.id });
+    }
+    if (!guild || guild === null) {
+      guild = await this.bot.m.connection.collection('dGuilds').findOne({ guildId: msg.channel.guild.id });
+    }
 
-    // Delete all empty elements in `args`
     args = args.filter((v) => {
       return v.length >= 1;
     });
-    // Avoid an `undefined` prefix
+
     if (!user || !user.prefix) {
       user.prefix = this.bot.conf.discord.prefix;
     }
-    if (!user || !guild.prefix) {
+    if (!guild || !guild.prefix) {
       guild.prefix = this.bot.conf.discord.prefix;
     }
     
     if (args.join(' ').endsWith('-u') || args.join(' ').endsWith('--user')) {
-      /* User prefix */
       let prefix = args.splice(0, 1).join(' ').slice(0, 32).toLowerCase();
-      // Checks
+
       if (prefix.length <= 0) prefix = this.bot.conf.discord.prefix;
       if (user.prefix === prefix) {
         return msg.channel.createMessage(this.localize(msg.author.locale['core']['prefix']['dupe'], { uPrefix: user.prefix }));

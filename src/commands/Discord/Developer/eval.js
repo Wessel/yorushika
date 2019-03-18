@@ -41,14 +41,14 @@ module.exports = class Eval extends DiscordCommand {
       errored = true;
     } finally {
       if (silent) return message.edit(this._localize(msg.author.locale.developer.eval.silent));
-      result = this.bot.util.escapeMarkdown(this.bot.util.shorten(this._sanitize(String(result)), true, 1850));
+      result = this.bot.util.escapeMarkdown(this._sanitize(String(result)), true);
       
       if (raw) return msg.channel.createMessage(`\`\`\`js\n${result}\`\`\``);
       message.edit({
         content: '',
         embed: {
           color: errored ? this.bot.col.developer.eval.failure : this.bot.col.developer.eval.success,
-          description: this._localize(msg.author.locale.developer.eval.result.join('\n'), { resultType: errored ? msg.author.locale.developer.eval.types[1] : msg.author.locale.developer.eval.types[0], resultMessage: result || '{}' })
+          description: this._localize(msg.author.locale.developer.eval.result.join('\n'), { resultType: errored ? msg.author.locale.developer.eval.types[1] : msg.author.locale.developer.eval.types[0], resultMessage: this.bot.util.shorten(result, 1850) || '{}' })
         }
       });
     };

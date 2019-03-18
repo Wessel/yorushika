@@ -3,7 +3,6 @@
 - [x] = In progress
 
 - [ ] Global
-    - [ ] Clean code / refractor
     - [ ] Clean locales
 - [ ] Information
     - [ ] Commands
@@ -11,15 +10,9 @@
 - [x] Utility
     - [x] Commands
         - [x] Tesseract (Donator)
-- [x] Tags
-    - [x] Commands
-        - [x] Use
-        - [x] List
+- [ ] Tags
+    - [ ] Commands
         - [ ] Edit
-        - [x] Info
-        - [x] Create
-        - [ ] Delete
-        - [x] Source
         - [ ] Transfer
 - [ ] Moderation
     - [ ] Logging
@@ -41,7 +34,16 @@
         - [ ] Infractions
 
 ## Finished (for now):
+- [x] Tags
+    - [x] Commands
+        - [x] Use
+        - [x] List
+        - [x] Info
+        - [x] Create
+        - [x] Delete
+        - [x] Source
 - [x] Global
+    - [x] Clean code / refractor
     - [x] Commands
         - [x] user lookup 
         - [x] guild lookup

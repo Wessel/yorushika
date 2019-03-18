@@ -1,0 +1,22 @@
+translation_code: 'en_us'
+
+message:
+  delete: '`[{date@now}]` {emoji} A message by {e.user!s} (`{e.user.id}`) was deleted from **{e.channel!s}**:'
+
+member:
+  add:
+    main: '`[{date@now}]` {emoji}  {e.user!s} (`{e.user.id}`) joined, user created at **{e.user.created@exact}** **(**{e.user.created@precise} ago**)**'
+    notes:
+      - 'Username **may** contain inappropriate language'
+      - 'User created less than a day ago'
+      - 'User has no custom avatar'
+      - 'User is banned from discord.services ({e.ban.reason})'
+      - 'User is banned from ksoft.si ({e.ban.reason})'
+
+connection:
+  ready: '`[{date@now}] / {process.hash}]` {emoji} Master client on Wump (`v{global.version}`) connected'
+  
+  shard       :
+    ready     : '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` connected to Wump (`v{global.version}`)'
+    resume    : '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` resumed to Wump (`v{global.version}`)'
+    disconnect: '`[{date@now}] / {process.hash}]` {emoji} Shard `#{e.shard.id}` disconnected from Wump (`v{global.version}`)'

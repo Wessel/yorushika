@@ -2,6 +2,10 @@ error   : 0xff0000 # Red
 cooldown: 0x7289DA # Blurple
 votelock: 0xF7AE69
 
+logs:
+  message:
+    delete: 0x7289DA # Blurple
+
 core    :
   locale: 0x7289DA # Blurple
   prefix: 0x7289DA # Blurple

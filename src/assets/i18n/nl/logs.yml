@@ -1,0 +1,21 @@
+translation_code: 'nl'
+
+message:
+  delete: '`[{date@now}]` {emoji} Een bericht van {e.user!s} (`{e.user.id}`) was was verwijderd van **{e.channel!s}**:'
+
+member:
+  add:
+    main: '`[{date@now}]` {emoji} {e.user!s} (`{e.user.id}`) is toegetreden, gebruiker aangemaakt op **{e.user.created@exact}** **(**{e.user.created@precise} ago**)**'
+    notes:
+      - 'Gebruikersnaam **kan** ongepast taalgebruik bevatten'
+      - 'Gebruiker is minder dan een dag geleden gemaakt'
+      - 'Gebruiker heeft geen aangepaste profielfoto'
+      - 'Gebruiker is verbannen van discord.services ({e.ban.reason})'
+      - 'Gebruiker is verbannen van ksoft.si ({e.ban.reason})'
+
+connection:
+  ready       : '`[$[date:now] / $[process:hash]]` $[emoji#0] Meester client op Wump (`v$[wump:version]`) is verbonden'
+  shard       :
+    ready     : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is verbonden naar Wump (`v$[wump:version]`)'
+    resume    : '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is hervat naar Wump (`v$[wump:version]`)'
+    disconnect: '`[$[date:now] / $[process:hash]]` $[emoji#0] Shard `#$[shard:id]` is losgekoppeld van Wump (`v$[wump:version]`)'

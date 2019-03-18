@@ -5,6 +5,21 @@ cooldown  : <:stopwatch:542477522147868672>   # On cooldown
 owner_only: <:exclamation:542368036255039509> # Only owners
 guild_only: <:exclamation:542368036255039509> # Only guilds
 
+logs:
+  ready: <:spacewump:542723940997529641>
+  
+  message_delete:
+      0   : <:sad:500719642403405824>
+      1   : <:exclamation:542368036255039509>
+      2   : <:stopwatch:542477522147868672>
+      3   : <a:DiscordLove:554926128394141708>
+      4   : <:alert:542367222279176202>
+      5   : <:alert:542367222279176202>
+
+  shard:
+    ready: '<:create_webhook:542716503674454016>'
+    resume: '<:update_webhook:542716504089690124>'
+    disconnect: '<:remove_webhook:542716503624253461>'
 
 core    :
   locale:
@@ -64,14 +79,6 @@ tags:
     0 : <:wumpus_blob:541629681120837648>
     1 : <:ok_hand:497396122416054287>
     2 : <:wumpus_love:506200781549076482>
-
-logs     :
-    ready: '<:spacewump:542723940997529641>'
-
-    shard       :
-      ready     : '<:create_webhook:542716503674454016>'
-      resume    : '<:update_webhook:542716504089690124>'
-      disconnect: '<:remove_webhook:542716503624253461>'
 
 util   :
   ping :

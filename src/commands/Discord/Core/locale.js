@@ -1,3 +1,4 @@
+// @TODO: refractor
 const { DiscordCommand } = require('../../../core');
 
 module.exports = class Locale extends DiscordCommand {

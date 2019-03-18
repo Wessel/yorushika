@@ -1,6 +1,6 @@
 const { DiscordEvent } = require('../../core');
 
-const { green, cyan }  = require('../../util/colors');
+const { green, cyan } = require('../../util/colors');
 
 module.exports = class Disconnect extends DiscordEvent {
   constructor(bot) {

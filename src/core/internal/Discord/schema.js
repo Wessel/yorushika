@@ -7,6 +7,10 @@ const conf = safeLoad(readFileSync('application.yml', { encoding: 'utf8' }));
 
 const guild = new Schema({
   guildId: { type: String, default: undefined },
+  logger : {
+    channel: { type: String, default: '0' },
+    disabled: []
+  },
   prefix : { type: String, default: conf.discord.prefix },
   locale : { type: String, default: conf.discord.locale }
 });

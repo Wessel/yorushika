@@ -3,19 +3,19 @@ const { DiscordCommand } = require('../../../core/');
 module.exports = class Snipe extends DiscordCommand {
   constructor(bot) {
     super(bot, {
-      name       : 'snipe',
-      syntax     : 'snipe',
-      aliases    : [],
-      argument   : [],
+      name: 'snipe',
+      syntax: 'snipe',
+      aliases: [],
+      argument: [],
       description: 'Re-post a deleted message',
 
-      hidden     : false,
-      enabled    : true,
-      cooldown   : 1000,
-      category   : 'Utility',
-      ownerOnly  : false,
-      guildOnly  : true,
-      permissions: [ 'embedLinks' ]
+      hidden: false,
+      enabled: true,
+      cooldown: 1000,
+      category: 'Utility',
+      ownerOnly: false,
+      guildOnly: true,
+      permissions: ['embedLinks']
     });
 
     this.static = {
@@ -29,7 +29,7 @@ module.exports = class Snipe extends DiscordCommand {
   execute(msg) {
     const message = this.bot.cache.get(`${msg.channel.id}:SNIPE`);
     if (!message) return msg.channel.createMessage(this._localize(msg.author.locale.util.snipe.fail));
-    
+
     let structure = {
       author: {
         name: `${message.author.username}#${message.author.discriminator} (${message.author.id})`,
@@ -62,19 +62,22 @@ module.exports = class Snipe extends DiscordCommand {
               name: 'Embed body',
               value: message.embeds[0].description
             });
-          } else {{
-            structure.description = message.content;
-            structure.fields.push({
-              name: msg.author.locale.util.snipe.embed,
-              value: message.embeds[0].description.substring(0, this.mutable.EMBED_FIELD_LIMIT)
-            }, {
-              name: '.',
-              value: message.embeds[0].description.substring(this.mutable.EMBED_FIELD_LIMIT, this.mutable.EMBED_FIELD_LIMIT * 2)
-            });
-          }}
+          } else {
+            {
+              structure.description = message.content;
+              structure.fields.push({
+                name: msg.author.locale.util.snipe.embed,
+                value: message.embeds[0].description.substring(0, this.mutable.EMBED_FIELD_LIMIT)
+              }, {
+                  name: '.',
+                  value: message.embeds[0].description.substring(this.mutable.EMBED_FIELD_LIMIT, this.mutable.EMBED_FIELD_LIMIT * 2)
+                });
+            }
+          }
         }
       }
-    } else if (message.content !== '' ) {
+    }
+    if (message.content.length >= 1) {
       structure.description = message.content;
     }
 
@@ -100,10 +103,10 @@ module.exports = class Snipe extends DiscordCommand {
           .replace(/\$\[author:id]/g, extData.author.id)
           .replace(/\$\[author:tag]/g, `${extData.author.username}#${extData.author.discriminator}`);
       }
-    
+
       return msg.replace(/\$\[emoji#0]/g, this.bot.emote('util', 'snipe'));
     } catch (ex) {
-      return `LOCALIZE_ERROR:${ex.code}`; 
+      return `LOCALIZE_ERROR:${ex.code}`;
     }
   }
 };
