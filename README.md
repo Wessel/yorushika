@@ -1,5 +1,6 @@
 <img src="https://raw.githubusercontent.com/PassTheWessel/yorushika/master/src/assets/img/logo/dist.png" align="left" width="192px" height="192px" style="margin-right: 10px;"/>
 <img align="left" width="0" height="192px" hspace="10"/>
+
 > Yorushika - The customizable bot
 
 [![GPl-3.0 License](https://img.shields.io/github/license/passthewessel/yorushika.svg?style=flat-square)](/LICENSE)
