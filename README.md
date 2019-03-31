@@ -12,4 +12,4 @@ Yorushika is a customizable bot on multiple platforms such as Discord that aims 
 <br />
 
 # [Documentation](https://wessel.gitbook.io/yorushika/)
-<iframe src="https://wessel.gitbook.io/yorushika/" width="100%" height="100%" style="border: transparent;"/>
+<iframe src="https://wessel.gitbook.io/yorushika/" width="100%" height="100%" style="border: transparent;"></iframe>
