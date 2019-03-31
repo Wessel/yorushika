@@ -1,18 +1,15 @@
-<div align="center">
-  <br />
-  <p>
-    <a href="https://github.com/PassTheWessel/yorushika">Yorushika</a>
-  </p>
-  <br />
-  <p>
-    <a href="https://discord.gg/SV7DAE9"><img src="https://discordapp.com/api/guilds/107131083958538240/embed.png" alt="Discord" /></a>
-    <a href="https://www.patreon.com/wessel"><img src="https://img.shields.io/badge/donate-patreon-F96854.svg" alt="Patreon" /></a>
-  </p>
-</div>
+<img src="https://raw.githubusercontent.com/PassTheWessel/yorushika/master/src/assets/img/logo/dist.png" align="left" width="192px" height="192px" style="margin-right: 10px;"/>
+<img align="left" width="0" height="192px" hspace="10"/>
+> Yorushika - The customizable bot
 
-> A multi-platform bot written fully in Node.js
+[![GPl-3.0 License](https://img.shields.io/github/license/passthewessel/yorushika.svg?style=flat-square)](/LICENSE)
+[![Discord](https://img.shields.io/discord/107131083958538240.svg?style=flat-square)](https://discord.gg/SV7DAE9)
+[![Issues](https://img.shields.io/github/issues-raw/PassTheWessel/yorushika.svg?style=flat-square)](https://github.com/PassTheWessel/yorushika/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr-raw/passthewessel/yorushika.svg?style=flat-square)](https://github.com/PassTheWessel/yorushika/pulls)
 
-# Documentation
-Yorushika's documentation can be found at [https://wumpusapp.gitbook.io](https://wumpusapp.gitbook.io)
+Yorushika is a customizable bot on multiple platforms such as Discord that aims to enhance your experience on as many platforms as possible.
 
-You may use this project, but only **if** you follow the [licensing](./LICENSE)
+<br />
+
+# [Documentation](https://wessel.gitbook.io/yorushika/)
+<iframe src="https://wessel.gitbook.io/yorushika/" width="100%" height="100%" style="border: transparent;"/>
